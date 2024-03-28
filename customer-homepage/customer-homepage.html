@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="customer-homepage.css">
+</head>
+
+<body >
+
+<header>
+</header>
+
+<div class="carousel-container">
+    <button id="prevBtn" class="carousel-button">&#10094;</button>
+    <div class="carousel">
+        <div class="carousel">
+            <img src="../Assets/carousel/carousel1.jpeg" alt="img">
+            <img src="../Assets/carousel/carousel2.jpeg" alt="img">
+            <img src="../Assets/carousel/carousel3.jpeg" alt="img">
+        </div>
+    </div>
+    <button id="nextBtn" class="carousel-button">&#10095;</button>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const carousel = document.querySelector(".carousel");
+    const images = document.querySelectorAll(".carousel img");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+
+    let currentIndex = 0;
+
+    function showImage() {
+    carousel.style.transform = `translateX(${-currentIndex * 100}%)`;
+    }
+
+    function nextImage() {
+    currentIndex = (currentIndex + 1) % images.length;
+    showImage();
+    }
+
+    function prevImage() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    showImage();
+    }
+
+    nextBtn.addEventListener("click", nextImage);
+    prevBtn.addEventListener("click", prevImage);
+
+    setInterval(nextImage, 5000);
+
+    showImage();
+});
+</script>
+        
+</body>
+</html>
