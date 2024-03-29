@@ -7,7 +7,7 @@
     --bar-height: 5px;
     --hamburger-gap: 4px;
     --primary-colour: #2A05FA;
-    --secondary-colour: #9382F1;
+    --secondary-colour: #1a9ee5;
     --background-colour:  white ;
     --accent-colour: #6146F8;
     --text-colour: #040210;
@@ -62,8 +62,7 @@
     text-shadow: 
     0 0 10px rgba(147, 130, 241), 
     0 0 20px rgba(147, 130, 241), 
-    0 0 30px rgba(147, 130, 241), 
-    0 0 40px rgba(147, 130, 241);
+    0 0 30px rgba(147, 130, 241);
   }
 
    .subtitle-container
@@ -85,7 +84,7 @@
 
    .title-container h1,
   .subtitle-container h2 {
-  margin: 5px 0; /* Adjust the vertical margin between each text */
+  margin: 5px 0;
 }
 
    .signup-form
@@ -144,6 +143,7 @@
 
    .submit
    {
+    border:none;
     background-color: var(--primary-colour);
     margin-top: 20px;
     color:var(--text-colour2);
@@ -153,9 +153,25 @@
     font-size: 16px;
     box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
    }
-
-   .button
+   .submit:hover
    {
+    border:none;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--secondary-colour);
+    transition: background-color 150ms ease;
+    color:var(--text-colour2);
+    padding: var(--input-length-padding) var(--input-width-padding);
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
+   }
+
+   .continue
+   {
+    border:none;
+    font-family: 'Roboto', sans-serif;
+    font-size: px;
     background-color: var(--primary-colour);
     margin-top: -10px;
     color:var(--text-colour2);
@@ -166,12 +182,32 @@
     box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
    }
 
-   .back {
-    background-color: white;
+   .continue:hover
+   {
+    border:none;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--secondary-colour);
+    transition: background-color 150ms ease;
+    margin-top: -10px;
+    color:var(--text-colour2);
+    padding: var(--input-length-padding) var(--input-width-padding);
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
+   }
+   
+
+   .back { 
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: var(--secondary-colour);
+    font-size: 16px;
     border: none;
     text-align: left;
     cursor: pointer;
     width: fit-content;
+    background-color: white;
   }
   
   .back:hover{
@@ -185,17 +221,6 @@
     border:none;
     background-color: var(--input-background-color);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-   }
-
-   .signup-form input[type="submit"]
-   {
-    background-color: var(--primary-colour);
-    color:var(--text-colour2);
-    padding: var(--input-length-padding) var(--input-width-padding);
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 16px;
-    box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
    }
 
    .header-links {
