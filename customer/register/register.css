@@ -68,8 +68,9 @@
 
    .subtitle-container
    {
+    margin-top: -30px;
     font-family: 'Roboto', sans-serif;
-    font-size: 12px;
+    font-size: 10px;
    }
 
    .title-container h1,
@@ -100,6 +101,11 @@
     gap: 15px;
    }
 
+   .hide
+   {
+    display: none !important
+   }
+
    .security-questions-form
    {
     color: var(--input-background-color);
@@ -126,9 +132,22 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
    }
 
-   .continue-button
+   .submit
    {
     background-color: var(--primary-colour);
+    margin-top: 20px;
+    color:var(--text-colour2);
+    padding: var(--input-length-padding) var(--input-width-padding);
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
+   }
+
+   .button
+   {
+    background-color: var(--primary-colour);
+    margin-top: -10px;
     color:var(--text-colour2);
     padding: var(--input-length-padding) var(--input-width-padding);
     border-radius: 10px;
