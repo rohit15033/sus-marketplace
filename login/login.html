@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>register</title>
     <link rel="stylesheet" href="login.css">
 </head>
+
 <body>
     <header>
         <label class="hamburger-menu">
-            <input type ="checkbox">
+            <input type="checkbox">
         </label>
         <aside class="sidebar">
             <nav>
@@ -26,30 +28,28 @@
     </header>
 
     <div class="container">
-        <div class = "title-subtitle-container">
-            <div class = "title-container">
-                <h1> Sign up to</h1> 
-                <h1><span class = "shop">Shop</span> awesome</h1> 
-                <h1>  Stuffs </h1>
+        <div class="title-subtitle-container">
+            <div class="title-container">
+                <h1> Sign up to</h1>
+                <h1><span class="shop">Shop</span> awesome</h1>
+                <h1> Stuffs </h1>
             </div>
-            <div class = "subtitle-container">
+            <div class="subtitle-container">
                 <h2>If you already have an account</h2>
-                <h2>you can <a href = "">login here</a></h2>
+                <h2>you can <a href="">login here</a></h2>
             </div>
         </div>
-        <div class = "signup-container">
-            <form class = "signup-form">
-                <div class = "signup-elements">
-                    <input type = "text" value="Enter email" name = "user_email">
-                    <input type = "text" value="Enter password" name = "user_password">
-                    <input type = "text" value="Confirm password" name = "user_confirm_password">
-                <input type = "submit" value = "Sign up" name = "signup_submit">
-            </form>
+        <div class="signup-container" id="signup_container">
+            <form class="signup-form" id="signup_form" method="POST" action="register.php">
+                <div class="signup-elements">
+                    <input type="text" placeholder="Enter email" name="email">
+                    <input type="text" placeholder="Enter password" name="password">
+                    <input type="text" placeholder="Confirm password" name="confirm_password">
+                </div>
+                <input type="button" value="Continue" class="continue" id="continue">
         </div>
+        </form>
     </div>
-    </div>
-
-    
 </body>
-</html>
 
+</html>

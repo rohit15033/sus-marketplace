@@ -1,258 +1,342 @@
 ::after, ::before{
-    box-sizing: border-box;
-   }
-   
-   :root {
-    --bar-width: 40px;
-    --bar-height: 5px;
-    --hamburger-gap: 4px;
-    --primary-colour: #2A05FA;
-    --secondary-colour: #9382F1;
-    --background-colour:  white ;
-    --accent-colour: #6146F8;
-    --text-colour: #040210;
-    --text-colour2: #F1F0FB;
-    --hamburger-margin: 9px;
-    --animation-timing: 200ms ease-in-out;
-    --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap)*2);
-    --x-width : calc(var(--hamburger-height) * 1.41421356237);
-    --input-width-padding: 120px;
-    --input-length-padding: 12px;
-    --input-background-color:#F1F0FB ;
-   }
-   
-   body{
-    background-color: var(--background-colour);
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
-   }
+  box-sizing: border-box;
+ }
+ 
+ :root {
+  --bar-width: 40px;
+  --bar-height: 5px;
+  --hamburger-gap: 4px;
+  --primary-colour: #2A05FA;
+  --secondary-colour: #1a9ee5;
+  --background-colour:  white ;
+  --accent-colour: #6146F8;
+  --text-colour: #040210;
+  --text-colour2: #F1F0FB;
+  --hamburger-margin: 9px;
+  --animation-timing: 200ms ease-in-out;
+  --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap)*2);
+  --x-width : calc(var(--hamburger-height) * 1.41421356237);
+  --input-width-padding: 120px;
+  --input-length-padding: 12px;
+  --input-background-color:#F1F0FB ;
+ }
+ 
+ body{
+  background-color: var(--background-colour);
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+ }
 
-   .container
-   {
-    margin-top: 50px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    gap: 300px;
-   }
+ .container
+ {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 300px;
+ }
 
+ .title-subtitle-container
+ {
+  gap: 20px;
+ }
 
-   .title-subtitle-container
-   {
-    gap: 20px;
-   }
+ .title-container
+ {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  margin-bottom: 60px;
+ }
 
-   .title-container
-   {
-    font-family: 'Roboto', sans-serif;
-    font-size: 18px;
-    margin-bottom: 60px;
-   }
-
-   .shop
-   {
-    color: var(--primary-colour);
-  }
-
-  .shop:hover
-  {
-    transition: font-size 0.3s ease, text-shadow 0.3s ease;
-    font-size: 50px;
-    text-shadow: 
-    0 0 10px rgba(147, 130, 241), 
-    0 0 20px rgba(147, 130, 241), 
-    0 0 30px rgba(147, 130, 241), 
-    0 0 40px rgba(147, 130, 241);
-  }
-
-   .subtitle-container
-   {
-    font-family: 'Roboto', sans-serif;
-    font-size: 12px;
-   }
-
-   .title-container h1,
-  .subtitle-container h2 {
-  margin: 5px 0; /* Adjust the vertical margin between each text */
+ .shop
+ {
+  color: var(--primary-colour);
 }
 
-   .signup-form
-   {
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
-   }
+.shop:hover
+{
+  transition: font-size 0.3s ease, text-shadow 0.3s ease;
+  font-size: 50px;
+  text-shadow: 
+  0 0 10px rgba(147, 130, 241), 
+  0 0 20px rgba(147, 130, 241), 
+  0 0 30px rgba(147, 130, 241);
+}
 
-   .signup-elements
-   {
-    color: var(--input-background-color);
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-   }
+ .subtitle-container
+ {
+  margin-top: -30px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 10px;
+ }
 
-   .security-questions-container
-   {
-    color: var(--input-background-color);
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-   }
+ .subtitle-container a
+ {
+  text-decoration: none;
+  color: var(--secondary-colour)
+ }
+ .subtitle-container a:hover
+ {
+  text-decoration: underline;
+ }
 
-   .security-questions-container input[type="text"]
-   {
-    padding: var(--input-length-padding);
-    border-radius: 10px;
-    border:none;
-    background-color: var(--input-background-color);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-   }
+ .title-container h1,
+.subtitle-container h2 {
+margin: 5px 0;
+}
 
-   .security-questions-container select
-   {
-    padding: var(--input-length-padding);
-    border-radius: 10px;
-    border:none;
-    background-color: var(--input-background-color);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-   }
-   
-   .signup-form input[type="text"]
-   {
-    padding: var(--input-length-padding);
-    border-radius: 10px;
-    border:none;
-    background-color: var(--input-background-color);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-   }
+ .signup-form
+ {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+ }
 
-   .signup-form input[type="submit"]
-   {
-    background-color: var(--primary-colour);
-    color:var(--text-colour2);
-    padding: var(--input-length-padding) var(--input-width-padding);
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 16px;
-    box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
-   }
+ .signup-elements
+ {
+  color: var(--input-background-color);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+ }
 
-   .header-links {
-    position: absolute;
-    top: 50%;
-    right: 80px;
-    transform: translateY(-50%);
+ .security-questions-container
+ {
+  color: var(--input-background-color);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+ }
+
+ .hide
+ {
+  display: none !important
+ }
+
+ .security-questions-form
+ {
+  color: var(--input-background-color);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+ }
+
+ .security-questions-container input[type="text"]
+ {
+  padding: var(--input-length-padding);
+  border-radius: 10px;
+  border:none;
+  background-color: var(--input-background-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+ }
+
+ .security-questions-container select
+ {
+  padding: var(--input-length-padding);
+  border-radius: 10px;
+  border:none;
+  background-color: var(--input-background-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+ }
+
+ .submit
+ {
+  border:none;
+  background-color: var(--primary-colour);
+  margin-top: 20px;
+  color:var(--text-colour2);
+  padding: var(--input-length-padding) var(--input-width-padding);
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
+ }
+ .submit:hover
+ {
+  border:none;
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--secondary-colour);
+  transition: background-color 150ms ease;
+  color:var(--text-colour2);
+  padding: var(--input-length-padding) var(--input-width-padding);
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
+ }
+
+ .continue
+ {
+  border:none;
+  font-family: 'Roboto', sans-serif;
+  font-size: px;
+  background-color: var(--primary-colour);
+  margin-top: -10px;
+  color:var(--text-colour2);
+  padding: var(--input-length-padding) var(--input-width-padding);
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
+ }
+
+ .continue:hover
+ {
+  border:none;
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--secondary-colour);
+  transition: background-color 150ms ease;
+  margin-top: -10px;
+  color:var(--text-colour2);
+  padding: var(--input-length-padding) var(--input-width-padding);
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
+ }
+ 
+
+ .back { 
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  color: var(--secondary-colour);
+  font-size: 16px;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  width: fit-content;
+  background-color: white;
+}
+
+.back:hover{
+  text-decoration: underline;
+}
+ 
+ .signup-form input[type="text"]
+ {
+  padding: var(--input-length-padding);
+  border-radius: 10px;
+  border:none;
+  background-color: var(--input-background-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+ }
+
+ .header-links {
+  position: absolute;
+  top: 50%;
+  right: 80px;
+  transform: translateY(-50%);
 }
 
 .header-link {
-    color: white;
-    text-decoration: none;
-    margin-left: 20px;
-    font-weight: bold;
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: bold;
 }
 
 .header-link:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
-  
-  .hamburger-menu::before,
-  .hamburger-menu::after,
-  .hamburger-menu input {
-    content:"";
-    width: var(--bar-width);
-    height: var(--bar-height);
-    background-color: var(--background-colour);
-    border-radius: 999px;
-    transform-origin: left center;
-    transition: opacity var(--animation-timing),
-    width var(--animation-timing), translate var(--animation-timing), rotate var(--animation-timing);
-  }
+
+.hamburger-menu::before,
+.hamburger-menu::after,
+.hamburger-menu input {
+  content:"";
+  width: var(--bar-width);
+  height: var(--bar-height);
+  background-color: var(--background-colour);
+  border-radius: 999px;
+  transform-origin: left center;
+  transition: opacity var(--animation-timing),
+  width var(--animation-timing), translate var(--animation-timing), rotate var(--animation-timing);
+}
 .hamburger-menu {
-    display: flex;
-    flex-direction: column;
-    gap: var(--hamburger-gap);
-    width: max-content;
-    position: absolute;
-    top:var(--hamburger-margin);
-    left: var(--hamburger-margin);
-    cursor: pointer;
-    z-index: 3;
-  }
-  
-  .hamburger-menu input {
-    appearance: none;
-    padding: 0;
-    margin: 0;
-    outline: none;
-    pointer-events:none;
-  }
-  
-  /* Does does hamburger have the input that is checked if true perform the css*/
-  .hamburger-menu:has(input:checked)::before {
-    rotate: 45deg;
-    width: var(--x-width);
-    translate: 0 calc(var(--bar-height) / -2);
-    background-color: var(--primary-colour);
-  }
-  
-  .hamburger-menu:has(input:checked)::after {
-    rotate: -45deg;
-    width: var(--x-width);
-    translate: 0 calc(var(--bar-height) / 2);
-    background-color: var(--primary-colour);
-  }
-  
-  .hamburger-menu input:checked {
-    opacity: 0;
-    width: 0;
-  }
-  
-  .sidebar {
-    transform: translateX(-136%);
-    padding: 0.5rem 0.1rem;
-    padding-top: calc(var(--hamburger-height) + var(--hamburger-margin) + 1rem);
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    background-color: var(--background-colour);
-    max-width: 10rem;
-    color: var(--text-colour);
-    min-height: 100vh;
-    position: fixed;
-    top: 0;
-    transition: transform var(--animation-timing);
-    z-index: 2;
-  }
-  
-  .hamburger-menu:has(input:checked) + .sidebar {
-    transform: translateX(-13%);
-    width: 15rem;
-    transition: transform var(--animation-timing);
-  }
-  
-  header {
-    color: white;
-    font-family: 'Roboto', sans-serif;
-    background-color: var(--primary-colour);
-    padding: 20px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 3;
-    transition: top 0.3s, transform 0.3s;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: var(--hamburger-gap);
+  width: max-content;
+  position: absolute;
+  top:var(--hamburger-margin);
+  left: var(--hamburger-margin);
+  cursor: pointer;
+  z-index: 3;
+}
 
-  .sidebar a {
-    color: var(--text-colour);
-  }
+.hamburger-menu input {
+  appearance: none;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  pointer-events:none;
+}
 
-  header a {
-    color: white;
+/* Does does hamburger have the input that is checked if true perform the css*/
+.hamburger-menu:has(input:checked)::before {
+  rotate: 45deg;
+  width: var(--x-width);
+  translate: 0 calc(var(--bar-height) / -2);
+  background-color: var(--primary-colour);
+}
 
-  }
-  
-  header.hide {
-    top: -100px;
-  }
-   
+.hamburger-menu:has(input:checked)::after {
+  rotate: -45deg;
+  width: var(--x-width);
+  translate: 0 calc(var(--bar-height) / 2);
+  background-color: var(--primary-colour);
+}
+
+.hamburger-menu input:checked {
+  opacity: 0;
+  width: 0;
+}
+
+.sidebar {
+  transform: translateX(-136%);
+  padding: 0.5rem 0.1rem;
+  padding-top: calc(var(--hamburger-height) + var(--hamburger-margin) + 1rem);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  background-color: var(--background-colour);
+  max-width: 10rem;
+  color: var(--text-colour);
+  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  transition: transform var(--animation-timing);
+  z-index: 2;
+}
+
+.hamburger-menu:has(input:checked) + .sidebar {
+  transform: translateX(-13%);
+  width: 15rem;
+  transition: transform var(--animation-timing);
+}
+
+header {
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--primary-colour);
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 3;
+  transition: top 0.3s, transform 0.3s;
+}
+
+.sidebar a {
+  color: var(--text-colour);
+}
+
+header a {
+  color: white;
+
+}
+
+header.hide {
+  top: -100px;
+}
+ 

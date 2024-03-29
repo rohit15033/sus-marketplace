@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>register</title>
     <link rel="stylesheet" href="register.css">
 </head>
+
 <body>
     <header>
         <label class="hamburger-menu">
-            <input type ="checkbox">
+            <input type="checkbox">
         </label>
         <aside class="sidebar">
             <nav>
@@ -26,69 +28,68 @@
     </header>
 
     <div class="container">
-        <div class = "title-subtitle-container">
-            <div class = "title-container">
-                <h1> Sign up to</h1> 
-                <h1><span class = "shop">Shop</span> awesome</h1> 
-                <h1>  Stuffs </h1>
+        <div class="title-subtitle-container">
+            <div class="title-container">
+                <h1> Sign up to</h1>
+                <h1><span class="shop">Shop</span> awesome</h1>
+                <h1> Stuffs </h1>
             </div>
-            <div class = "subtitle-container">
+            <div class="subtitle-container">
                 <h2>If you already have an account</h2>
-                <h2>you can <a href = "">login here</a></h2>
+                <h2>you can <a href="">login here</a></h2>
             </div>
         </div>
-        <div class = "signup-container" id = "signup_container">
-            <form class = "signup-form" id="signup_form" method="POST" action="register.php">
-                <div class = "signup-elements">
-                    <input type = "text" value="Enter email" name = "email">
-                    <input type = "text" value="Enter password" name = "password">
-                    <input type = "text" value="Confirm password" name = "confirm_password">
+        <div class="signup-container" id="signup_container">
+            <form class="signup-form" id="signup_form" method="POST" action="register.php">
+                <div class="signup-elements">
+                    <input type="text" placeholder="Enter email" name="email">
+                    <input type="text" placeholder="Enter password" name="password">
+                    <input type="text" placeholder="Confirm password" name="confirm_password">
                 </div>
-                <input type = "button" value = "Continue" class = "continue" id = "continue">
-            </form>
+                <input type="button" value="Continue" class="continue" id="continue">
         </div>
-        <div class="security-questions-container hide" id = "security_questions_container">
-            <form class = "security-questions-form" id="security_questions_form" method="POST" action = "register.php">
-                <input type = "button" class = "back" value="<- Back" id = "back">
+        <div class="security-questions-container hide" id="security_questions_container">
+            <input type="button" class="back" value="<- Back" id="back">
 
-                <select name="user_security_question_1">
-                    <option>Select a security question 1</option>
-                    <option name="maiden_name">What is your mother's maiden name?</option>
-                    <option name="pet_name">What is your pet's name?</option>
-                    <option name="birth_city">In what city were you born?</option>
-                </select>
+            <select name="user_security_question_1">
+                <option>Select a security question 1</option>
+                <option name="maiden_name">What is your mother's maiden name?</option>
+                <option name="pet_name">What is your pet's name?</option>
+                <option name="birth_city">In what city were you born?</option>
+            </select>
 
-                <input type="text" value="Security answer 1" name="user_security_answer_1">
-                <select name="user_security_question_2">
-                    <option>Select a security question 2</option>
-                    <option name="fav_colour">What is your favorite color?</option>
-                    <option name="grandmother_name">What is your grandmother's first name on your mother's side?</option>
-                    <option name="fav_food">What is your favorite food?</option>
-                </select>
-                <input type="text" value="Security answer 2" name="user_security_answer_2">
-                <input type="submit" value="Sign up" class="submit" name="signup">
-            </form>
+            <input type="text" placeholder="Security answer 1" name="user_security_answer_1">
+            <select name="user_security_question_2">
+                <option>Select a security question 2</option>
+                <option name="fav_colour">What is your favorite color?</option>
+                <option name="grandmother_name">What is your grandmother's first name on your mother's side?</option>
+                <option name="fav_food">What is your favorite food?</option>
+            </select>
+            <input type="text" placeholder="Security answer 2" name="user_security_answer_2">
+            <input type="submit" class="submit" name="signup">
         </div>
+
+        </form>
     </div>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        document.getElementById('continue').addEventListener('click', function(event) {
-            var securityQuestionsContainer = document.getElementById('security_questions_container');
-            var signupContainer = document.getElementById('signup_container');
-            securityQuestionsContainer.classList.remove('hide');
-            signupContainer.classList.add('hide');
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('continue').addEventListener('click', function (event) {
+                var securityQuestionsContainer = document.getElementById('security_questions_container');
+                var signupContainer = document.getElementById('signup_container');
+                securityQuestionsContainer.classList.remove('hide');
+                signupContainer.classList.add('hide');
+            });
         });
-    });
-    document.addEventListener('DOMContentLoaded', function() {
-        document.getElementById('back').addEventListener('click', function(event) {
-            var securityQuestionsContainer = document.getElementById('security_questions_container');
-            var signupContainer = document.getElementById('signup_container');
-            securityQuestionsContainer.classList.add('hide');
-            signupContainer.classList.remove('hide');
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('back').addEventListener('click', function (event) {
+                var securityQuestionsContainer = document.getElementById('security_questions_container');
+                var signupContainer = document.getElementById('signup_container');
+                securityQuestionsContainer.classList.add('hide');
+                signupContainer.classList.remove('hide');
+            });
         });
-    });
-</script>
+    </script>
 </body>
-</html>
 
+</html>
