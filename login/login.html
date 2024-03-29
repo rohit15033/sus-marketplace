@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>register</title>
-    <link rel="stylesheet" href="register.css">
+    <link rel="stylesheet" href="login.css">
 </head>
 <body>
     <header>
@@ -38,44 +38,18 @@
             </div>
         </div>
         <div class = "signup-container">
-            <form class = "signup-form" id="signup_form">
+            <form class = "signup-form">
                 <div class = "signup-elements">
                     <input type = "text" value="Enter email" name = "user_email">
                     <input type = "text" value="Enter password" name = "user_password">
                     <input type = "text" value="Confirm password" name = "user_confirm_password">
-                </div>
                 <input type = "submit" value = "Sign up" name = "signup_submit">
             </form>
         </div>
-        <div class = security-questions-container>
-            <select name = "user_security_question_1">
-                <option>Select a security question 1</option>
-                <option name = "maiden_name">What is your mother's maiden name?</option>
-                <option name = "pet_name">What is your pet's name?</option>
-                <option name = "birth_city">In what city were you born?</option>
-            </select>
-            <input type = "text" value="Security answer 1" name = "user_security_answer_1">
-
-            <select name = "user_security_question_2">
-                <option>Select a security question 2</option>
-                <option name = "fav_colour">What is your favorite color?</option>
-                <option name = "grandmother_name">What is your grandmother's first name on your mother's side?</option>
-                <option name = "fav_food">What is your favorite food?</option>
-            </select>
-            <input type = "text" value="Security answer 2" name = "user_security_answer_2">
-            <input type = "submit" value = "Sign up" name = "signup_submit" class="submit">
-        </div>
+    </div>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('signup_form').addEventListener('submit', function(event) {
-                event.preventDefault();
-                var securityQuestionsContainer = document.getElementsByClassName('security-questions-container');
-                securityQuestionsContainer.classList.remove('hide');
-            });
-        });
-    </script>
+    
 </body>
 </html>
 
