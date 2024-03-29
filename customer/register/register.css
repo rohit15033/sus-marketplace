@@ -73,6 +73,16 @@
     font-size: 10px;
    }
 
+   .subtitle-container a
+   {
+    text-decoration: none;
+    color: var(--secondary-colour)
+   }
+   .subtitle-container a:hover
+   {
+    text-decoration: underline;
+   }
+
    .title-container h1,
   .subtitle-container h2 {
   margin: 5px 0; /* Adjust the vertical margin between each text */
@@ -161,6 +171,7 @@
     border: none;
     text-align: left;
     cursor: pointer;
+    width: fit-content;
   }
   
   .back:hover{
