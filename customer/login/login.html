@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>register</title>
+    <title>login</title>
     <link rel="stylesheet" href="login.css">
 </head>
 
@@ -30,23 +30,22 @@
     <div class="container">
         <div class="title-subtitle-container">
             <div class="title-container">
-                <h1> Sign up to</h1>
+                <h1> Log in to</h1>
                 <h1><span class="shop">Shop</span> awesome</h1>
                 <h1> Stuffs </h1>
             </div>
             <div class="subtitle-container">
-                <h2>If you already have an account</h2>
-                <h2>you can <a href="">login here</a></h2>
+                <h2>If you don't have an account</h2>
+                <h2>you can <a href="../register/register.html">register here</a></h2>
             </div>
         </div>
-        <div class="signup-container" id="signup_container">
-            <form class="signup-form" id="signup_form" method="POST" action="register.php">
-                <div class="signup-elements">
+        <div class="login-container" id="login_container">
+            <form class="login-form" id="login_form" method="POST" action="login.php">
+                <div class="login-elements">
                     <input type="text" placeholder="Enter email" name="email">
                     <input type="text" placeholder="Enter password" name="password">
-                    <input type="text" placeholder="Confirm password" name="confirm_password">
                 </div>
-                <input type="button" value="Continue" class="continue" id="continue">
+                <input type="submit" value="Log in" class="submit" name="login">
         </div>
         </form>
     </div>

@@ -36,7 +36,7 @@
             </div>
             <div class="subtitle-container">
                 <h2>If you already have an account</h2>
-                <h2>you can <a href="">login here</a></h2>
+                <h2>you can <a href="../login/login.html">login here</a></h2>
             </div>
         </div>
         <div class="signup-security-questions-container">
@@ -45,7 +45,7 @@
                     <div class="signup-elements">
                         <input type="text" placeholder="Enter email" name="email">
                         <input type="text" placeholder="Enter password" name="password">
-                        <input type="text" placeholder="Confirm password" name="confirm_password">
+                        <input type="text" placeholder="Confirm password" name="confirmPassword">
                     </div>
                     <input type="button" value="Continue" class="continue" id="continue">
             </div>
@@ -54,21 +54,21 @@
                 <input type="button" class="back" value="<- Back" id="back">
 
                 <select name="user_security_question_1">
-                    <option>Select a security question 1</option>
-                    <option name="maiden_name">What is your mother's maiden name?</option>
-                    <option name="pet_name">What is your pet's name?</option>
-                    <option name="birth_city">In what city were you born?</option>
+                    <option value="" disabled selected>Select a security question 1
+                    <option value="maiden_name">What is your mother's maiden name?
+                    <option value="pet_name">What is your pet's name?
+                    <option value="birth_city">In what city were you born?
                 </select>
-
                 <input type="text" placeholder="Security answer 1" name="user_security_answer_1">
+
                 <select name="user_security_question_2">
-                    <option>Select a security question 2</option>
-                    <option name="fav_colour">What is your favorite color?</option>
-                    <option name="grandmother_name">What is your grandmother's first name on your mother's side?
-                    </option>
-                    <option name="fav_food">What is your favorite food?</option>
+                    <option value="" disabled selected>Select a security question 2
+                    <option value="favorite_color">What is your favorite color?
+                    <option value="grandmother_name">What is your grandmother's first name on your mother's side?
+                    <option value="favorite_food">What is your favorite food?
                 </select>
                 <input type="text" placeholder="Security answer 2" name="user_security_answer_2">
+
                 <input type="submit" class="submit" name="signup">
             </div>
         </div>

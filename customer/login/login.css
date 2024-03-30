@@ -87,60 +87,20 @@
 margin: 5px 0;
 }
 
- .signup-form
+ .login-form
  {
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 20px;
  }
 
- .signup-elements
+ .login-elements
  {
   color: var(--input-background-color);
   display: flex;
   flex-direction: column;
   gap: 15px;
  }
-
- .security-questions-container
- {
-  color: var(--input-background-color);
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
- }
-
- .hide
- {
-  display: none !important
- }
-
- .security-questions-form
- {
-  color: var(--input-background-color);
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
- }
-
- .security-questions-container input[type="text"]
- {
-  padding: var(--input-length-padding);
-  border-radius: 10px;
-  border:none;
-  background-color: var(--input-background-color);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
- }
-
- .security-questions-container select
- {
-  padding: var(--input-length-padding);
-  border-radius: 10px;
-  border:none;
-  background-color: var(--input-background-color);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
- }
-
  .submit
  {
   border:none;
@@ -167,37 +127,6 @@ margin: 5px 0;
   box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
  }
 
- .continue
- {
-  border:none;
-  font-family: 'Roboto', sans-serif;
-  font-size: px;
-  background-color: var(--primary-colour);
-  margin-top: -10px;
-  color:var(--text-colour2);
-  padding: var(--input-length-padding) var(--input-width-padding);
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 16px;
-  box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
- }
-
- .continue:hover
- {
-  border:none;
-  font-family: 'Roboto', sans-serif;
-  background-color: var(--secondary-colour);
-  transition: background-color 150ms ease;
-  margin-top: -10px;
-  color:var(--text-colour2);
-  padding: var(--input-length-padding) var(--input-width-padding);
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 16px;
-  box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
- }
- 
-
  .back { 
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
@@ -214,7 +143,7 @@ margin: 5px 0;
   text-decoration: underline;
 }
  
- .signup-form input[type="text"]
+ .login-form input[type="text"]
  {
   padding: var(--input-length-padding);
   border-radius: 10px;
@@ -333,10 +262,4 @@ header {
 
 header a {
   color: white;
-
 }
-
-header.hide {
-  top: -100px;
-}
- 

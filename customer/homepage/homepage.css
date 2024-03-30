@@ -7,14 +7,18 @@
   --bar-height: 5px;
   --hamburger-gap: 4px;
   --primary-colour: #2A05FA;
-  --secondary-colour: #9382F1;
-  --background-colour: #F1F0FB;
+  --secondary-colour: #1a9ee5;
+  --background-colour:  white ;
   --accent-colour: #6146F8;
   --text-colour: #040210;
+  --text-colour2: #F1F0FB;
   --hamburger-margin: 9px;
   --animation-timing: 200ms ease-in-out;
   --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap)*2);
   --x-width : calc(var(--hamburger-height) * 1.41421356237);
+  --input-width-padding: 120px;
+  --input-length-padding: 12px;
+  --input-background-color:#F1F0FB ;
  }
  
  body{

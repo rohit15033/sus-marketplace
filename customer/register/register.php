@@ -14,24 +14,28 @@
 
         $email = $_POST["email"];
         $password = $_POST["password"];
-        $confirm_password = $_POST["confirm_password"];
-        if ($password == $confirm_password)
-        {
-            $insert_user_data_query = "INSERT INTO users (email, password) VALUES ('$email', '$password');";
-            $insert_user_data = mysqli_query($conn, $insert_user_data_query);
-        }
+        $confirmPassword = $_POST["confirmPassword"];
 
-        $select_all_query = "SELECT * FROM users";
-        $select_all = mysqli_query($conn, $select_all_query);
+        $securityQuestion1 = $_POST["user_security_question_1"];
+        $securityAnswer1 = $_POST["user_security_answer_1"];
+        $securityQuestion2 = $_POST["user_security_question_2"];
+        $securityAnswer2 = $_POST["user_security_answer_2"];
 
-        echo "<table border cellpadding = 1>";
-        echo "<tr><th>Email</th><th>Password</th></tr>";
-        while($row = mysqli_fetch_array($select_all))
-        {
-            echo "<tr>";
-            echo "<td>" . $row['email'] . "</td>";
-            echo "<td>" . $row['password'] . "</td>";
-            echo "</tr>";
+        if ($password == $confirmPassword) {
+            // Insert user data
+            $insertUserDataQuery = "INSERT INTO users (email, password) VALUES ('$email', '$password');";
+            $insertUserData = mysqli_query($conn, $insertUserDataQuery);
+    
+            // Get the user ID of the inserted user
+            $userId = mysqli_insert_id($conn);
+    
+            // Insert security questions and answers
+            $insertSecurityQuestionsQuery = "INSERT INTO usersecurityquestions (user_id, question_1, answer_1, question_2, answer_2) 
+                                             VALUES ('$userId', '$securityQuestion1', '$securityAnswer1', '$securityQuestion2', '$securityAnswer2')";
+            $insertSecurityQuestions = mysqli_query($conn, $insertSecurityQuestionsQuery);
+
+            header("Location: ../login/login.html");
+            exit();
         }
 
         $conn->close();
