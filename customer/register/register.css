@@ -110,11 +110,6 @@
     gap: 15px;
    }
 
-   .hide
-   {
-    display: none !important
-   }
-
    .security-questions-form
    {
     color: var(--input-background-color);
@@ -339,4 +334,34 @@
   header.hide {
     top: -100px;
   }
-   
+
+  .signup-transform-up
+  {
+    transform: translateY(-900px);
+    transition: transform 1.2s ease;
+  }
+  .signup-transform-down
+  {
+    transform: none;
+    transition: transform 1.2s ease;
+  }
+
+  .security-questions-transform-before
+  {
+    transform: translateY(550px);
+  }
+  .security-questions-transform-up
+  {
+    transform: translateY(-300px);
+    transition: transform 1.2s ease;
+  }
+  .security-questions-transform-down
+  {
+    transform: translateY(550px);
+    transition: transform 1.2s ease;
+  }
+
+  .signup-security-questions-container
+  {
+    margin-top: 320px;
+  }
