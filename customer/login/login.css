@@ -117,7 +117,7 @@ margin: 5px 0;
  {
   border:none;
   font-family: 'Roboto', sans-serif;
-  background-color: var(--secondary-colour);
+  background-color: var(--accent-colour);
   transition: background-color 150ms ease;
   color:var(--text-colour2);
   padding: var(--input-length-padding) var(--input-width-padding);
