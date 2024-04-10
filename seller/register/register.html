@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>register</title>
-    <link rel="stylesheet" href="register.css">
+    <link rel="stylesheet" href="../../customer/register/register.css">
 </head>
 
 <body>
@@ -16,11 +17,11 @@
         <aside class="sidebar">
             <nav>
                 <div><a href="register.html">Register</a></div>
-                <div><a href="../login/login.php">Login</a></div>
+                <div><a href="../../customer/homepage/homepage.php ">Home</a></div>
             </nav>
         </aside>
         <div class="header-links">
-            <a href="#" class="header-link">Login</a>
+            <a href="" class="header-link">Login</a>
             <a href="#" class="header-link">Register</a>
         </div>
     </header>
@@ -41,7 +42,7 @@
             <div class="signup-container" id="signup_container">
                 <form class="signup-form" id="signup_form" method="POST" action="register.php">
                     <div class="signup-elements">
-                        <input type="text" placeholder="Enter email" name="email">
+                        <input type="text" placeholder="Enter your store name" name="store_name">
                         <input type="text" placeholder="Enter password" name="password">
                         <input type="text" placeholder="Confirm password" name="confirmPassword">
                     </div>
@@ -51,21 +52,21 @@
                 id="security_questions_container">
                 <input type="button" class="back" value="<- Back" id="back">
 
-                <select name="user_security_question_1">
+                <select name="seller_security_question_1">
                     <option value="" disabled selected>Select a security question 1
                     <option value="maiden_name">What is your mother's maiden name?
                     <option value="pet_name">What is your pet's name?
                     <option value="birth_city">In what city were you born?
                 </select>
-                <input type="text" placeholder="Security answer 1" name="user_security_answer_1">
+                <input type="text" placeholder="Security answer 1" name="seller_security_answer_1">
 
-                <select name="user_security_question_2">
+                <select name="seller_security_question_2">
                     <option value="" disabled selected>Select a security question 2
                     <option value="favorite_color">What is your favorite color?
                     <option value="grandmother_name">What is your grandmother's first name on your mother's side?
                     <option value="favorite_food">What is your favorite food?
                 </select>
-                <input type="text" placeholder="Security answer 2" name="user_security_answer_2">
+                <input type="text" placeholder="Security answer 2" name="seller_security_answer_2">
 
                 <input type="submit" class="submit" name="signup">
             </div>
@@ -100,7 +101,6 @@
 
                 securityQuestionsContainer.classList.add('security-questions-transform-down');
                 signupContainer.classList.add('signup-transform-down');
-
             });
         });
     </script>
