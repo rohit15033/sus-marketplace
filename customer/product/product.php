@@ -14,7 +14,7 @@ if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] === true) 
         }
 
         $product_id = $_GET['product_id'];
-        $getQuery = "SELECT * FROM products WHERE id = '$product_id'";
+        $getQuery = "SELECT * FROM product_seller_view WHERE product_id = '$product_id'";
         $Result = mysqli_query($conn, $getQuery);
 
 
@@ -26,7 +26,7 @@ if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] === true) 
             $description = $row['description'];
             $category = $row['category'];
             $price = $row['price'];
-            $product_id = $row['id'];
+            $product_id = $row['product_id'];
             $seller_id = $row['seller_id'];
 
 

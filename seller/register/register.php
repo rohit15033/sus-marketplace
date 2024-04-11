@@ -1,52 +1,114 @@
-<?php 
-    session_start();
-
-
-    if(isset($_POST["signup"]))
-    {        
-        $db_host = "localhost";
-        $db_username = "root";
-        $db_password = "";
-        $db_name = "susmarketplace";
-
-        $store_name = $_POST["store_name"];
-        $password = $_POST["password"];
-        $confirmPassword = $_POST["confirmPassword"];
-
-        $hashedPassword = password_hash($password,PASSWORD_DEFAULT);
-
-        $conn = new mysqli($db_host, $db_username, $db_password, $db_name);
-        if ($conn -> connect_error)
-        {
-            die("Connection failed: ". $conn -> connect_error);
-        }
-
-        if ($password == $confirmPassword) {
-            $seller_id = uniqid();
-            $user_id = $_SESSION['user_id'];
-
-            $securityQuestion1 = $_POST["seller_security_question_1"];
-            $securityAnswer1 = $_POST["seller_security_answer_1"];
-            $securityQuestion2 = $_POST["seller_security_question_2"];
-            $securityAnswer2 = $_POST["seller_security_answer_2"];
-
-            $createUserQuery = "CREATE USER '$store_name'@'localhost'";
-            $resultCreateUser = mysqli_query($conn, $createUserQuery);
-
-            $grantQuery = "GRANT SELECT, INSERT ON susmarketplace.* TO '$store_name'@'localhost'";
-            $resultGrant = mysqli_query($conn, $grantQuery);
-            
-            $insertUserDataQuery = "INSERT INTO sellers (id, store_name, password, user_id) VALUES ('$seller_id', '$store_name', '$hashedPassword', '$user_id')";
-            $insertUserData = mysqli_query($conn, $insertUserDataQuery);
-            
-            $insertSecurityQuestionsQuery = "INSERT INTO sellersecurityquestions (seller_id, question_1, answer_1, question_2, answer_2) 
-                                             VALUES ('$seller_id', '$securityQuestion1', '$securityAnswer1', '$securityQuestion2', '$securityAnswer2')";
-            $insertSecurityQuestions = mysqli_query($conn, $insertSecurityQuestionsQuery);
-
-            header("Location: ../login/login.php");
-            exit();
-        }
-
-        $conn->close();
-    }
+<?php
+if (isset($_SESSION['!user_logged_in']) && $_SESSION['user_logged_in'] === false)
+{
+    header("Location: ../../customer/login/login.php");
+}
 ?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>register</title>
+    <link rel="stylesheet" href="../../customer/register/register.css">
+</head>
+
+<body>
+    <header>
+        <label class="hamburger-menu">
+            <input type="checkbox">
+        </label>
+        <aside class="sidebar">
+            <nav>
+                <div><a href="register.html">Register</a></div>
+                <div><a href="../../customer/homepage/homepage.php ">Home</a></div>
+            </nav>
+        </aside>
+        <div class="header-links">
+            <a href="" class="header-link">Login</a>
+            <a href="#" class="header-link">Register</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="title-subtitle-container">
+            <div class="title-container">
+                <h1> Sign up to</h1>
+                <h1><span class="shop">Shop</span> awesome</h1>
+                <h1> Stuffs </h1>
+            </div>
+            <div class="subtitle-container">
+                <h2>If you already have an account</h2>
+                <h2>you can <a href="../login/login.php">login here</a></h2>
+            </div>
+        </div>
+        <div class="signup-security-questions-container">
+            <div class="signup-container" id="signup_container">
+                <form class="signup-form" id="signup_form" method="POST" action="registerlogic.php">
+                    <div class="signup-elements">
+                        <input type="text" placeholder="Enter your store name" name="store_name">
+                        <input type="text" placeholder="Enter password" name="password">
+                        <input type="text" placeholder="Confirm password" name="confirmPassword">
+                    </div>
+                    <input type="button" value="Continue" class="continue" id="continue">
+            </div>
+            <div class="security-questions-container security-questions-transform-before"
+                id="security_questions_container">
+                <input type="button" class="back" value="<- Back" id="back">
+
+                <select name="seller_security_question_1">
+                    <option value="" disabled selected>Select a security question 1
+                    <option value="maiden_name">What is your mother's maiden name?
+                    <option value="pet_name">What is your pet's name?
+                    <option value="birth_city">In what city were you born?
+                </select>
+                <input type="text" placeholder="Security answer 1" name="seller_security_answer_1">
+
+                <select name="seller_security_question_2">
+                    <option value="" disabled selected>Select a security question 2
+                    <option value="favorite_color">What is your favorite color?
+                    <option value="grandmother_name">What is your grandmother's first name on your mother's side?
+                    <option value="favorite_food">What is your favorite food?
+                </select>
+                <input type="text" placeholder="Security answer 2" name="seller_security_answer_2">
+
+                <input type="submit" class="submit" name="signup">
+            </div>
+        </div>
+
+
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('continue').addEventListener('click', function (event) {
+                console.log("Continue button clicked");
+                var securityQuestionsContainer = document.getElementById('security_questions_container');
+                var signupContainer = document.getElementById('signup_container');
+
+                signupContainer.classList.remove('signup-transform-down');
+                securityQuestionsContainer.classList.remove('security-questions-transform-down');
+
+                signupContainer.classList.add('signup-transform-up');
+                securityQuestionsContainer.classList.add('security-questions-transform-up');
+            });
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('back').addEventListener('click', function (event) {
+                console.log("Back button clicked");
+                var securityQuestionsContainer = document.getElementById('security_questions_container');
+                var signupContainer = document.getElementById('signup_container');
+
+                signupContainer.classList.remove('signup-transform-up');
+                securityQuestionsContainer.classList.remove('security-questions-transform-up');
+
+                securityQuestionsContainer.classList.add('security-questions-transform-down');
+                signupContainer.classList.add('signup-transform-down');
+            });
+        });
+    </script>
+</body>
+
+</html>

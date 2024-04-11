@@ -31,8 +31,8 @@
                 header("Location: ../homepage/homepage.html");
                 exit();
             } else {
-                $_SESSION['error'] = "Invalid password. Please try again.";
                 header("Location: login.php");
+                $_SESSION['error'] = "Invalid password. Please try again.";
                 exit();
             }
         } else {

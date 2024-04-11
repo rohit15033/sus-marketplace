@@ -19,7 +19,7 @@ if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] === true) 
 
         echo "<div class='product-container'>";
 
-        $searchQuery = "SELECT * FROM products WHERE product_name LIKE '%$search%'";
+        $searchQuery = "SELECT * FROM product_seller_view WHERE product_name LIKE '%$search%' OR category LIKE '%$search%'";
         $searchResult = mysqli_query($conn, $searchQuery);
 
         while ($row = mysqli_fetch_assoc($searchResult)) {
@@ -29,7 +29,7 @@ if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] === true) 
             $description = $row['description'];
             $category = $row['category'];
             $price = $row['price'];
-            $product_id = $row['id'];
+            $product_id = $row['product_id'];
             $seller_id = $row['seller_id'];
 
             echo "<div class='product'>";

@@ -43,7 +43,7 @@
             </div>
             <div class="subtitle-container">
                 <h2>If you don't have an account</h2>
-                <h2>you can <a href="../register/register.html">register here</a></h2>
+                <h2>you can <a href="../register/register.php">register here</a></h2>
             </div>
         </div>
         <div class="login-container" id="login_container">

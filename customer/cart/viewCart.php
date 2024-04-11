@@ -25,7 +25,7 @@ if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] === true) 
         $cart_quantity = $cartrow['quantity'];
         $product_id = $cartrow['product_id'];
 
-        $retrieveproductdataQuery = "SELECT * FROM products where id = '$product_id'";
+        $retrieveproductdataQuery = "SELECT * FROM product_seller_view where product_id = '$product_id'";
         $retrieveproductdataResult = mysqli_query($conn, $retrieveproductdataQuery);
         $productrow = mysqli_fetch_assoc($retrieveproductdataResult);
 
@@ -35,7 +35,7 @@ if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] === true) 
         $description = $productrow['description'];
         $category = $productrow['category'];
         $price = $productrow['price'];
-        $product_id = $productrow['id'];
+        $product_id = $productrow['product_id'];
         $seller_id = $productrow['seller_id'];
 
         $productPrice = $cart_quantity * $price;
@@ -111,6 +111,7 @@ if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] === true) 
         subtract_<?php echo $i ?>.addEventListener("click", function() {
             var index = <?php echo $i; ?>;
             if (quantity_<?php echo $i ?> > 0) {
+
                 quantity_<?php echo $i ?> -= 1;
                 quantity_element_<?php echo $i ?>.value = quantity_<?php echo $i ?>;
 
@@ -129,6 +130,7 @@ if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] === true) 
         var newTotalPrice = 0;
         for (var i = 0; i < product_prices.length; i++) {
             newTotalPrice += product_prices[i];
+
         }
         document.getElementById("total_price").innerText = "Total: " + newTotalPrice;
     }

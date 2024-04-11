@@ -27,8 +27,13 @@
     
     $image_path = $target_file;
 
-    $query = "INSERT INTO products (seller_id, product_name, id, price, category, description, quantity, image_path) VALUES ('$seller_id','$product_name', '$product_id', '$price', '$category', '$description', '$quantity', '$image_path')";
-    $result = mysqli_query($conn, $query);
+    
+    $insertproductselleridQuery = "INSERT INTO product_seller_junction (product_id, seller_id) VALUES ('$product_id', '$seller_id')";
+    $insertproductselleridResult = mysqli_query($conn, $insertproductselleridQuery);
+
+    $insertproductdataQuery = "INSERT INTO products (product_name, id, price, category, description, quantity, image_path) VALUES ('$product_name', '$product_id', '$price', '$category', '$description', '$quantity', '$image_path')";
+    $insertproductdataresult = mysqli_query($conn, $insertproductdataQuery);
+
 
     header("location: ../homepage/homepage.html")
 ?>
