@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <style>
+        .header {
+            background-color: blue;
+            padding: 20px;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            display: flex;
+            justify-content: space-between;
+            /* Spacing between elements */
+            align-items: center;
+            /* Center vertically */
+        }
+
+        .logo-container {
+            flex-grow: 1;
+            /* Allow the logo container to grow and take up remaining space */
+            text-align: center;
+            /* Center text horizontally */
+        }
+
+        .hamburger-menu {
+            margin-right: 10px;
+            /* Add margin to separate from the logo */
+            cursor: pointer;
+            /* Show cursor as pointer to indicate it's clickable */
+        }
+
+        /* Additional styling for the sidebar (you can customize as needed) */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            /* Initially hide the sidebar */
+            width: 250px;
+            height: 100%;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: left 0.3s ease;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="hamburger-menu" id="hamburger-menu">
+            <!-- Hamburger menu icon (you can use an icon library or custom design) -->
+            &#9776;
+        </div>
+        <div class="logo-container">
+            <div class="logo">
+                <!-- Placeholder for centered element -->
+                <p>Centered Element Placeholder</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar content (hidden by default) -->
+    <div class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="#">Link 1</a></li>
+            <li><a href="#">Link 2</a></li>
+            <li><a href="#">Link 3</a></li>
+            <!-- Add more links as needed -->
+        </ul>
+    </div>
+
+    <!-- JavaScript to toggle sidebar -->
+    <script>
+        document.getElementById('hamburger-menu').addEventListener('click', function () {
+            var sidebar = document.getElementById('sidebar');
+            var currentLeft = parseInt(window.getComputedStyle(sidebar).left);
+            if (currentLeft < 0) {
+                sidebar.style.left = '0';
+            } else {
+                sidebar.style.left = '-250px';
+            }
+        });
+    </script>
+</body>
+
+</html>
