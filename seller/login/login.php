@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    if(isset($_SESSION['seller_logged_in']) && $_SESSION['seller_logged_in'] === true) {
+        header("Location: ../homepage/homepage.html");
+        exit();
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +13,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login</title>
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="../../customer/login/login.css">
 </head>
 
 <body>
@@ -15,10 +23,9 @@
         </label>
         <aside class="sidebar">
             <nav>
-                <div><a href="">Login</a></div>
-                <div><a href="">Register</a></div>
-                <div><a href="">About</a></div>
-                <div><a href="">Contact</a></div>
+            <div><a href="../register/register.php">Register</a></div>
+            <div><a href="../login/login.php">Login</a></div>
+            <div><a href="../logout/logout.php">Logout</a></div>
             </nav>
         </aside>
         <div class="header-links">
@@ -36,13 +43,13 @@
             </div>
             <div class="subtitle-container">
                 <h2>If you don't have an account</h2>
-                <h2>you can <a href="../register/register.html">register here</a></h2>
+                <h2>you can <a href="../register/register.php">register here</a></h2>
             </div>
         </div>
         <div class="login-container" id="login_container">
-            <form class="login-form" id="login_form" method="POST" action="login.php">
+            <form class="login-form" id="login_form" method="POST" action="loginValidation.php">
                 <div class="login-elements">
-                    <input type="text" placeholder="Enter email" name="email">
+                    <input type="text" placeholder="Enter Store name" name="store_name">
                     <input type="text" placeholder="Enter password" name="password">
                 </div>
                 <input type="submit" value="Log in" class="submit" name="login">

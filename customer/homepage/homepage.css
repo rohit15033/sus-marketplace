@@ -56,6 +56,11 @@
  color: var(--text-colour);
 }
 
+.search-container {
+  margin-left: 40%;
+  
+}
+
 .categories-title {
   font-size: 24px;
 }
@@ -67,6 +72,7 @@
 .category-images-container {
   display: flex;
   gap: 80px;
+
 }
 
 .category-images-container a {
@@ -94,6 +100,7 @@
   cursor: pointer;
   z-index: 3;
 }
+
 
 .hamburger-menu input {
   appearance: none;
@@ -148,11 +155,14 @@ header {
   color: var(--background-colour);
   font-family: 'Roboto', sans-serif;
   background-color: var(--primary-colour);
+  /* border: 4px solid black; */
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
   padding: 20px;
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 96.6%;
   z-index: 3;
   transition: top 0.3s, transform 0.3s;
 }
@@ -164,14 +174,19 @@ header.hide {
  .carousel-container 
  {
   position: relative;
+  top: -22px;
   width: 100%;
   height: 10%;
   margin: auto;
   overflow: hidden;
+  /* border: 4px solid black; */
+
+
 }
   
   .carousel 
   {
+    
     display: flex;
     transition: transform 0.5s ease-in-out;
   }
