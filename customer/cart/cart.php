@@ -30,8 +30,8 @@ if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] === true) 
             $updatecartResult = mysqli_query($conn, $updatecartQuery);
         } else {
             
-            //if current_order does not exist in order_details table make a new order else just use the current order_number then
-            //drop the cart and regenerate current order when user confirms an order 
+            //if cart table is empty make a new order else just use the current order_number then
+            //when user confirms order flush the cart and push the cart data into order details which uses the order details from cart 
 
             $checkorderQuery = "SELECT * FROM cart WHERE user_id = '$user_id'";
             $checkorderResult = mysqli_query($conn, $checkorderQuery);
