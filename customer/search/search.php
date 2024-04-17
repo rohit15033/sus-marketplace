@@ -1,6 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="search.css">
+</head>
+<body> 
 <?php
 session_start();
-if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] === true) {
+// if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] === true) {
     if (isset($_POST['search'])) {
 
         $email = $_SESSION['email'];
@@ -48,8 +57,11 @@ if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] === true) 
         header("Location: search.php");
         exit(); 
     }
-} else {
-    header("Location: ../login/login.php");
-    exit(); 
-}
+// } else {
+//     header("Location: ../login/login.php");
+//     exit(); 
+// }
 ?>
+</body>
+</html>
+
