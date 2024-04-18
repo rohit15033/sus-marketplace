@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+
+    <style>
+        header {
+            position: fixed;
+            width: 99.5vw;
+            left: 0;
+            right: 0;
+            top: 0; 
+            z-index: 1;
+        }
+
+        .header-container {
+            display: flex;
+            position: sticky;
+            background-color: #2A05FA;
+            width: 100%;
+            height: 50px;
+            margin-bottom: 26px;
+            padding: 5px;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .header-container2 {
+            display: flex;
+            position: relative;
+            width: 90%;
+            height: 90%;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #logo {
+            width: 25%;
+            height: 80%;
+            background-color: #2A05FA;
+            color: white;
+        }
+
+        .accent-container {
+            background-color: #13DBDB;
+            position: absolute;
+            border-bottom-left-radius: 6px;
+            border-bottom-right-radius: 6px;
+            padding: 5px;
+            width: 100%;
+            height: 50px;
+            top: 25px;
+            line-height: 85px;
+            z-index: -1;
+            text-align: center;
+            font-size: small;
+            font-family: sans-serif ;
+            
+        }
+
+        .carousel-container {
+            margin-top: 95px; /* Adjust the margin top as needed */
+            width: 100vw
+        }
+
+        .carousel {
+            position: relative;
+            max-width: 100%;
+            overflow: hidden;
+        }
+
+        .slide {
+            display: none;
+        }
+
+        .active {
+            display: block;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <div class="header-container2">
+                <div id="logo">
+                    supposed to insert logo here.
+                </div>
+            </div>
+        </div>
+        <div class="accent-container">
+            Get yo sick ass merch now!
+        </div>
+    </header>
+    
+    <div class="carousel-container">
+        <div class="carousel">
+            <div class="slide">
+                <img src="../../Assets/carousel/carousel1.jpeg" alt="img">
+            </div>
+            <div class="slide">
+                <img src="../../Assets/carousel/carousel2.jpeg" alt="img">
+            </div>
+            <div class="slide">
+                <img src="../../Assets/carousel/carousel3.jpeg" alt="img">
+            </div>
+            <!-- Add more slides as needed -->
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[index].classList.add('active');
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        // Show the first slide initially
+        showSlide(currentSlide);
+
+    </script>
+</body>

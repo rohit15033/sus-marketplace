@@ -7,7 +7,7 @@
   --bar-height: 5px;
   --hamburger-gap: 4px;
   --primary-colour: #2A05FA;
-  --secondary-colour: #1a9ee5;
+  --secondary-colour: #13DBDB;
   --background-colour:  white ;
   --accent-colour: #6146F8;
   --text-colour: #040210;
@@ -153,8 +153,10 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 3;
+  z-index: 1;
   transition: top 0.3s, transform 0.3s;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 header.hide {
