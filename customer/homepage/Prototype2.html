@@ -12,7 +12,7 @@
             width: 99.5vw;
             left: 0;
             right: 0;
-            top: 0; 
+            top: 0;
             z-index: 1;
         }
 
@@ -29,7 +29,7 @@
             align-items: center;
             justify-content: center;
         }
-        
+
         .header-container2 {
             display: flex;
             position: relative;
@@ -60,30 +60,33 @@
             z-index: -1;
             text-align: center;
             font-size: small;
-            font-family: sans-serif ;
-            
+            font-family: sans-serif;
+
         }
 
         .carousel-container {
-            margin-top: 95px; /* Adjust the margin top as needed */
-            width: 100vw
+            display: flex;
+            margin-top: 95px;
+            /* Adjust the margin top as needed */
+            width: 100vw;
+            justify-content: center;
+            overflow: hidden;
         }
 
         .carousel {
             position: relative;
             max-width: 100%;
-            overflow: hidden;
+
         }
 
         .slide {
-            display: none;
+            max-width: 100%;
+            max-height: 100% overflow: hidden;
         }
 
         .active {
             display: block;
         }
-
-
     </style>
 </head>
 
@@ -100,19 +103,12 @@
             Get yo sick ass merch now!
         </div>
     </header>
-    
+
     <div class="carousel-container">
         <div class="carousel">
             <div class="slide">
                 <img src="../../Assets/carousel/carousel1.jpeg" alt="img">
             </div>
-            <div class="slide">
-                <img src="../../Assets/carousel/carousel2.jpeg" alt="img">
-            </div>
-            <div class="slide">
-                <img src="../../Assets/carousel/carousel3.jpeg" alt="img">
-            </div>
-            <!-- Add more slides as needed -->
         </div>
     </div>
 
