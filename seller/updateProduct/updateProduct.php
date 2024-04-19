@@ -6,7 +6,10 @@
     <title>Document</title>
 </head>
 <body>
-    <form method="POST" action="createProduct.php" enctype="multipart/form-data">
+    
+    <form method="POST" action="updateProductlogic.php" enctype="multipart/form-data">
+
+        <input type="hidden" name="product_id" value="<?php echo $_GET['product_id']; ?>">
         Product name: <input type="text" name="product_name"><br>
         Price: <input type="text" name="price"><br>
         Category: 
@@ -34,8 +37,9 @@
         Description: <input type="text" name="description"><br>
         Quantity: <input type="text" name="quantity"><br>
         Image: <input type="file" name="product_image"><br>
-        
+
         <button type="submit">Submit</button>
     </form>
+
 </body>
 </html>
