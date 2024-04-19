@@ -28,7 +28,7 @@
                 $_SESSION['user_id'] = $user_id;
                 $_SESSION['email'] = $email;
 
-                header("Location: ../homepage/homepage.html");
+                header("Location: ../homepage/homepage.php");
                 exit();
             } else {
                 header("Location: login.php");
