@@ -1,68 +1,94 @@
+<html lang="en">
+
+<head>
+    <script src="https://kit.fontawesome.com/2cbd32f941.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <?php
+    session_start();
+    if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] === true) {
+        if (isset($_GET['product_id'])) {
+
+            $db_host = "localhost";
+            $db_username = "root";
+            $db_password = "";
+            $db_name = "susmarketplace";
+            $conn = new mysqli($db_host, $db_username, $db_password, $db_name);
+
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
+
+            $product_id = $_GET['product_id'];
+            $getQuery = "SELECT * FROM product_seller_view WHERE product_id = '$product_id'";
+            $Result = mysqli_query($conn, $getQuery);
+
+
+            if ($Result && mysqli_num_rows($Result) > 0) {
+                $row = mysqli_fetch_assoc($Result);
+                $product_name = $row['product_name'];
+                $image_path = $row['image_path'];
+                $quantity = $row['quantity'];
+                $description = $row['description'];
+                $category = $row['category'];
+                $price = $row['price'];
+                $product_id = $row['product_id'];
+                $seller_id = $row['seller_id'];
+    ?>
+                <form method="POST" action="../cart/cart.php">
+                    <div class="container">
+                        <div class="left">
+                            <img src="<?php echo "$image_path" ?>" class="product-image">
+                        </div>
+                        <div class="middle">
+                            <h2><i class="fas fa-tag"></i> <?php echo "$product_name" ?></h2>
+                            <p><i class="fa-solid fa-cash-register" style="color: darkgreen;"></i> Quantity Sold: 69</p>
+                            <h1><i class="fas fa-dollar-sign"></i><?php echo "$price" ?></h1>
+                            <hr>
+                            <h4><i class="fas fa-list-ul"></i> Details:</h4>
+                            <div>
+                                <p><?php echo "$description" ?></p>
+                            </div>
+                        </div>
+                        <div class="right">
+                            <div class="order-card">
+                            <input type="hidden" name="product_id" value="<?php echo $product_id ?>">
+                                <label class="quantity-label"><i class="fas fa-sort-numeric-up"></i> Quantity:</label>
+                                <input type="number" id="quantity" name="quantity" value="0" class="quantity">
+
+                                <input type="button" id="add" value="+">
+                                <label class="notes-label"><i class="fas fa-sticky-note"></i> Notes:</label>
+                                <input type="button" id="substract" value="-">
+
+                                <textarea rows="2" cols="20" class="notes">Add notes</textarea>
+                                <h3><?php echo "$quantity" ?> Pcs lefts !!!</h3>
+                                <button type="submit" name="add_to_cart" class="cart-button" style="background-color: #2A05FA;"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+                                <button type='submit' name="order" class="buy-button" style="background-color: #6146F8;"><i class="fas fa-shopping-bag"></i> Buy Now</button>
+                </form>
+                </div>
+                </div>
+                </div>
+</body>
+
+</html>
+
 <?php
-session_start();
-if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] === true) {
-    if (isset($_GET['product_id'])) {
 
-        $db_host = "localhost";
-        $db_username = "root";
-        $db_password = "";
-        $db_name = "susmarketplace";
-        $conn = new mysqli($db_host, $db_username, $db_password, $db_name);
+            } else {
+                echo "No product found with the given ID.";
+            }
 
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
-
-        $product_id = $_GET['product_id'];
-        $getQuery = "SELECT * FROM product_seller_view WHERE product_id = '$product_id'";
-        $Result = mysqli_query($conn, $getQuery);
-
-
-        if ($Result && mysqli_num_rows($Result) > 0) {
-            $row = mysqli_fetch_assoc($Result);
-            $product_name = $row['product_name'];
-            $image_path = $row['image_path'];
-            $quantity = $row['quantity'];
-            $description = $row['description'];
-            $category = $row['category'];
-            $price = $row['price'];
-            $product_id = $row['product_id'];
-            $seller_id = $row['seller_id'];
-
-
-            echo "<div class='product'>";
-            echo "<img src='$image_path' alt='$product_name' style='max-width: 200px; max-height: 200px;'>";
-            echo "<h2>$product_name</h2>";
-            echo "<h2>$quantity</h2>";
-            echo "<h2>$category</h2>";
-            echo "<h2>$price</h2>";
-            echo "<h2>$description</h2>";
-            echo "</div>";
-?>
-
-            <form method="POST" action="../cart/cart.php">
-                <input type="hidden" name="product_id" value = <?php echo "$product_id" ?> >
-                <input type="button" id="add" value = "+"> <br>
-                <input type="number" id="quantity" name="quantity" value="0" ;> <br>
-                <input type="button" id="substract" value = "-">
-
-                <input type="submit" name="add_to_cart" value="Add to cart">
-            </form>
-
-<?php
-
+            mysqli_close($conn);
         } else {
-            echo "No product found with the given ID.";
+            echo "No product ID provided.";
         }
-
-        mysqli_close($conn);
     } else {
-        echo "No product ID provided.";
+        header("Location: ../login/login.php");
+        exit();
     }
-} else {
-    header("Location: ../login/login.php");
-    exit();
-}
 ?>
 
 <script>

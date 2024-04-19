@@ -1,55 +1,86 @@
-<?php
-session_start();
-if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] === true) {
-    if (isset($_POST['search'])) {
+<!DOCTYPE html>
+<html lang="en">
 
-        $email = $_SESSION['email'];
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="search.css">
+</head>
 
-        $db_host = "localhost";
-        $db_username = "$email";
-        $db_password = "";
-        $db_name = "susmarketplace";
-    
-        $conn = new mysqli($db_host, $db_username, $db_password, $db_name);
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
+<body>
+    <div class='container'>
+        <aside class="sidebar">
+            <nav>
+                <div><a href="../register/register.html">Register</a></div>
+                <div><a href="../login/login.php">Login</a></div>
+                <div><a href="../logout/logout.php">Logout</a></div>
+                <div><a href="../../seller/register/register.php">Start Selling</a></div>
+            </nav>
+        </aside>
 
-        $search = $_POST['search'];
+        <div class="search-product-container">
+            <form method="POST" action="search.php">
+                <input type="text" name="search">
+            </form>
+            <div class='product-container'>
+                <?php
+                session_start();
+                if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] === true) {
+                    if (isset($_POST['search'])) {
 
-        echo "<div class='product-container'>";
+                        $email = $_SESSION['email'];
 
-        $searchQuery = "SELECT * FROM product_seller_view WHERE product_name LIKE '%$search%' OR category LIKE '%$search%'";
-        $searchResult = mysqli_query($conn, $searchQuery);
+                        $db_host = "localhost";
+                        $db_username = "$email";
+                        $db_password = "";
+                        $db_name = "susmarketplace";
 
-        while ($row = mysqli_fetch_assoc($searchResult)) {
-            $product_name = $row['product_name'];
-            $image_path = $row['image_path'];
-            $quantity = $row['quantity'];
-            $description = $row['description'];
-            $category = $row['category'];
-            $price = $row['price'];
-            $product_id = $row['product_id'];
-            $seller_id = $row['seller_id'];
+                        $conn = new mysqli($db_host, $db_username, $db_password, $db_name);
+                        if ($conn->connect_error) {
+                            die("Connection failed: " . $conn->connect_error);
+                        }
 
-            echo "<div class='product'>";
-            echo "<a href='../product/product.php?product_id=$product_id'>";
-            echo "<img src='$image_path' alt='$product_name' style='max-width: 200px; max-height: 200px;'>";
-            echo "<h2>$product_name</h2>";
-            echo "<h2>$quantity</h2>";
-            echo "<h2>$category</h2>";
-            echo "<h2>$price</h2>";
-            echo "</div>";
-        }
+                        $search = $_POST['search'];
+                        $searchQuery = "SELECT * FROM product_seller_view WHERE product_name LIKE '%$search%' OR category LIKE '%$search%'";
+                        $searchResult = mysqli_query($conn, $searchQuery);
 
-        echo "</div>";
+                        while ($row = mysqli_fetch_assoc($searchResult)) {
+                            $product_name = $row['product_name'];
+                            $image_path = $row['image_path'];
+                            $quantity = $row['quantity'];
+                            $description = $row['description'];
+                            $category = $row['category'];
+                            $price = $row['price'];
+                            $product_id = $row['product_id'];
+                            $seller_id = $row['seller_id'];
 
-    } else {
-        header("Location: search.php");
-        exit(); 
-    }
-} else {
-    header("Location: ../login/login.php");
-    exit(); 
-}
-?>
+                            echo "<div class='product'>
+                                <a href='../product/product.php?product_id=$product_id'>
+                                    <img src='$image_path' alt='$product_name'>
+                                    <div class='product-info-container'>
+                                        <h2 class='product-name'>$product_name</h2>
+                                        <h2 class='price'>$price</h2>
+                                        <h2 class='quantity'>$quantity</h2>
+                                        <h2>$category</h2>
+                                    </div>
+                                </a>
+                            </div>";
+                        }
+
+                        mysqli_close($conn);
+                    } else {
+                        header("Location: search.php");
+                        exit();
+                    }
+                } else {
+                    header("Location: ../login/login.php");
+                    exit();
+                }
+                ?>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
