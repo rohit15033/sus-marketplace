@@ -50,8 +50,9 @@
 
 
     <h2 id="category-header">Categories</h2>
-    
+
     <?php
+    session_start();
     $db_host = "localhost";
     $db_username = "root";
     $db_password = "";
@@ -65,6 +66,8 @@
     $getQuery = "SELECT * FROM product_seller_view ORDER BY RAND() LIMIT 5";
     $Result = mysqli_query($conn, $getQuery);
     ?>
+
+    <div class='productoftheday-container'>
         <?php
         $counter = 1;
         if (mysqli_num_rows($Result) > 0) {
@@ -84,7 +87,7 @@
                     echo "<div class='product'>";
                     echo "<a href='../product/product.php?product_id=$product_id'>";
                     echo "<img src='$image_path' alt='$product_name'>";
-                    echo "<div class='product-details'>";
+                    echo "<div class = 'product-details'>";
                     echo "<div>";
                     echo "<h2>$product_name</h2>";
                     echo "</div>";
@@ -97,15 +100,16 @@
                     $counter++;
                     continue;
                 }
-
-                if ($counter == 2) {
-                    echo "<div class='products'>";
+                
+                if ($counter == 2)
+                {
+                    echo "<div class = 'products'>";
                 }
-
+                
                 echo "<div class='product'>";
                 echo "<a href='../product/product.php?product_id=$product_id'>";
-                echo "<img src='$image_path' alt='$product_name'>";
-                echo "<div class='product-details'>";
+                echo "<img src='$image_path' alt='$product_name' >";
+                echo "<div class = 'product-details'>";
                 echo "<div>";
                 echo "<h2>$product_name</h2>";
                 echo "</div>";
@@ -114,16 +118,16 @@
                 echo "</div>";
                 echo "</div>";
                 echo "</div>";
-
-                if ($counter == 5) {
+                
+                if ($counter == 5)
+                {
                     echo "</div>";
                 }
                 $counter++;
             }
         }
         ?>
-    <?php
-    ?>
+    </div>
 
     <div class="ultimate-testimony-container">
         <div class="testimony-container">
