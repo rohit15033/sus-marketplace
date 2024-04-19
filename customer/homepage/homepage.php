@@ -7,7 +7,7 @@
     <title>Homepage</title>
     <link rel="stylesheet" href="homepage.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    
+
 </head>
 
 <body>
@@ -48,92 +48,83 @@
         </div>
     </div>
 
-    <div class="categories-section">
-        <div class="categories-container">
-            <h2 id="category-header">Categories</h2>
 
-            <div class="category-container">
-                <?php 
-                    $db_host = "localhost";
-                    $db_username = "root";
-                    $db_password = "";
-                    $db_name = "susmarketplace";
-                    $conn = new mysqli($db_host, $db_username, $db_password, $db_name);
-                
-                    if ($conn->connect_error) {
-                        die("Connection failed: " . $conn->connect_error);
-                    }
-                
-                    $getQuery = "SELECT * FROM product_seller_view ORDER BY RAND() LIMIT 5";
-                    $Result = mysqli_query($conn, $getQuery);
-                    ?>
-                
-                    <div>
-                        <?php
-                        $counter = 1;
-                        if (mysqli_num_rows($Result) > 0) {
-                            while ($row = mysqli_fetch_assoc($Result)) {
-                                $product_name = $row['product_name'];
-                                $image_path = $row['image_path'];
-                                $quantity = $row['quantity'];
-                                $description = $row['description'];
-                                $category = $row['category'];
-                                $price = $row['price'];
-                                $product_id = $row['product_id'];
-                                $seller_id = $row['seller_id'];
-                
-                                if ($counter == 1) {
-                                    echo "<div class='productoftheday'>";
-                                    echo "<h1> Product Of The Day</h1>";
-                                    echo "<div class='product'>";
-                                    echo "<a href='../product/product.php?product_id=$product_id'>";
-                                    echo "<img src='$image_path' alt='$product_name'>";
-                                    echo "<div class='product-details'>";
-                                    echo "<div>";
-                                    echo "<h2>$product_name</h2>";
-                                    echo "</div>";
-                                    echo "<div class='productoftheday-price'>";
-                                    echo "<h2>$price</h2>";
-                                    echo "</div>";
-                                    echo "</div>";
-                                    echo "</div>";
-                                    echo "</div>";
-                                    $counter++;
-                                    continue;
-                                }
-                                
-                                if ($counter == 2)
-                                {
-                                    echo "<div class='products'>";
-                                }
-                                
-                                echo "<div class='product'>";
-                                echo "<a href='../product/product.php?product_id=$product_id'>";
-                                echo "<img src='$image_path' alt='$product_name'>";
-                                echo "<div class='product-details'>";
-                                echo "<div>";
-                                echo "<h2>$product_name</h2>";
-                                echo "</div>";
-                                echo "<div class='price'>";
-                                echo "<h2>$price</h2>";
-                                echo "</div>";
-                                echo "</div>";
-                                echo "</div>";
-                                
-                                if ($counter == 5)
-                                {
-                                    echo "</div>";
-                                }
-                                $counter++;
-                            }
-                        }
-                        ?>
-                    </div>
-                <?php
-                ?>
-                
-            </div>
-    </div>
+    <h2 id="category-header">Categories</h2>
+    
+    <?php
+    $db_host = "localhost";
+    $db_username = "root";
+    $db_password = "";
+    $db_name = "susmarketplace";
+    $conn = new mysqli($db_host, $db_username, $db_password, $db_name);
+
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    $getQuery = "SELECT * FROM product_seller_view ORDER BY RAND() LIMIT 5";
+    $Result = mysqli_query($conn, $getQuery);
+    ?>
+        <?php
+        $counter = 1;
+        if (mysqli_num_rows($Result) > 0) {
+            while ($row = mysqli_fetch_assoc($Result)) {
+                $product_name = $row['product_name'];
+                $image_path = $row['image_path'];
+                $quantity = $row['quantity'];
+                $description = $row['description'];
+                $category = $row['category'];
+                $price = $row['price'];
+                $product_id = $row['product_id'];
+                $seller_id = $row['seller_id'];
+
+                if ($counter == 1) {
+                    echo "<div class='productoftheday'>";
+                    echo "<h1> Product Of The Day</h1>";
+                    echo "<div class='product'>";
+                    echo "<a href='../product/product.php?product_id=$product_id'>";
+                    echo "<img src='$image_path' alt='$product_name'>";
+                    echo "<div class='product-details'>";
+                    echo "<div>";
+                    echo "<h2>$product_name</h2>";
+                    echo "</div>";
+                    echo "<div class='productoftheday-price'>";
+                    echo "<h2>$price</h2>";
+                    echo "</div>";
+                    echo "</div>";
+                    echo "</div>";
+                    echo "</div>";
+                    $counter++;
+                    continue;
+                }
+
+                if ($counter == 2) {
+                    echo "<div class='products'>";
+                }
+
+                echo "<div class='product'>";
+                echo "<a href='../product/product.php?product_id=$product_id'>";
+                echo "<img src='$image_path' alt='$product_name'>";
+                echo "<div class='product-details'>";
+                echo "<div>";
+                echo "<h2>$product_name</h2>";
+                echo "</div>";
+                echo "<div class='price'>";
+                echo "<h2>$price</h2>";
+                echo "</div>";
+                echo "</div>";
+                echo "</div>";
+
+                if ($counter == 5) {
+                    echo "</div>";
+                }
+                $counter++;
+            }
+        }
+        ?>
+    <?php
+    ?>
+
     <div class="ultimate-testimony-container">
         <div class="testimony-container">
             <p>"The campus marketplace is a gem! Navigating the website was a breeze, and I found everything I needed
@@ -181,7 +172,7 @@
     </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function() {
             const carousel = document.querySelector(".carousel");
             const images = document.querySelectorAll(".carousel img");
             const prevBtn = document.getElementById("prevBtn");
@@ -211,13 +202,13 @@
                 clearInterval(intervalId);
             }
 
-            nextBtn.addEventListener("click", function () {
+            nextBtn.addEventListener("click", function() {
                 nextImage();
                 stopInterval();
                 startInterval();
             });
 
-            prevBtn.addEventListener("click", function () {
+            prevBtn.addEventListener("click", function() {
                 prevImage();
                 stopInterval();
                 startInterval();
@@ -231,7 +222,7 @@
         var headerHeight = document.querySelector('header').offsetHeight;
         var header = document.querySelector('header');
 
-        window.addEventListener('scroll', function () {
+        window.addEventListener('scroll', function() {
             var currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
             if (currentScroll > lastScrollTop && currentScroll > headerHeight) {
