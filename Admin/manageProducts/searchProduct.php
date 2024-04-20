@@ -6,8 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="searchUsers.php" method ="POST">
-        <input type = 'text' name = 'search' placeholder="Search Users">
+    <form action="searchSellers.php" method ="POST">
+        <input type = 'text' name = 'search' placeholder="Search Sellers">
     </form>
 </body>
 </html>
@@ -24,28 +24,30 @@
         if ($conn -> connect_error)
         {
             die("Connection failed: ". $conn -> connect_error);
-        }
+        }                                                                                                                                                                                                               
 
         $search = $_POST['search'];
 
 
-        $searchQuery = "SELECT * FROM users WHERE email LIKE '%$search%' ";
+        $searchQuery = "SELECT * FROM sellers WHERE store_name LIKE '%$search%' ";
         $searchResult = mysqli_query($conn, $searchQuery);
 
         while ($row = mysqli_fetch_assoc($searchResult))
         {
             $user_id = $row['id'];
-            $email = $row['email'];
+            $email = $row['store_name'];
             ?>
 
             Email: <?php echo "$email"?>, Id: <?php echo "$user_id" ?> 
-            <form method = 'POST' action = 'deleteUsers.php'>
+            <form method = 'POST' action = 'deleteSellers.php'>
+                <input type = 'hidden' value="<?php echo "$user_id"?>" name = 'user_id'>
                 <input type = 'hidden' value="<?php echo "$user_id"?>" name = 'user_id'>
                 <input type = 'submit' value = 'delete' name = 'delete'>
             </form>
             <form method = 'POST' action = '../manageSellers/viewStores.php'>
                 <input type = 'hidden' value="<?php echo "$user_id"?>" name = 'user_id'>
-                <input type = 'submit' value = 'View Stores' name = 'view'>
+                <input type = 'hidden' value="<?php echo "$user_id"?>" name = 'user_id'>
+                <input type = 'submit' value = 'View Products' name = 'view'>
             </form>
 
             <?php
