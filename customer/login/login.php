@@ -1,7 +1,7 @@
 <?php
     session_start();
     if(isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] === true) {
-        header("Location: ../homepage/homepage.html");
+        header("Location: ../homepage/homepage.php");
         exit();
     }
 ?>

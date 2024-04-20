@@ -1,118 +1,133 @@
-My Cart
-<?php
-session_start();
-if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] === true) {
+<html lang="en">
 
-    $db_host = "localhost";
-    $db_username = "root";
-    $db_password = "";
-    $db_name = "susmarketplace";
-    $conn = new mysqli($db_host, $db_username, $db_password, $db_name);
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Shopping Cart</title>
+    <link rel="stylesheet" href="cart.css">
+</head>
 
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+<body>
 
-    $user_id = $_SESSION['user_id'];
-    $totalPrice = 0;
+    <div class="global-container">
 
-    $viewcartQuery = "SELECT * FROM cart WHERE user_id = '$user_id';";
-    $viewcartResult = mysqli_query($conn, $viewcartQuery);
-    $counter = 1;
+        <header class="header">
+            <div class="header-logo">
+                <a href="https://www.sampoernauniversity.ac.id"><img src="../../TestimonyAsset/su-logo-light.png"
+                        alt=""></a>
+            </div>
 
-    while ($cartrow = mysqli_fetch_assoc($viewcartResult)) {
 
-        $cart_quantity = $cartrow['quantity'];
-        $product_id = $cartrow['product_id'];
+        </header>
+        <div class="header-accent"></div>
 
-        $retrieveproductdataQuery = "SELECT * FROM product_seller_view where product_id = '$product_id'";
-        $retrieveproductdataResult = mysqli_query($conn, $retrieveproductdataQuery);
-        $productrow = mysqli_fetch_assoc($retrieveproductdataResult);
+        <div class="cart-container">
+            <div class="cart-items-container">
+            My Cart
+            <?php
+            session_start();
+            if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] === true) {
 
-        $product_name = $productrow['product_name'];
-        $image_path = $productrow['image_path'];
-        $quantity = $productrow['quantity'];
-        $description = $productrow['description'];
-        $category = $productrow['category'];
-        $price = $productrow['price'];
-        $product_id = $productrow['product_id'];
-        $seller_id = $productrow['seller_id'];
+                $db_host = "localhost";
+                $db_username = "root";
+                $db_password = "";
+                $db_name = "susmarketplace";
+                $conn = new mysqli($db_host, $db_username, $db_password, $db_name);
 
-        $productPrice = $cart_quantity * $price;
-        $totalPrice += $productPrice;
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
 
-        echo "<div class='product'>";
-        echo "<img src='$image_path' alt='$product_name' style='max-width: 200px; max-height: 200px;'>";
-        echo "<h2>$product_name</h2>";
-        echo "<h2>$quantity</h2>";
-        echo "<h2>$category</h2>";
-        echo "<h2 id='price_$counter'>$price</h2>";
+                $user_id = $_SESSION['user_id'];
+                $totalPrice = 0;
 
-        echo "<form method='POST' action='cart.php'>";
-        echo "<input type='button' value='+' id='add_$counter'>";
-        echo "<input type='number' value='$cart_quantity' id='quantity_$counter' name='new_quantity[$product_id]'>";
+                $viewcartQuery = "SELECT * FROM cart WHERE user_id = '$user_id';";
+                $viewcartResult = mysqli_query($conn, $viewcartQuery);
+                $counter = 1;
 
-        echo "<input type='button' value='-' id='subtract_$counter'>";
-        echo "<h2> Price: </h2>";
-        echo "<h2 id='product_price_$counter'>$productPrice</h2>";
-        echo "</div>";
+                while ($cartrow = mysqli_fetch_assoc($viewcartResult)) {
 
-        $counter++;
-    }
-    echo "<h2 id='total_price'> Total: $totalPrice </h2>";
-    echo "<input type='submit' name='update_cart' value='Update Cart'>";
-    echo "<input type='submit' name='order' value='Order Now'>";
-    echo "</form>";
-}
-?>
+                    $cart_quantity = $cartrow['quantity'];
+                    $product_id = $cartrow['product_id'];
 
-<script>
-    var totalPrice = <?php echo $totalPrice; ?>;
-    var product_prices = [];
+                    $retrieveproductdataQuery = "SELECT * FROM product_seller_view where product_id = '$product_id'";
+                    $retrieveproductdataResult = mysqli_query($conn, $retrieveproductdataQuery);
+                    $productrow = mysqli_fetch_assoc($retrieveproductdataResult);
 
-    <?php
-    for ($i = 1; $i <= $counter; $i++) {
-    ?>
-        var product_price_<?php echo $i ?> = parseInt(document.getElementById("product_price_<?php echo $i ?>").innerText);
-        product_prices.push(product_price_<?php echo $i ?>);
+                    $product_name = $productrow['product_name'];
+                    $image_path = $productrow['image_path'];
+                    $quantity = $productrow['quantity'];
+                    $description = $productrow['description'];
+                    $category = $productrow['category'];
+                    $price = $productrow['price'];
+                    $product_id = $productrow['product_id'];
+                    $seller_id = $productrow['seller_id'];
 
-        var quantity_element_<?php echo $i ?> = document.getElementById("quantity_<?php echo $i ?>");
-        var quantity_<?php echo $i ?> = parseInt(quantity_element_<?php echo $i ?>.value);
-        var product_price_element_<?php echo $i ?> = document.getElementById("product_price_<?php echo $i ?>");
-        var price_<?php echo $i ?> = parseInt(document.getElementById("price_<?php echo $i ?>").innerText);
+                    $productPrice = $cart_quantity * $price;
+                    $totalPrice += $productPrice;
 
-        quantity_element_<?php echo $i ?>.addEventListener("input", function(event) {
-            var index = <?php echo $i; ?>;
-            quantity_<?php echo $i ?> = parseInt(event.target.value);
+                    echo "<div class='product'>";
+                    echo "<img src='$image_path' alt='$product_name' style='max-width: 200px; max-height: 200px;'>";
+                    echo "<h2>$product_name</h2>";
+                    echo "<h2>$quantity</h2>";
+                    echo "<h2>$category</h2>";
+                    echo "<h2 id='price_$counter'>$price</h2>";
 
-            product_price_<?php echo $i ?> = price_<?php echo $i ?> * quantity_<?php echo $i ?>;
-            product_price_element_<?php echo $i ?>.innerText = product_price_<?php echo $i ?>;
-            product_prices[index - 1] = product_price_<?php echo $i ?>;
+                    echo "<form method='POST' action='cart.php'>";
+                    echo "<input type='button' value='+' id='add_$counter'>";
+                    echo "<input type='number' value='$cart_quantity' id='quantity_$counter' name='new_quantity[$product_id]'>";
 
-            updateTotalPrice();
-        });
+                    echo "<input type='button' value='-' id='subtract_$counter'>";
+                    echo "<h2> Price: </h2>";
+                    echo "<h2 id='product_price_$counter'>$productPrice</h2>";
+                    echo "</div>";
 
-        var add_<?php echo $i ?> = document.getElementById("add_<?php echo $i ?>");
-        var subtract_<?php echo $i ?> = document.getElementById("subtract_<?php echo $i ?>");
+                    $counter++;
+                }
+                echo "<h2 id='total_price'> Total: $totalPrice </h2>";
+                echo "<input type='submit' name='update_cart' value='Update Cart'>";
+                echo "<input type='submit' name='order' value='Order Now'>";
+                echo "</form>";
+            }
+            ?>
+            </div>
+        </div>
 
-        add_<?php echo $i ?>.addEventListener("click", function() {
-            var index = <?php echo $i; ?>;
+    </div>
 
-            quantity_<?php echo $i ?> += 1;
-            quantity_element_<?php echo $i ?>.value = quantity_<?php echo $i ?>;
+    <script>
+        var totalPrice = <?php echo $totalPrice; ?>;
+        var product_prices = [];
 
-            product_price_<?php echo $i ?> = price_<?php echo $i ?> * quantity_<?php echo $i ?>;
-            product_price_element_<?php echo $i ?>.innerText = product_price_<?php echo $i ?>;
-            product_prices[index - 1] = product_price_<?php echo $i ?>;
+        <?php
+        for ($i = 1; $i <= $counter; $i++) {
+            ?>
+            var product_price_<?php echo $i ?> = parseInt(document.getElementById("product_price_<?php echo $i ?>").innerText);
+            product_prices.push(product_price_<?php echo $i ?>);
 
-            updateTotalPrice();
-        });
+            var quantity_element_<?php echo $i ?> = document.getElementById("quantity_<?php echo $i ?>");
+            var quantity_<?php echo $i ?> = parseInt(quantity_element_<?php echo $i ?>.value);
+            var product_price_element_<?php echo $i ?> = document.getElementById("product_price_<?php echo $i ?>");
+            var price_<?php echo $i ?> = parseInt(document.getElementById("price_<?php echo $i ?>").innerText);
 
-        subtract_<?php echo $i ?>.addEventListener("click", function() {
-            var index = <?php echo $i; ?>;
-            if (quantity_<?php echo $i ?> > 0) {
+            quantity_element_<?php echo $i ?>.addEventListener("input", function (event) {
+                var index = <?php echo $i; ?>;
+                quantity_<?php echo $i ?> = parseInt(event.target.value);
 
-                quantity_<?php echo $i ?> -= 1;
+                product_price_<?php echo $i ?> = price_<?php echo $i ?> * quantity_<?php echo $i ?>;
+                product_price_element_<?php echo $i ?>.innerText = product_price_<?php echo $i ?>;
+                product_prices[index - 1] = product_price_<?php echo $i ?>;
+
+                updateTotalPrice();
+            });
+
+            var add_<?php echo $i ?> = document.getElementById("add_<?php echo $i ?>");
+            var subtract_<?php echo $i ?> = document.getElementById("subtract_<?php echo $i ?>");
+
+            add_<?php echo $i ?>.addEventListener("click", function () {
+                var index = <?php echo $i; ?>;
+
+                quantity_<?php echo $i ?> += 1;
                 quantity_element_<?php echo $i ?>.value = quantity_<?php echo $i ?>;
 
                 product_price_<?php echo $i ?> = price_<?php echo $i ?> * quantity_<?php echo $i ?>;
@@ -120,18 +135,35 @@ if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] === true) 
                 product_prices[index - 1] = product_price_<?php echo $i ?>;
 
                 updateTotalPrice();
-            }
-        });
-    <?php
-    }
-    ?>
+            });
 
-    function updateTotalPrice() {
-        var newTotalPrice = 0;
-        for (var i = 0; i < product_prices.length; i++) {
-            newTotalPrice += product_prices[i];
+            subtract_<?php echo $i ?>.addEventListener("click", function () {
+                var index = <?php echo $i; ?>;
+                if (quantity_<?php echo $i ?> > 0) {
 
+                    quantity_<?php echo $i ?> -= 1;
+                    quantity_element_<?php echo $i ?>.value = quantity_<?php echo $i ?>;
+
+                    product_price_<?php echo $i ?> = price_<?php echo $i ?> * quantity_<?php echo $i ?>;
+                    product_price_element_<?php echo $i ?>.innerText = product_price_<?php echo $i ?>;
+                    product_prices[index - 1] = product_price_<?php echo $i ?>;
+
+                    updateTotalPrice();
+                }
+            });
+            <?php
         }
-        document.getElementById("total_price").innerText = "Total: " + newTotalPrice;
-    }
-</script>
+        ?>
+
+        function updateTotalPrice() {
+            var newTotalPrice = 0;
+            for (var i = 0; i < product_prices.length; i++) {
+                newTotalPrice += product_prices[i];
+
+            }
+            document.getElementById("total_price").innerText = "Total: " + newTotalPrice;
+        }
+    </script>
+</body>
+
+</html>
