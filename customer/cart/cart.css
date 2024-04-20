@@ -1,77 +1,138 @@
 :root {
-    --primary-colour: #2A05FA;
-    --secondary-colour: #13DBDB;
-    --background-colour: white;
-    --accent-colour: #6146F8;
+  --primary-colour: #2A05FA;
+  --secondary-colour: #13DBDB;
+  --background-colour: white;
+  --accent-colour: #6146F8;
 }
 
 .global-container {
-    margin: 0;
-    width: 100%;
-    height: fit-content;
-    justify-content: center;
+  margin: 0;
+  width: 100%;
+  height: fit-content;
+  justify-content: center;
 }
 
 .header {
-    position: relative;
-    display: flex;
-    top: 0;
-    left: 0;
-    margin: 0;
-    width: 100%;
-    height: 60px;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    z-index: 2;
-    background-color: var(--primary-colour);
+  position: relative;
+  display: flex;
+  top: 0;
+  left: 0;
+  margin: 0;
+  width: 100%;
+  height: 60px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  z-index: 2;
+  background-color: var(--primary-colour);
 }
 
 .header-logo {
-    position: relative;
-    top: 6px;
-    left: 50%;
-    width: 150px;
-    height: 40px;
-    z-index: 300;
+  position: relative;
+  top: 6px;
+  left: 45%;
+  width: 150px;
+  height: 40px;
+  z-index: 300;
 }
 
 .header-logo img {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    object-fit: cover;
-    object-position: center;
-  }
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  object-fit: cover;
+  object-position: center;
+}
 
-  .header-accent {
-    background-color: var(--secondary-colour);
-    position: relative;
-    border-bottom-left-radius: 6px;
-    border-bottom-right-radius: 6px;
-    width: 100%;
-    height: 45px;
-    top: -20px;
-    line-height: 85px;
-    z-index: 0;
-    text-align: center;
-    font-size: small;
-    font-family: sans-serif;
-  }
+.header-accent {
+  background-color: var(--secondary-colour);
+  position: relative;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  width: 100%;
+  height: 45px;
+  top: -20px;
+  line-height: 85px;
+  z-index: 0;
+  text-align: center;
+  font-size: small;
+  font-family: sans-serif;
+}
 
-  .cart-container {
-    display: flex;
-    position: relative;
-    left: 10%;
-    width: 80%;
-    border: solid red 1px;
-  }
+.cart-container {
+  display: flex;
+  position: relative;
+  left: 6%;
+  width: 90%;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  /* Add margin to separate from the footer */
+}
 
+.cart-items-container {
+  display: flex;
+  position: relative;
+  width: 60%;
+  /* Adjusted width to match the widened cart container */
+  left: 30px;
+  flex-wrap: wrap;
+  /* Allow items to wrap to the next line */
+  border: solid darkgray 9px;
+  border-radius: 20px;
+  padding: 20px;
+  /* Add padding to the container */
+}
 
+.cart-actions {
+  position: absolute;
+  font-family: 'Inter', sans-serif;
+  font-weight: lighter;
+  border: solid darkmagenta 1px;
+  width: 200px;
+  margin: 30px;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  left: 1000px;
+}
 
-  .product {
-    position: relative;
-    flex-direction: row;
-    width: fit-content;
-    border: solid blue 1px;
-    justify-items: center;
-  }
+.product {
+  display: flex;
+  /* Use flexbox */
+  flex-direction: column;
+  /* Stack items vertically */
+  align-items: center;
+  /* Center items horizontally */
+  position: relative;
+  padding: 0;
+  margin: 10px;
+  width: 250px;
+  border: solid blue 1px;
+  border-radius: 5px;
+  justify-items: center;
+
+}
+
+.product-name,
+.product p {
+  margin: 0px 0;
+  /* Adjust the margin to make the elements closer together */
+  padding: 0;
+  /* Remove any padding */
+}
+
+.product-name {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: bolder;
+}
+
+.product img {
+  width: 200px;
+  /* Set a fixed width */
+  height: 200px;
+  /* Set a fixed height */
+  border-radius: 10px;
+  /* Make the image round */
+  margin: 10px;
+  /* Add some space below the image */
+}
