@@ -85,17 +85,17 @@
 
                         $counter++;
                     }
-
+                    echo "<div class='cart-actions'>";
+                    echo "<h2 id='total_price'> Total Price: $totalPrice </h2>";
+                    echo "<input type='submit' name='update_cart' value='Update Cart'>";
+                    echo " <input type='submit' name='order' value='Order Now'>";
+                    echo "</div>";
 
 
                     echo "</form>";
                 }
 
-                echo "<div class='cart-actions'>";
-                echo "<h2 id='total_price'> Total Price: $totalPrice </h2>";
-                echo "<input type='submit' name='update_cart' value='Update Cart'>";
-                echo " <input type='submit' name='order' value='Order Now'>";
-                echo "</div>";
+
 
                 ?>
             </div>

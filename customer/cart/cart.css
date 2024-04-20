@@ -29,7 +29,7 @@
 .header-logo {
   position: relative;
   top: 6px;
-  left: 45%;
+  left: 50%;
   width: 150px;
   height: 40px;
   z-index: 300;
@@ -63,6 +63,8 @@
   position: relative;
   left: 6%;
   width: 90%;
+  /* Widen the cart container */
+  border: solid red 1px;
   border-radius: 20px;
   margin-bottom: 20px;
   /* Add margin to separate from the footer */
@@ -106,14 +108,15 @@
   padding: 0;
   margin: 10px;
   width: 250px;
+  border: solid blue 1px;
   border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  /* Add shadow effect */
+  justify-items: center;
+
 }
 
 .product-name,
 .product p {
-  margin: 0px 0;
+  margin: 5px 0;
   /* Adjust the margin to make the elements closer together */
   padding: 0;
   /* Remove any padding */
@@ -123,6 +126,7 @@
   font-family: 'Inter', sans-serif;
   font-size: 18px;
   font-weight: bolder;
+  border: solid red 1px;
 }
 
 .product img {

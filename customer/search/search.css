@@ -1,16 +1,66 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-:root{
+:root {
     --border-radius: 5px;
+    --primary-colour: #2A05FA;
+    --secondary-colour: #13DBDB;
+    --background-colour: white;
 }
 
-.container{
+body {
+    margin: 0px;
+}
+
+.container {
+    top: 0;
+    left: 0;
     display: flex;
     flex-direction: row;
-    /* border: solid black 5px; */
+}
+
+.header {
+    position: absolute;
+    width: 100%;
+    height: 80px;
+    background-color: var(--primary-colour);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    z-index: 4;
+}
+
+.logo-container {
+    position: relative;
+    top: 13px;
+    left: 10%;
+    width: 150px;
+    height: 50px;
+    z-index: 300;
+}
+
+.logo-container img {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    object-fit: cover;
+    object-position: center;
+}
+
+.header-accent {
+    background-color: var(--secondary-colour);
+    position: absolute;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 100%;
+    height: 85px;
+    top: 20px;
+    line-height: 85px;
+    z-index: 1;
 }
 
 .search-product-container {
+    position: relative;
+    top: 100px;
+    margin-top: 20px;
     display: flex;
     justify-content: center;
     /* border: solid black 5px; */
@@ -18,11 +68,55 @@
 
 .search-product-container input[type="text"] {
     position: absolute;
-    width: 191vh;
+    left: 20px;
+    height: 40px;
+    border-radius: 7px;
+    width: 1240px;
+    border: rgba(255, 255, 255, 0);
+    background-color: lightgrey;
+    color: black;
+    text-indent: 20px;
+    font-weight: lighter;
+    letter-spacing: 0.3 px;
+    font-size: 16px;
+}
+
+.search-product-container input[type="text"]::placeholder {
+    font-style: italic;
+    font-weight: lighter;
+    letter-spacing: 0.3 px;
+    font-size: 16px;
+}
+
+.sidebar-container {
+    width: 10%;
 }
 
 .sidebar {
-width: 40vh;
+    position: relative;
+    top: 82px;
+    margin-top: 20px;
+}
+
+.button {
+    display: inline-block;
+    padding-left: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 138px;
+    text-decoration: none;
+    background-color: white;
+    color: black;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: darkgray;
+    color: white;
 }
 
 
@@ -31,8 +125,7 @@ h2 {
     font-weight: 500;
 }
 
-.product-container
-{
+.product-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -44,43 +137,38 @@ h2 {
     margin-top: 50px;
 }
 
-.product{
+.product {
     /* border: solid 5px black; */
     width: fit-content;
-    margin-right: 30vh;
-    height: fit-content;
+    margin: 30px;
+    x height: fit-content;
     border-radius: var(--border-radius);
-    box-shadow: 0px 2px 5px 1px rgba(0,0,0,0.29);
--webkit-box-shadow: 0px 2px 5px 1px rgba(0,0,0,0.29);
--moz-box-shadow: 0px 2px 5px 1px rgba(0,0,0,0.29);
+    box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.29);
+    -webkit-box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.29);
+    -moz-box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.29);
 }
 
-.product-price-container
-{
+.product-price-container {
     display: flex;
     flex-direction: column;
 }
 
-.quantity-category-container
-{
+.quantity-category-container {
     display: flex;
     flex-direction: row;
     gap: 5px
 }
 
 
-.product-name
-{
+.product-name {
     font-size: 14px;
 }
 
-.price
-{
+.price {
     font-size: 14px;
 }
 
-.quantity
-{
+.quantity {
     font-size: 14px;
 }
 
@@ -89,12 +177,12 @@ h2 {
     color: black;
 }
 
-.category{
+.category {
     padding-right: 4px;
     font-size: 14px;
 }
 
-.product img{
+.product img {
     border-top-right-radius: var(--border-radius);
     border-top-left-radius: var(--border-radius);
     width: 30vh;
@@ -103,9 +191,6 @@ h2 {
 }
 
 
-.product-info-container h2
-{
-    margin-left: 5px; 
+.product-info-container h2 {
+    margin-left: 5px;
 }
-
-

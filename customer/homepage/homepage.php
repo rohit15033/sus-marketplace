@@ -62,8 +62,8 @@
                 </div>
 
                 <div class="searchbar">
-                    <form action="/search" method="get">
-                        <input type="text" name="q" placeholder="Search here...">
+                    <form action="../search/search.php" method="POST">
+                        <input type="text" name="search" placeholder="Search here...">
                         <button type="submit">Search</button>
                     </form>
                 </div>
