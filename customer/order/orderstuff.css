@@ -107,6 +107,7 @@ body {
 
 .seller-container-bottom {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     border-color: darkcyan;
 }
