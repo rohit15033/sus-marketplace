@@ -27,7 +27,7 @@
                 $_SESSION['seller_logged_in'] = true;
                 $_SESSION['seller_id'] = $seller_id;
 
-                header("Location: ../homepage/homepage.html");
+                header("Location: ../homepage/homepage.php");
                 exit();
             } else {
                 $_SESSION['error'] = "Invalid password. Please try again.";

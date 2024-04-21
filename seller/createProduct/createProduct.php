@@ -35,5 +35,5 @@
     $insertproductdataresult = mysqli_query($conn, $insertproductdataQuery);
 
 
-    header("location: ../homepage/homepage.html")
+    header("location: ../homepage/homepage.php")
 ?>
