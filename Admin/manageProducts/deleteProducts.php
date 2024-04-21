@@ -23,11 +23,12 @@
             die("Connection failed: ". $conn -> connect_error);
         }
 
-        $user_id = $_POST['user_id'];
-        $email = $_POST['email'];
+        $product_id = $_POST['product_id'];
 
 
-        $deleteUserQuery = "DELETE FROM sellers WHERE id = '$seller_id'";
+        $deleteProductQuery1 = "DELETE FROM products WHERE id = '$product_id'";
+        $deleteResult = mysqli_query($conn, $deleteUserQuery);
+        $deleteProductQuery2 = "DELETE FROM product_seller_junction WHERE product_id = '$product_id'";
         $deleteResult = mysqli_query($conn, $deleteUserQuery);
         header("location: searchUsers.php");
     }

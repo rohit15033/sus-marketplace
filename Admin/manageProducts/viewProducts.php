@@ -1,3 +1,21 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="searchProducts.php" method="POST">
+        <input type='text' name='search' placeholder="Search Sellers">
+    </form>
+</body>
+
+</html> -->
+
+
 <?php
 
 if (isset($_POST['view'])) {
@@ -6,24 +24,43 @@ if (isset($_POST['view'])) {
     $db_password = "";
     $db_name = "susmarketplace";
 
-    $user_id = $_POST['user_id'];
+    $seller_id = $_POST['seller_id'];
 
     $conn = new mysqli($db_host, $db_username, $db_password, $db_name);
-    if ($conn -> connect_error) {
-        die("Connection failed: " . $conn -> connect_error);
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
     }
 
-    $viewQuery = "SELECT * FROM product_seller_view WHERE seller_id = '$user_id'";
+    $viewQuery = "SELECT * FROM product_seller_view WHERE seller_id = '$seller_id'";
     $viewResult = mysqli_query($conn, $viewQuery);
 
     if (mysqli_num_rows($viewResult) > 0) {
         while ($row = mysqli_fetch_assoc($viewResult)) {
-            $product_id = $row['product_id'];
             $product_name = $row['product_name'];
+            $image_path = $row['image_path'];
+            $quantity = $row['quantity'];
+            $description = $row['description'];
+            $category = $row['category'];
             $price = $row['price'];
-            
+            $product_id = $row['product_id'];
+            $seller_id = $row['seller_id'];
 
-            echo "User Email: $user_email, Seller Store Name: $seller_store_name <br>";
+
+            echo "<div class='product-card'> 
+            <img src='$image_path' alt='$product_name'>
+            <div class='product-info-container'>
+            <h2 class='product-name'>$product_name</h2>
+            <h2 class='price'>Price: $price</h2>
+            <h2 class='quantity'>Qty: $quantity</h2>
+            
+            <form method = 'POST' action = 'deleteProducts.php'>
+            <input type = 'hidden' value= '$product_id' name = 'product_id'>
+            <input type = 'submit' value = 'Delete' name = 'delete'>
+        </form>
+        <form method = 'POST' action = 'updateProduct.php'>
+            <input type = 'hidden' value= '$product_id' name = 'product_id'>
+            <input type = 'submit' value = 'Update Product' name = 'update'>
+        </form>";
         }
     } else {
         echo "No results found.";

@@ -27,8 +27,10 @@
         $email = $_POST['email'];
 
 
-        $deleteUserQuery = "DELETE FROM sellers WHERE id = '$seller_id'";
-        $deleteResult = mysqli_query($conn, $deleteUserQuery);
+        $deleteSellerQuery1 = "DELETE FROM sellers WHERE id = '$seller_id'";
+        $deleteResult1 = mysqli_query($conn, $deleteUserQuery);
+        $deleteUserQuery2 = "DELETE FROM user_seller_junction WHERE seller_id = '$seller_id'";
+        $deleteResult2 = mysqli_query($conn, $deleteUserQuery);
         header("location: searchUsers.php");
     }
 ?>

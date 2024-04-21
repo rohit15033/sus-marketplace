@@ -38,7 +38,7 @@
             $email = $row['email'];
             ?>
 
-            Email: <?php echo "$email"?>, Id: <?php echo "$user_id" ?> 
+            Email: <?php echo "$email"?>, User Id: <?php echo "$user_id" ?> 
             <form method = 'POST' action = 'deleteUsers.php'>
                 <input type = 'hidden' value="<?php echo "$user_id"?>" name = 'user_id'>
                 <input type = 'submit' value = 'delete' name = 'delete'>

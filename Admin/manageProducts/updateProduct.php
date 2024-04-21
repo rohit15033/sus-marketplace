@@ -9,7 +9,7 @@
     
     <form method="POST" action="updateProductlogic.php" enctype="multipart/form-data">
 
-        <input type="hidden" name="product_id" value="<?php echo $_GET['product_id']; ?>">
+        <input type="hidden" name="product_id" value="<?php echo $_POST['product_id']; ?>">
         Product name: <input type="text" name="product_name"><br>
         Price: <input type="text" name="price"><br>
         Category: 
