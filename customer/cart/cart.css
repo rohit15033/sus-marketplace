@@ -88,13 +88,12 @@
   position: absolute;
   font-family: 'Inter', sans-serif;
   font-weight: lighter;
-  border: solid darkmagenta 1px;
   width: 200px;
   margin: 30px;
   padding: 30px;
   border-radius: 20px;
   text-align: center;
-  left: 1000px;
+  right: 1300px;
 }
 
 .product {
