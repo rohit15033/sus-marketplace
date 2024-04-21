@@ -13,22 +13,19 @@
     <div class="global-container">
 
         <header>
-
             <div class="logo-container">
                 <img src="..\..\TestimonyAsset\su-logo-light.png" alt="">
             </div>
-
-            <aside class="sidebar-container">
+        </header>
+        
+        <aside class="sidebar-container">
                 <nav class="sidebar">
                     <div><a href="../createProduct/createProduct.html" class="button">- Create Product</a></div>
 
                     <div><a href="../logout/logout.php" class="button">- Logout</a></div>
                     <div><a href="../order/order.php" class="button">- Orders</a></div>
                 </nav>
-            </aside>
-
-        </header>
-        
+        </aside>
         <div class="header-accent"></div>
 
         <?php
@@ -71,14 +68,14 @@
                     $order_count = 0;
                 }
 
-                echo "<div class='product-card'> 
+                echo "<div class='product'> 
                 <a href='../updateProduct/updateProduct.php?product_id=$product_id'>
                 <img src='$image_path' alt='$product_name'>
                 <div class='product-info-container'>
-                <h2 class='product-name'>$product_name</h2>
-                <h2 class='price'>Price: $price</h2>
-                <h2 class='quantity'>Qty: $quantity</h2>
-                <h2 class='order-count'>Orders: $order_count</h2>
+                <p class='product-name'>$product_name</p>
+                <p class='price'>Price: $price</hp>
+                <p class='quantity'>Qty: $quantity</p>
+                <p class='order-count'>Orders: $order_count</p>
             </div>
         </a>
     </div>";

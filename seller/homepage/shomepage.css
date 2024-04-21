@@ -1,5 +1,5 @@
 :root {
-    --border-radius: 5px;
+    --border-radius: 10px;
     --primary-colour: #2A05FA;
     --secondary-colour: #13DBDB;
     --background-colour: white;
@@ -66,11 +66,9 @@ header {
 
 .sidebar {
     position: relative;
-    margin-top: 10px;
     top: 0;
     width: fit-content;
-    margin-top: 20px;
-    border: solid red 2px;
+    margin-top: 74px;
 }
 
 .button {
@@ -94,17 +92,72 @@ header {
     color: white;
 }
 
-.product-container
-{
-    
+.product-container {
     position: relative;
-    left: 10%;
+    top: 74px;
+    left: 0px;
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
+    width: 100%;
+    margin: 0 auto;
 }
 
-.product-card img
-{
-    width: 50vh;
-    height: 50vh;
+.product {
+    width: 300px;
+    height: 400px;
+    margin: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.29);
+    -webkit-box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.29);
+    -moz-box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.29);
+}
+
+
+
+.product img {
+    width: 100%;
+    height: 60%;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    object-fit: cover;
+    object-position: center;
+}
+
+.product-info-container {
+    position: relative;
+    border-bottom-left-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+    width: 100%;
+    max-height: 39%;
+    font-family: 'Inter', sans-serif;
+}
+
+.product-name {
+    position: relative;
+    top: -20px;
+    left: 20px;
+    font-size: 24px;
+}
+
+.price {
+    position: relative;
+    top: -40px;
+    left: 20px;
+    font-size: 16px;
+
+}
+
+.quantity {
+    position: relative;
+    top: -40px;
+    left: 20px;
+    font-size: 20px;
+}
+
+.order-count {
+    position: relative;
+    top: -40px;
+    left: 33%;
+    font-size: 22px;
 }
