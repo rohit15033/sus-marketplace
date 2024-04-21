@@ -4,14 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="updateProduct.css">
 </head>
 <body>
-    
+    <h2>Product Info Update Form</h2>
+    <div class="product-creation-container">
     <form method="POST" action="updateProductlogic.php" enctype="multipart/form-data">
 
         <input type="hidden" name="product_id" value="<?php echo $_GET['product_id']; ?>">
-        Product name: <input type="text" name="product_name"><br>
-        Price: <input type="text" name="price"><br>
+        <div class="form-element-container">
+        Product name: <input type="text" name="product_name">
+        </div>
+        <div class="form-element-container">
+        Price: <input type="text" name="price">
+        </div>
+        <div class="form-element-container">
         Category: 
         <select name="category">
             <option value="electronics">Electronics</option>
@@ -33,13 +40,20 @@
             <option value="music">Music</option>
             <option value="movies">Movies</option>
             <option value="games">Games</option>
-        </select><br>
-        Description: <input type="text" name="description"><br>
-        Quantity: <input type="text" name="quantity"><br>
-        Image: <input type="file" name="product_image"><br>
+        </select>
+        </div>
+        <div class="form-element-container">
+        Description: <input type="text" name="description">
+        </div>
+        <div class="form-element-container">
+        Quantity: <input type="text" name="quantity">
+        </div>
+        <div class="form-element-container">
+        Image: <input type="file" name="product_image">
+        </div>
 
         <button type="submit">Submit</button>
     </form>
-
+    </div>
 </body>
 </html>
