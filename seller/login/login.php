@@ -17,6 +17,7 @@
 </head>
 
 <body>
+    
     <header>
         <label class="hamburger-menu">
             <input type="checkbox">
@@ -32,13 +33,17 @@
             <a href="#" class="header-link">Login</a>
             <a href="#" class="header-link">Register</a>
         </div>
+
+        <div class="seller-icon">
+    <img src="..\..\Assets\Icons\icons8-seller-64.png" alt="">
+    </div>
     </header>
 
     <div class="container">
         <div class="title-subtitle-container">
             <div class="title-container">
                 <h1> Log in to</h1>
-                <h1><span class="shop">Shop</span> awesome</h1>
+                <h1><span class="shop">Sell</span> awesome</h1>
                 <h1> Stuffs </h1>
             </div>
             <div class="subtitle-container">

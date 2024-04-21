@@ -15,10 +15,14 @@ if (isset($_SESSION['!user_logged_in']) && $_SESSION['user_logged_in'] === false
 </head>
 
 <body>
+
     <header>
         <label class="hamburger-menu">
             <input type="checkbox">
         </label>
+        <div class="seller-icon">
+    <img src="..\..\Assets\Icons\icons8-seller-64.png" alt="">
+    </div>
         <aside class="sidebar">
             <nav>
                 <div><a href="register.html">Register</a></div>
@@ -30,12 +34,13 @@ if (isset($_SESSION['!user_logged_in']) && $_SESSION['user_logged_in'] === false
             <a href="#" class="header-link">Register</a>
         </div>
     </header>
-
+    
     <div class="container">
+    
         <div class="title-subtitle-container">
             <div class="title-container">
                 <h1> Sign up to</h1>
-                <h1><span class="shop">Shop</span> awesome</h1>
+                <h1><span class="shop">Sell</span> awesome</h1>
                 <h1> Stuffs </h1>
             </div>
             <div class="subtitle-container">
