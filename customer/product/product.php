@@ -12,15 +12,7 @@
     if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] === true) {
         if (isset($_GET['product_id'])) {
 
-            $db_host = "localhost";
-            $db_username = "root";
-            $db_password = "";
-            $db_name = "susmarketplace";
-            $conn = new mysqli($db_host, $db_username, $db_password, $db_name);
-
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
+            require '../../connect.php';
 
             $product_id = $_GET['product_id'];
             $getQuery = "SELECT * FROM product_seller_view WHERE product_id = '$product_id'";

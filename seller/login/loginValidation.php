@@ -5,15 +5,7 @@
         $store_name = $_POST["store_name"];
         $password = $_POST["password"];
 
-        $db_host = "localhost";
-        $db_username = "$store_name";
-        $db_password = "";
-        $db_name = "susmarketplace";
-
-        $conn = new mysqli($db_host, $db_username, $db_password, $db_name);
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
+        require '../../connect.php';
 
         $sql = "SELECT * FROM sellers WHERE store_name = '$store_name'";
         $result = mysqli_query($conn, $sql);

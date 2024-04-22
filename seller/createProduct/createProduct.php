@@ -1,15 +1,7 @@
 <?php 
     session_start();
 
-    $db_host = "localhost";
-    $db_username = "root";
-    $db_password = "";
-    $db_name = "susmarketplace";
-
-    $conn = new mysqli($db_host, $db_username, $db_password, $db_name);
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+    require '../../connect.php';
 
     $product_name = $_POST["product_name"];
     $product_id = uniqid();
