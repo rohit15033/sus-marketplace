@@ -1,15 +1,19 @@
 :root {
-    --border-radius: 10px;
+    --border-radius: 5px;
     --primary-colour: #2A05FA;
     --secondary-colour: #13DBDB;
     --background-colour: white;
 }
 
 body {
-    margin: 0px;
+    margin: 0;
 }
 
-.global-container {
+main {
+    width: 100%;
+}
+
+.container {
     top : 0;
     left: 0;
     width: 100%;
@@ -98,13 +102,14 @@ header {
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
+    height: fit-content;
     margin: 0 auto;
 }
 
 .product {
     width: 300px;
     height: 400px;
-    margin: 30px;
+    margin: 40px;
     border-radius: var(--border-radius);
     box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.29);
     -webkit-box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.29);
@@ -122,40 +127,86 @@ header {
     object-position: center;
 }
 
+
+
 .product-info-container {
     position: relative;
     border-bottom-left-radius: var(--border-radius);
     border-bottom-right-radius: var(--border-radius);
     width: 100%;
-    max-height: 39%;
+    max-height: 138px;
     font-family: 'Inter', sans-serif;
+}
+
+.product-info-container h2{
+    padding: 10px;
+}
+
+.product-info-container select {
+    position: relative;
+    bottom: 100px;
+    left: 15px;
 }
 
 .product-name {
     position: relative;
-    top: -20px;
-    left: 20px;
-    font-size: 24px;
-}
-
-.price {
-    position: relative;
-    top: -40px;
+    top: -30px;
     left: 20px;
     font-size: 16px;
-
 }
 
 .quantity {
     position: relative;
-    top: -60px;
+    top: -45px;
     left: 20px;
-    font-size: 20px;
+    font-size: 14px;
 }
 
-.order-count {
+.price {
     position: relative;
-    top: -40px;
-    left: 33%;
-    font-size: 22px;
+    top: -55px;
+    left: 20px;
+    font-size: 14px;
+}
+
+.subtotal {
+    position: relative;
+    top: -105px;
+    left: 180px;
+    font-size: 14px;
+}
+
+.order-date {
+    position: relative;
+    top: -115px;
+    left: 180px;
+    font-size: 14px;
+}
+
+.user-email {
+    position: relative;
+    top: -105px;
+    left: 20px;
+    font-size: 12px;
+}
+
+.submit-button-container {
+    position: relative;
+    width: fit-content;
+    left: 230px;
+    top:-5%;
+}
+
+.submit-button-container input {
+    padding: 10px 14px; /* Add padding to the button */
+    background-color: #2A05FA; /* Set background color */
+    color: white; /* Set text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Add border radius */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    font-size: 12px; /* Set font size */
+}
+
+.submit-button-container input:hover {
+    background-color: #1E3C72; /* Change background color on hover */
 }
