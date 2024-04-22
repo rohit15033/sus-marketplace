@@ -63,8 +63,6 @@
   position: relative;
   left: 6%;
   width: 90%;
-  /* Widen the cart container */
-  border: solid red 1px;
   border-radius: 20px;
   margin-bottom: 20px;
   /* Add margin to separate from the footer */
@@ -93,7 +91,8 @@
   padding: 30px;
   border-radius: 20px;
   text-align: center;
-  right: 1300px;
+  top: 10%;
+  left: 1200px;
 }
 
 .product {
