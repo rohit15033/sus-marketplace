@@ -19,11 +19,11 @@
             $securityQuestion2 = $_POST["seller_security_question_2"];
             $securityAnswer2 = $_POST["seller_security_answer_2"];
 
-            $createUserQuery = "CREATE USER '$store_name'@'localhost'";
-            $resultCreateUser = mysqli_query($conn, $createUserQuery);
+            // $createUserQuery = "CREATE USER '$store_name'@'localhost'";
+            // $resultCreateUser = mysqli_query($conn, $createUserQuery);
 
-            $grantQuery = "GRANT SELECT, INSERT ON susmarketplace.* TO '$store_name'@'localhost'";
-            $resultGrant = mysqli_query($conn, $grantQuery);
+            // $grantQuery = "GRANT SELECT, INSERT ON susmarketplace.* TO '$store_name'@'localhost'";
+            // $resultGrant = mysqli_query($conn, $grantQuery);
 
             $insertselleruserQuery = "INSERT INTO user_seller_junction (user_id, seller_id) VALUES ('$user_id', '$seller_id')";
             $insertselleruserResult = mysqli_query($conn, $insertselleruserQuery);

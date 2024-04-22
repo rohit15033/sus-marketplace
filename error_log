@@ -1,0 +1,6 @@
+[22-Apr-2024 08:43:15 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'erwinyon_bohit'@'ravenna.id.domainesia.com' (using password: YES) in /home/erwinyon/public_html/bohit/connect.php:7
+Stack trace:
+#0 /home/erwinyon/public_html/bohit/connect.php(7): mysqli->__construct()
+#1 /home/erwinyon/public_html/bohit/customer/register/register.php(6): require('/home/erwinyon/...')
+#2 {main}
+  thrown in /home/erwinyon/public_html/bohit/connect.php on line 7
