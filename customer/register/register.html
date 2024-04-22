@@ -1,4 +1,51 @@
 
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('continue').addEventListener('click', function (event) {
+            console.log("Continue button clicked");
+            var securityQuestionsContainer = document.getElementById('security_questions_container');
+            var signupContainer = document.getElementById('signup_container');
+
+            signupContainer.classList.remove('signup-transform-down');
+            securityQuestionsContainer.classList.remove('security-questions-transform-down');
+
+            signupContainer.classList.add('signup-transform-up');
+            securityQuestionsContainer.classList.add('security-questions-transform-up');
+        });
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('back').addEventListener('click', function (event) {
+            console.log("Back button clicked");
+            var securityQuestionsContainer = document.getElementById('security_questions_container');
+            var signupContainer = document.getElementById('signup_container');
+
+            signupContainer.classList.remove('signup-transform-up');
+            securityQuestionsContainer.classList.remove('security-questions-transform-up');
+
+            securityQuestionsContainer.classList.add('security-questions-transform-down');
+            signupContainer.classList.add('signup-transform-down');
+
+        });
+    });
+    function validatePassword()
+    {
+        var continueButton = document.getElementById('continue')
+        var passwordInput = document.getElementById('password')
+        var submitButton = document.getElementById('submit')
+
+        if(passwordInput.value.length >= 8)
+        {
+            continueButton.classList.add('enable-continue');
+            continueButton.classList.remove('disable-continue');
+        }
+        else
+        {
+            continueButton.classList.add('disable-continue');
+            continueButton.classList.remove('enable-continue');
+        }
+    }
+</script>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -45,10 +92,10 @@
                 <form class="signup-form" id="signup_form" method="POST" action="register.php">
                     <div class="signup-elements">
                         <input type="text" placeholder="Enter email" name="email">
-                        <input type="text" placeholder="Enter password" name="password">
+                        <input type="text" placeholder="Enter password" name="password" id = "password" oninput="validatePassword()">
                         <input type="text" placeholder="Confirm password" name="confirmPassword">
                     </div>
-                    <input type="button" value="Continue" class="continue" id="continue">
+                    <input type="button" value="Continue" class="continue disable-continue" id="continue">
             </div>
             <div class="security-questions-container security-questions-transform-before"
                 id="security_questions_container">
@@ -70,43 +117,13 @@
                 </select>
                 <input type="text" placeholder="Security answer 2" name="user_security_answer_2">
 
-                <input type="submit" class="submit" name="signup">
+                <input type="submit" class="submit" name="signup" id = "submit">
             </div>
         </div>
 
 
         </form>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            document.getElementById('continue').addEventListener('click', function (event) {
-                console.log("Continue button clicked");
-                var securityQuestionsContainer = document.getElementById('security_questions_container');
-                var signupContainer = document.getElementById('signup_container');
-
-                signupContainer.classList.remove('signup-transform-down');
-                securityQuestionsContainer.classList.remove('security-questions-transform-down');
-
-                signupContainer.classList.add('signup-transform-up');
-                securityQuestionsContainer.classList.add('security-questions-transform-up');
-            });
-        });
-        document.addEventListener('DOMContentLoaded', function () {
-            document.getElementById('back').addEventListener('click', function (event) {
-                console.log("Back button clicked");
-                var securityQuestionsContainer = document.getElementById('security_questions_container');
-                var signupContainer = document.getElementById('signup_container');
-
-                signupContainer.classList.remove('signup-transform-up');
-                securityQuestionsContainer.classList.remove('security-questions-transform-up');
-
-                securityQuestionsContainer.classList.add('security-questions-transform-down');
-                signupContainer.classList.add('signup-transform-down');
-
-            });
-        });
-    </script>
 </body>
 
 </html>

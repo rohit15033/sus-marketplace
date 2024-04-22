@@ -53,7 +53,7 @@ if (isset($_SESSION['!user_logged_in']) && $_SESSION['user_logged_in'] === false
                 <form class="signup-form" id="signup_form" method="POST" action="registerlogic.php">
                     <div class="signup-elements">
                         <input type="text" placeholder="Enter your store name" name="store_name">
-                        <input type="text" placeholder="Enter password" name="password">
+                        <input type="text" placeholder="Enter password" name="password" id = "password">
                         <input type="text" placeholder="Confirm password" name="confirmPassword">
                     </div>
                     <input type="button" value="Continue" class="continue" id="continue">
@@ -78,7 +78,7 @@ if (isset($_SESSION['!user_logged_in']) && $_SESSION['user_logged_in'] === false
                 </select>
                 <input type="text" placeholder="Security answer 2" name="seller_security_answer_2">
 
-                <input type="submit" class="submit" name="signup">
+                <input type="submit" class="submit" name="signup" id = "submit">
             </div>
         </div>
 
