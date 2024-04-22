@@ -29,6 +29,9 @@
                         <div class="sidebar-links"><a href="">Register</a></div>
                         <div class="sidebar-links"><a href="">About</a></div>
                         <div class="sidebar-links"><a href="">Contact</a></div>
+                        <div class="sidebar-links"><a href="../order/order.php">My Orders</a></div>
+                        <div class="sidebar-links"><a href="../../seller/register/register.php">Start Selling!</a></div>
+                        <div class="sidebar-links"><a href="../logout/logout.php">Logout</a></div>
                     </nav>
                 </aside>
 

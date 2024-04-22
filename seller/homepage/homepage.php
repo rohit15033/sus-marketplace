@@ -36,12 +36,15 @@
 
         $getQuery = "SELECT * FROM product_seller_view where seller_id = '$seller_id'";
         $Result = mysqli_query($conn, $getQuery);
-        ?>
 
-
-
-        <div class='product-container'>
-            <?php
+        // Check if there are no products
+        if (mysqli_num_rows($Result) === 0) {
+            echo "<div class='product-container'>";
+            echo "<p>Start making products to sell <a href='../createProduct/createProduct.html'>here</a>.</p>";
+            echo "</div>";
+        } else {
+            // Loop through the products
+            echo "<div class='product-container'>";
             while ($row = mysqli_fetch_assoc($Result)) {
                 $product_name = $row['product_name'];
                 $image_path = $row['image_path'];
@@ -66,15 +69,17 @@
                 <img src='$image_path' alt='$product_name'>
                 <div class='product-info-container'>
                 <p class='product-name'>$product_name</p>
-                <p class='price'>Price: $price</hp>
+                <p class='price'>Price: $price</p>
                 <p class='quantity'>Qty: $quantity</p>
                 <p class='order-count'>Orders: $order_count</p>
             </div>
         </a>
     </div>";
             }
-            ?>
-        </div>
+            echo "</div>"; // Close product-container div
+        }
+        ?>
+
     </div>
 
 </body>

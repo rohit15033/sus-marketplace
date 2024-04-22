@@ -27,23 +27,38 @@
 
         });
     });
-    function validatePassword()
-    {
-        var continueButton = document.getElementById('continue')
-        var passwordInput = document.getElementById('password')
-        var submitButton = document.getElementById('submit')
+    function validatePassword() {
+    var continueButton = document.getElementById('continue');
+    var passwordInput = document.getElementById('password');
+    var confirmPasswordInput = document.getElementById('confirmPassword');
+    var submitButton = document.getElementById('submit');
+    var errorMessage1 = document.getElementById('error-message-1');
+    var errorMessage2 = document.getElementById('error-message-2');
 
-        if(passwordInput.value.length >= 8)
-        {
-            continueButton.classList.add('enable-continue');
-            continueButton.classList.remove('disable-continue');
-        }
-        else
-        {
-            continueButton.classList.add('disable-continue');
-            continueButton.classList.remove('enable-continue');
-        }
+    if (passwordInput.value.length < 8) {
+        errorMessage1.innerText = "Password must be at least 8 characters long.";
+    } else {
+        errorMessage1.innerText = "";
     }
+
+    if (passwordInput.value == confirmPasswordInput.value) {
+        errorMessage2.innerText = "";
+    } else {
+        errorMessage2.innerText = "Passwords do not match.";
+    }
+
+    if (passwordInput.value === confirmPasswordInput.value && passwordInput.value.length >= 8) {
+        continueButton.classList.add('enable-continue');
+        continueButton.classList.remove('disable-continue');
+        errorMessage2.innerText = "";
+    }
+    else{
+        continueButton.classList.add('disable-continue');
+        continueButton.classList.remove('enable-continue');
+    }
+}
+
+
 </script>
 
 <!DOCTYPE html>
@@ -93,7 +108,9 @@
                     <div class="signup-elements">
                         <input type="text" placeholder="Enter email" name="email">
                         <input type="text" placeholder="Enter password" name="password" id = "password" oninput="validatePassword()">
-                        <input type="text" placeholder="Confirm password" name="confirmPassword">
+                        <span id="error-message-1" style="color: red;"></span>
+                        <input type="text" placeholder="Confirm password" name="confirmPassword" id = "confirmPassword" oninput = "validatePassword()">
+                        <span id="error-message-2" style="color: red;"></span>
                     </div>
                     <input type="button" value="Continue" class="continue disable-continue" id="continue">
             </div>

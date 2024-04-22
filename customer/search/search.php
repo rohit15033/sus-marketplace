@@ -34,51 +34,56 @@
                 <input type="text" name="search" placeholder="Search here..">
             </form>
             <div class='product-container'>
-                <?php
-                session_start();
-                if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] === true) {
-                    if (isset($_POST['search'])) {
+            <?php
+session_start();
+if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] === true) {
+    if (isset($_POST['search'])) {
 
-                        $email = $_SESSION['email'];
-                        require '../../connect.php';
+        $email = $_SESSION['email'];
+        require '../../connect.php';
 
-                        $search = $_POST['search'];
-                        $searchQuery = "SELECT * FROM product_seller_view WHERE product_name LIKE '%$search%' OR category LIKE '%$search%'";
-                        $searchResult = mysqli_query($conn, $searchQuery);
+        $search = $_POST['search'];
+        $searchQuery = "SELECT * FROM product_seller_view WHERE product_name LIKE '%$search%' OR category LIKE '%$search%'";
+        $searchResult = mysqli_query($conn, $searchQuery);
 
-                        while ($row = mysqli_fetch_assoc($searchResult)) {
-                            $product_name = $row['product_name'];
-                            $image_path = $row['image_path'];
-                            $quantity = $row['quantity'];
-                            $description = $row['description'];
-                            $category = $row['category'];
-                            $price = $row['price'];
-                            $product_id = $row['product_id'];
-                            $seller_id = $row['seller_id'];
+        if(mysqli_num_rows($searchResult) === 0) {
+            echo "<p>Sorry, we don't have that yet. Try searching for something else.</p>";
+        } else {
+            while ($row = mysqli_fetch_assoc($searchResult)) {
+                $product_name = $row['product_name'];
+                $image_path = $row['image_path'];
+                $quantity = $row['quantity'];
+                $description = $row['description'];
+                $category = $row['category'];
+                $price = $row['price'];
+                $product_id = $row['product_id'];
+                $seller_id = $row['seller_id'];
 
-                            echo "<div class='product'>
-                                <a href='../product/product.php?product_id=$product_id'>
-                                    <img src='$image_path' alt='$product_name'>
-                                    <div class='product-info-container'>
-                                        <h2 class='product-name'>$product_name</h2>
-                                        <h2 class='price'>$price</h2>
-                                        <h2 class='quantity'>$quantity</h2>
-                                        <h2>$category</h2>
-                                    </div>
-                                </a>
-                            </div>";
-                        }
+                echo "<div class='product'>
+                    <a href='../product/product.php?product_id=$product_id'>
+                        <img src='$image_path' alt='$product_name'>
+                        <div class='product-info-container'>
+                            <h2 class='product-name'>$product_name</h2>
+                            <h2 class='price'>$price</h2>
+                            <h2 class='quantity'>$quantity</h2>
+                            <h2>$category</h2>
+                        </div>
+                    </a>
+                </div>";
+            }
+        }
 
-                        mysqli_close($conn);
-                    } else {
-                        header("Location: search.php");
-                        exit();
-                    }
-                } else {
-                    header("Location: ../login/login.php");
-                    exit();
-                }
-                ?>
+        mysqli_close($conn);
+    } else {
+        header("Location: search.php");
+        exit();
+    }
+} else {
+    header("Location: ../login/login.php");
+    exit();
+}
+?>
+
             </div>
         </div>
     </div>

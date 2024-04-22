@@ -1,8 +1,13 @@
 <?php
-if (isset($_SESSION['!user_logged_in']) && $_SESSION['user_logged_in'] === false)
-{
+
+session_start();
+
+if(!isset($_SESSION['user_logged_in']) || $_SESSION['user_logged_in'] !== true) {
     header("Location: ../../customer/login/login.php");
+    exit;
 }
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,8 +26,8 @@ if (isset($_SESSION['!user_logged_in']) && $_SESSION['user_logged_in'] === false
             <input type="checkbox">
         </label>
         <div class="seller-icon">
-    <img src="..\..\Assets\Icons\icons8-seller-64.png" alt="">
-    </div>
+            <img src="..\..\Assets\Icons\icons8-seller-64.png" alt="">
+        </div>
         <aside class="sidebar">
             <nav>
                 <div><a href="register.html">Register</a></div>
@@ -34,9 +39,9 @@ if (isset($_SESSION['!user_logged_in']) && $_SESSION['user_logged_in'] === false
             <a href="#" class="header-link">Register</a>
         </div>
     </header>
-    
+
     <div class="container">
-    
+
         <div class="title-subtitle-container">
             <div class="title-container">
                 <h1> Sign up to</h1>
@@ -51,15 +56,16 @@ if (isset($_SESSION['!user_logged_in']) && $_SESSION['user_logged_in'] === false
         <div class="signup-security-questions-container">
             <div class="signup-container" id="signup_container">
                 <form class="signup-form" id="signup_form" method="POST" action="registerlogic.php">
-                    <div class="signup-elements">
-                        <input type="text" placeholder="Enter your store name" name="store_name">
-                        <input type="text" placeholder="Enter password" name="password" id = "password">
-                        <input type="text" placeholder="Confirm password" name="confirmPassword">
+                <div class="signup-elements">
+                        <input type="text" placeholder="Enter Store Name" name="store_name">
+                        <input type="text" placeholder="Enter password" name="password" id = "password" oninput="validatePassword()">
+                        <span id="error-message-1" style="color: red;"></span>
+                        <input type="text" placeholder="Confirm password" name="confirmPassword" id = "confirmPassword" oninput = "validatePassword()">
+                        <span id="error-message-2" style="color: red;"></span>
                     </div>
-                    <input type="button" value="Continue" class="continue" id="continue">
+                    <input type="button" value="Continue" class="continue disable-continue" id="continue">
             </div>
-            <div class="security-questions-container security-questions-transform-before"
-                id="security_questions_container">
+            <div class="security-questions-container security-questions-transform-before" id="security_questions_container">
                 <input type="button" class="back" value="<- Back" id="back">
 
                 <select name="seller_security_question_1">
@@ -78,7 +84,7 @@ if (isset($_SESSION['!user_logged_in']) && $_SESSION['user_logged_in'] === false
                 </select>
                 <input type="text" placeholder="Security answer 2" name="seller_security_answer_2">
 
-                <input type="submit" class="submit" name="signup" id = "submit">
+                <input type="submit" class="submit" name="signup" id="submit">
             </div>
         </div>
 
@@ -87,8 +93,8 @@ if (isset($_SESSION['!user_logged_in']) && $_SESSION['user_logged_in'] === false
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            document.getElementById('continue').addEventListener('click', function (event) {
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('continue').addEventListener('click', function(event) {
                 console.log("Continue button clicked");
                 var securityQuestionsContainer = document.getElementById('security_questions_container');
                 var signupContainer = document.getElementById('signup_container');
@@ -100,8 +106,8 @@ if (isset($_SESSION['!user_logged_in']) && $_SESSION['user_logged_in'] === false
                 securityQuestionsContainer.classList.add('security-questions-transform-up');
             });
         });
-        document.addEventListener('DOMContentLoaded', function () {
-            document.getElementById('back').addEventListener('click', function (event) {
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('back').addEventListener('click', function(event) {
                 console.log("Back button clicked");
                 var securityQuestionsContainer = document.getElementById('security_questions_container');
                 var signupContainer = document.getElementById('signup_container');
@@ -113,6 +119,36 @@ if (isset($_SESSION['!user_logged_in']) && $_SESSION['user_logged_in'] === false
                 signupContainer.classList.add('signup-transform-down');
             });
         });
+
+        function validatePassword() {
+            var continueButton = document.getElementById('continue');
+            var passwordInput = document.getElementById('password');
+            var confirmPasswordInput = document.getElementById('confirmPassword');
+            var submitButton = document.getElementById('submit');
+            var errorMessage1 = document.getElementById('error-message-1');
+            var errorMessage2 = document.getElementById('error-message-2');
+
+            if (passwordInput.value.length < 8) {
+                errorMessage1.innerText = "Password must be at least 8 characters long.";
+            } else {
+                errorMessage1.innerText = "";
+            }
+
+            if (passwordInput.value == confirmPasswordInput.value) {
+                errorMessage2.innerText = "";
+            } else {
+                errorMessage2.innerText = "Passwords do not match.";
+            }
+
+            if (passwordInput.value === confirmPasswordInput.value && passwordInput.value.length >= 8) {
+                continueButton.classList.add('enable-continue');
+                continueButton.classList.remove('disable-continue');
+                errorMessage2.innerText = "";
+            } else {
+                continueButton.classList.add('disable-continue');
+                continueButton.classList.remove('enable-continue');
+            }
+        }
     </script>
 </body>
 
