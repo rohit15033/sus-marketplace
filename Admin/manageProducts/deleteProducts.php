@@ -12,17 +12,7 @@
 <?php
     if (isset($_POST['delete']))
     {
-        $db_host = "localhost";
-        $db_username = "root";
-        $db_password = "";
-        $db_name = "susmarketplace";
-
-        $conn = new mysqli($db_host, $db_username, $db_password, $db_name);
-        if ($conn -> connect_error)
-        {
-            die("Connection failed: ". $conn -> connect_error);
-        }
-
+        require '../../connect.php';
         $product_id = $_POST['product_id'];
 
 

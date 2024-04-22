@@ -2,17 +2,10 @@
 session_start();
 if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] === true) {
 
-    $db_host = "localhost";
-    $db_username = "root";
-    $db_password = "";
-    $db_name = "susmarketplace";
-    $conn = new mysqli($db_host, $db_username, $db_password, $db_name);
+    require '../../connect.php';
 
     $user_id = $_SESSION['user_id'];
 
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
 
     if (isset($_POST['add_to_cart'])) {
 
