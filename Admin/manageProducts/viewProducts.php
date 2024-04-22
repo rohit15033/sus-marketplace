@@ -1,24 +1,6 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <form action="searchProducts.php" method="POST">
-        <input type='text' name='search' placeholder="Search Sellers">
-    </form>
-</body>
-
-</html> -->
-
-
 <?php
-
 if (isset($_POST['view'])) {
+    $seller_id = $_POST['seller_id'];
     require '../../connect.php';
 
     $viewQuery = "SELECT * FROM product_seller_view WHERE seller_id = '$seller_id'";
