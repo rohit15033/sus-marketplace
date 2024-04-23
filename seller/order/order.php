@@ -16,6 +16,13 @@
             <div class="logo-container">
                 <img src="..\..\TestimonyAsset\su-logo-light.png" alt="">
             </div>
+            <!-- Add the search bar here -->
+            <div class="search-container">
+                <form action="" method="POST">
+                    <input type="text" name="search" placeholder="Search by order ID or seller email">
+                    <button type="submit" name="submit_search">Search</button>
+                </form>
+            </div>
         </header>
 
         <aside class="sidebar-container">
@@ -68,6 +75,7 @@
                                         <option value="<?php echo $order_status; ?>"><?php echo $order_status; ?></option>
                                         <option value="Processing">Processing</option>
                                         <option value="Ready for Pickup">Ready for Pickup</option>
+                                        <option value="Cancelled">Cancel</option>
                                     </select>
                                 </div>
                                 <input type="hidden" value="<?php echo $order_number; ?>" name="order_number[]">

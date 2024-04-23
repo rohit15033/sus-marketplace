@@ -1,4 +1,13 @@
-::after,
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/2cbd32f941.js" crossorigin="anonymous"></script>
+    <style>
+        ::after,
 ::before {
   box-sizing: border-box;
 }
@@ -22,11 +31,6 @@
   --input-background-color: #F1F0FB;
 }
 
-body {
-  background-color: var(--background-colour);
-  margin: 0;
-  font-family: 'Poppins';
-}
 
 .hamburger-menu::before,
 .hamburger-menu::after,
@@ -41,11 +45,6 @@ body {
     width var(--animation-timing), translate var(--animation-timing), rotate var(--animation-timing);
 }
 
-.global-container {
-  width: 100%;
-  max-height: fit-content;
-}
-
 .categories-section {
   display: flex;
   position: absolute;
@@ -57,265 +56,19 @@ body {
   /* background-color: var(--background-colour); */
 }
 
-
-.superior-tagline-header-container {
-  display: flex;
-  flex-direction: column;
-}
-
-.tagline-searchbar-container {
-  /* border: solid black 5px; */
-  display: flex;
-  flex-direction: row;
-  gap: 30vh;
-  position: relative;
-  bottom: 30px;
-  font-family: 'Inter', sans-serif;
-  font-size: 18px;
-  height: 100px;
-  width: 100%;
-}
-
-.tagline-header-container {
-  position: relative;
-  width: fit-content;
-  top: -20px;
-  left: 200px
-}
-
-.lesser-tagline-header-container {
-  position: relative;
-  width: fit-content;
-  height: fit-content;
-  margin: 5px;
-  top: -44px;
-  left: 200px;
-}
-
-
-.tagline-searchbar-container input {
-  padding: 5px;
-  border-color: rgba(19, 19, 19, 0.767);
-  border-radius: 10px;
-  margin-right: 10px;
-  width: 800px;
-  height: 40px;
-}
-
-.searchbar {
-  /* position:relative; */
-  width: fit-content;
-  left: 40%;
-}
-
-.searchbar button {
-  background-color: #2A05FA;
-  color: white;
-  padding: 5px;
-  border-radius: 70px;
-  border-color: rgba(0, 0, 0, 0);
-  height: 50px;
-  width: 100px;
-  font-family: 'Inter', sans-serif;
-  font-size: 18px;
-  font-size: 18px;
-}
-
-.searchbar input[type="text"] {
-  width: 70vh;
-}
-
-
-input::placeholder {
-  font-family: 'Inter', sans-serif;
-  font-weight: lighter;
-  font-style: italic;
-  font-stretch: extra-expanded;
-}
-
 .categories-container {
   width: fit-content;
 }
 
 .categories-container h2 {
-  /* font-size: 50px;
+  font-size: 50px;
   font-family: 'Poppins';
-  color: var(--text-colour); */
+  color: var(--text-colour);
 }
 
 .categories-title {
   font-size: 24px;
 }
-
-.ultimate-testimony-container {
-  display: flex;
-  position: absolute;
-  top: 100vh;
-  width: 100%;
-  height: 768px;
-  background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(https://ahmadnurfais.my.id/addition/img/03a.jpeg);
-  align-items: center;
-  justify-content: center;
-}
-
-.testimony-container {
-  display: flex;
-  height: 308px;
-  width: 603px;
-  color: white;
-  font-family: 'Inter', sans-serif;
-  font-size: 24px;
-  font-weight: bold;
-  text-align: center;
-  flex-direction: column;
-  align-items: center;
-  justify-items: center;
-}
-
-.testimony-user {
-  display: flex;
-  width: 60%;
-  height: 30%;
-  position: relative;
-  bottom: 10px;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
-}
-
-#user-text {
-  font-weight: lighter;
-  font-size: 20px;
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.profile-pic {
-  width: 45px;
-  height: 45px;
-}
-
-.footer {
-  display: flex;
-  position: absolute;
-  top: 200vh;
-  width: 100%;
-  height: 600px;
-  background-color: white;
-  text-align: center;
-  z-index: 0;
-  flex-direction: column;
-}
-
-.footer-accent1 {
-  position: relative;
-  top: 0px;
-  width: 100%;
-  height: 10px;
-  background-color: var(--secondary-colour);
-  z-index: 1;
-}
-
-.footer-accent2 {
-  position: relative;
-  top: 0px;
-  width: 100%;
-  height: 40px;
-  background-color: var(--primary-colour);
-  z-index: 1;
-}
-
-.footer-logo {
-  position: relative;
-  top: 50px;
-  left: 220px;
-  width: 380px;
-  height: 120px;
-}
-
-.footer-logo img {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  object-fit: cover;
-  object-position: center;
-}
-
-.footer-details1 {
-  position: relative;
-  top: 70px;
-  left: 220px;
-  width: fit-content;
-  height: fit-content;
-  text-align: left;
-  font-family: 'Inter', sans-serif;
-  font-size: 18px;
-  font-weight: medium;
-}
-
-.footer-details1 p {
-  margin-bottom: 3px;
-  margin-top: 3px;
-}
-
-.footer-details2 {
-  position: relative;
-  top: 90px;
-  left: 220px;
-  width: fit-content;
-  height: fit-content;
-  text-align: left;
-  font-family: 'Inter', sans-serif;
-  font-size: 18px;
-  font-weight: medium;
-}
-
-.footer-details2 p {
-  margin-bottom: 3px;
-  margin-top: 3px;
-}
-
-.social-media-container {
-  display: flex;
-  position: relative;
-  top: 110px;
-  left: 220px;
-  width: 380px;
-  justify-content: space-around;
-}
-
-.resources-container {
-  position: relative;
-  top: 50px;
-  left: 1400px;
-  width: 100px;
-}
-
-.footer-accent3 {
-  position: relative;
-  top: 200px;
-  width: 100%;
-  height: 10px;
-  background-color: var(--secondary-colour);
-  z-index: 1;
-}
-
-.footer-accent4 {
-  position: relative;
-  top: 200px;
-  width: 100%;
-  height: 65px;
-  background-color: var(--primary-colour);
-  z-index: 1;
-  line-height: 40px;
-}
-
-.footer-accent4 h3 {
-  font-family: 'Inter', sans-serif;
-  color: white;
-  font-size: 15px;
-  font-weight: lighter;
-}
-
 
 .hamburger-menu {
   display: flex;
@@ -371,6 +124,8 @@ input::placeholder {
   transition: transform var(--animation-timing);
   z-index: 2;
   text-align: center;
+  padding-left:3vh;
+  padding-right:3vh;
 }
 
 
@@ -570,38 +325,54 @@ header.hide {
   z-index: 1;
 }
 
-.carousel {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-  z-index: 0;
-}
+    </style>
+</head>
 
-.carousel img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+</html>
 
-.carousel-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 40px;
-  height: 40px;
-  border: none;
-  cursor: pointer;
-  font-size: 20px;
-  color: rgba(255, 255, 255, 1);
-  background-color: rgba(74, 74, 74, 0.181);
-  border-radius: 10px;
-}
+<header>
+    <a href="../order/order.php" class="header-text-orders"><i class="fa-solid fa-receipt"></i></a>
+    <a href="../cart/viewCart.php" class="header-text-cart"><i class="fa-solid fa-cart-shopping"></i></a>
+    <a href="../../seller/login/login.php" class="header-text-store"><i class="fa-solid fa-store"></i></a>
+    <div class="header-logo">
+        <a href="https://www.sampoernauniversity.ac.id"><img src="../../TestimonyAsset/su-logo-light.png" alt=""></a>
+    </div>
 
-#prevBtn {
-  left: 10px;
-  z-index: 2;
-}
-
-#nextBtn {
-  right: 10px;
-  z-index: 2;
-}
+    <label class="hamburger-menu">
+        <input type="checkbox">
+    </label>
+    <aside class="sidebar">
+        <h1 id="sidebar-text">Sitemap</h1>
+        <nav class="sidebar-container">
+            <!-- <div class="sidebar-links"><a class='link' href="../cart/viewCart.php"><i class="fa-solid fa-cart-shopping"></i> My Cart</a></div> -->
+            <div class="sidebar-links"><a class='link' href="../order/order.php"><i class="fa-solid fa-receipt"></i> My Orders</a></div>
+            <div class="sidebar-links"><a class='link' href="../../seller/register/register.php"><i class="fa-solid fa-store"></i> Start Selling</a></div>
+            <div class="sidebar-links"><a class='link' href="../../customer/homepage/homepage.php"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-home"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l-2 0l9 -9l9 9l-2 0" /><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" /><path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" /></svg> Homepage</a></div>
+            <div class="sidebar-links dropdown">
+                <span class="dropdown-btn" onclick="toggleDropdown()"><i class="fa-solid fa-angle-down"></i> Categories</span>
+                <div class="dropdown-content" id="dropdown-content">
+                    <a href="#" onclick="searchCategory('electronics')">Electronics</a>
+                    <a href="#" onclick="searchCategory('clothing')">Clothing</a>
+                    <a href="#" onclick="searchCategory('books')">Books</a>
+                    <a href="#" onclick="searchCategory('home_appliances')">Home Appliances</a>
+                    <a href="#" onclick="searchCategory('sports')">Sports</a>
+                    <a href="#" onclick="searchCategory('toys')">Toys</a>
+                    <a href="#" onclick="searchCategory('beauty')">Beauty</a>
+                    <a href="#" onclick="searchCategory('health')">Health</a>
+                    <a href="#" onclick="searchCategory('food')">Food</a>
+                    <a href="#" onclick="searchCategory('furniture')">Furniture</a>
+                    <a href="#" onclick="searchCategory('jewelry')">Jewelry</a>
+                    <a href="#" onclick="searchCategory('tools')">Tools</a>
+                    <a href="#" onclick="searchCategory('pet_supplies')">Pet Supplies</a>
+                    <a href="#" onclick="searchCategory('office_supplies')">Office Supplies</a>
+                    <a href="#" onclick="searchCategory('automotive')">Automotive</a>
+                    <a href="#" onclick="searchCategory('baby')">Baby</a>
+                    <a href="#" onclick="searchCategory('music')">Music</a>
+                    <a href="#" onclick="searchCategory('movies')">Movies</a>
+                    <a href="#" onclick="searchCategory('games')">Games</a>
+                </div>
+            </div>
+            <div class="sidebar-links"><a href="../logout/logout.php"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-logout"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" /><path d="M9 12h12l-3 -3" /><path d="M18 15l3 -3" /></svg>Logout</a></div>
+        </nav>
+    </aside>
+</header>

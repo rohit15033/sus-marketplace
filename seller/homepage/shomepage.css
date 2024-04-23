@@ -9,11 +9,12 @@ body {
     margin: 0px;
 }
 
+a{
+    text-decoration: none;
+}
+
 .global-container {
-    top : 0;
-    left: 0;
-    width: 100%;
-    max-height: fit-content;
+    margin-top: 7vh;
     display: flex;
 }
 
