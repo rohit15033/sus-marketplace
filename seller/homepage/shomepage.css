@@ -14,7 +14,6 @@ a{
 }
 
 .global-container {
-    margin-top: 7vh;
     display: flex;
 }
 
@@ -125,6 +124,7 @@ header {
 
 .product-info-container {
     position: relative;
+    top: 50%;
     border-bottom-left-radius: var(--border-radius);
     border-bottom-right-radius: var(--border-radius);
     width: 100%;
