@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Product Update Page</title>
     <link rel="stylesheet" href="updateProduct.css">
 </head>
 <body>
+    
+    <div class="product-update-container">
     <h2>Product Info Update Form</h2>
-    <div class="product-creation-container">
     <form method="POST" action="updateProductlogic.php" enctype="multipart/form-data">
 
         <input type="hidden" name="product_id" value="<?php echo $_GET['product_id']; ?>">
