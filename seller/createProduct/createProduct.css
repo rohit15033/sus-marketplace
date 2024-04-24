@@ -6,16 +6,10 @@ body {
     justify-content: center;
 }
 
-body h2 {
-    position: absolute;
-    top:200px;
-    font-family: 'inter', sans-serif;
-    font-weight: bolder;
-    color: black;
-}
 
 .product-creation-container {
     display: flex;
+    flex-direction: column;
     align-items: center;
     border-radius: 20px;
     position: relative;
@@ -24,9 +18,6 @@ body h2 {
     width: 30%;
     height: fit-content;
     font-family: 'inter', sans-serif;
-    letter-spacing: 2px;
-    font-weight: bold;
-    color: gray;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
@@ -43,4 +34,7 @@ body h2 {
 .form-element-container {
     position: relative;
     padding: 15px;
+    font-weight: bold;
+    color: gray;
+    letter-spacing: 2px;  
 }
