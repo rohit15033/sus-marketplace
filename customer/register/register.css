@@ -236,6 +236,21 @@
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
 
+  .email, .password
+  {
+    position: relative;
+    top: 8.5vh;
+  }
+
+  .show-password
+  {
+    position: relative;
+    top: 1.9vh;
+    width: fit-content;
+    border: none;
+    left: 48vh;
+  }
+
    .header-links {
     position: absolute;
     top: 50%;

@@ -137,11 +137,11 @@ input::placeholder {
   width: fit-content;
 }
 
-.categories-container h2 {
-  /* font-size: 50px;
+/* .categories-container h2 {
+  font-size: 50px;
   font-family: 'Poppins';
-  color: var(--text-colour); */
-}
+  color: var(--text-colour);
+} */
 
 .categories-title {
   font-size: 24px;
@@ -150,7 +150,7 @@ input::placeholder {
 .ultimate-testimony-container {
   display: flex;
   position: absolute;
-  top: 100vh;
+  top: 200vh;
   width: 100%;
   height: 768px;
   background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(https://ahmadnurfais.my.id/addition/img/03a.jpeg);
@@ -197,7 +197,7 @@ input::placeholder {
 .footer {
   display: flex;
   position: absolute;
-  top: 200vh;
+  top: 300vh;
   width: 100%;
   height: 600px;
   background-color: white;

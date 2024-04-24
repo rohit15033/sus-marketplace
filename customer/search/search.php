@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://kit.fontawesome.com/2cbd32f941.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="search.css">
 </head>
 
@@ -60,16 +61,21 @@ if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] === true) 
                 $seller_id = $row['seller_id'];
 
                 echo "<div class='product'>
-                    <a href='../product/product.php?product_id=$product_id'>
-                        <img src='$image_path' alt='$product_name'>
-                        <div class='product-info-container'>
-                            <h2 class='product-name'>$product_name</h2>
-                            <h2 class='price'>$price</h2>
-                            <h2 class='quantity'>$quantity</h2>
-                            <h2>$category</h2>
+                <a href='../product/product.php?product_id=$product_id'>
+                    <img src='$image_path' alt='$product_name'>
+                    <div class='product-info-container'>
+                    <div class = 'name-price-container'>
+                        <h2 class='product-name'>$product_name</h2>
+                        <h2 class='price'><i class='fa-solid fa-dollar-sign'></i>$price</h2>
+                    </div>
+                        <div class = 'quantity-class-container'>
+                            <div class = 'quantity'><h2>Qty: $quantity</h2></div>
+                            <div class = 'category'><h2><i class='fa-solid fa-tag'></i> $category</h2></div>
                         </div>
-                    </a>
-                </div>";
+                    </div>
+                </a>
+            </div>";
+            
             }
         }
 

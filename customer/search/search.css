@@ -146,7 +146,14 @@ h2 {
     box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.29);
     -webkit-box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.29);
     -moz-box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.29);
+    transition: transform 0.3s, box-shadow 0.3s; /* Add box-shadow to transition */
 }
+
+.product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 22px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1); /* Fix syntax */
+}
+
 
 .product-price-container {
     display: flex;
@@ -161,15 +168,61 @@ h2 {
 
 
 .product-name {
-    font-size: 14px;
+    position: relative;
+    left: 3vh;
+    font-size: 18px;
+    font-weight: 300;
 }
 
 .price {
+    position: relative;
+    bottom: 3.6vh;
+    left: 3vh;
+    font-size: 24px;
+    font-weight: bolder;
+}
+.price h2 {
+    position: relative;
+    left: 2vh;
+
+}
+
+.quantity h2 {
     font-size: 14px;
 }
 
-.quantity {
+/* .quantity{
+    font
+} */
+
+.quantity-class-container
+{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    bottom: 6.5vh;
+    gap: 5vh;
+    left: 1vh;
+}
+
+.name-price-container
+{
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    position: relative;
+    right: 2vh;
+}
+
+.category h2{
     font-size: 14px;
+    font-weight: bold;
+    text-align: right;
+}
+
+.category
+{
+    width: 15vh;
 }
 
 .product a {
@@ -177,10 +230,7 @@ h2 {
     color: black;
 }
 
-.category {
-    padding-right: 4px;
-    font-size: 14px;
-}
+
 
 .product img {
     border-top-right-radius: var(--border-radius);
@@ -193,4 +243,9 @@ h2 {
 
 .product-info-container h2 {
     margin-left: 5px;
+}
+
+.product-info-container {
+    height: 15vh;
+    width: 29vh;
 }

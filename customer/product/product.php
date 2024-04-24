@@ -7,59 +7,7 @@
     <title>Your Page Title</title>
     <script src="https://kit.fontawesome.com/2cbd32f941.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins&display=swap">
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .container {
-            display: flex;
-            justify-content: space-between;
-            padding: 20px;
-        }
-
-        .left,
-        .middle,
-        .right {
-            flex: 1;
-            margin: 10px;
-        }
-
-        .product-image {
-            width: 400px;
-            height: auto;
-        }
-
-
-        .order-card {
-            border: 1px solid grey;
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        .quantity,
-        .notes {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-        }
-
-        .cart-button,
-        .buy-button {
-            border-radius: 10px;
-            display: block;
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            color: white;
-            box-shadow: 0px 14px 32px 0px rgba(0,0,0,0.57);
--webkit-box-shadow: 0px 14px 32px 0px rgba(0,0,0,0.57);
--moz-box-shadow: 0px 14px 32px 0px rgba(0,0,0,0.57);
-            cursor: pointer;
-        }
-        
-    </style>
+    <link rel="stylesheet" href="product.css">
 </head>
 
 <body>

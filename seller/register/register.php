@@ -2,10 +2,10 @@
 
 session_start();
 
-if(!isset($_SESSION['user_logged_in']) || $_SESSION['user_logged_in'] !== true) {
-    header("Location: ../../customer/login/login.php");
-    exit;
-}
+// if(!isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] == false) {
+//     header("Location: ../../customer/login/login.php");
+//     exit;
+// }
 
 
 ?>
@@ -58,9 +58,19 @@ if(!isset($_SESSION['user_logged_in']) || $_SESSION['user_logged_in'] !== true) 
                 <form class="signup-form" id="signup_form" method="POST" action="registerlogic.php">
                 <div class="signup-elements">
                         <input type="text" placeholder="Enter Store Name" name="store_name">
-                        <input type="text" placeholder="Enter password" name="password" id = "password" oninput="validatePassword()">
+                        <input type="password" placeholder="Enter password" name="password" id = "password" oninput="validatePassword()">
+                        <button type="button" id="showPassBtn" onclick="togglePassword()" class = "show-password">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-eye">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+                                <path
+                                    d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" />
+                            </svg>
+                        </button>
                         <span id="error-message-1" style="color: red;"></span>
-                        <input type="text" placeholder="Confirm password" name="confirmPassword" id = "confirmPassword" oninput = "validatePassword()">
+                        <input type="password" placeholder="Confirm password" name="confirmPassword" id = "confirmPassword" oninput = "validatePassword()">
                         <span id="error-message-2" style="color: red;"></span>
                     </div>
                     <input type="button" value="Continue" class="continue disable-continue" id="continue">
@@ -93,63 +103,74 @@ if(!isset($_SESSION['user_logged_in']) || $_SESSION['user_logged_in'] !== true) 
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('continue').addEventListener('click', function(event) {
-                console.log("Continue button clicked");
-                var securityQuestionsContainer = document.getElementById('security_questions_container');
-                var signupContainer = document.getElementById('signup_container');
+    var showPassButton = document.getElementById('showPassBtn');
+    var continueButton = document.getElementById('continue');
+    var passwordInput = document.getElementById('password');
+    var confirmPasswordInput = document.getElementById('confirmPassword');
+    var submitButton = document.getElementById('submit');
+    var errorMessage1 = document.getElementById('error-message-1');
+    var errorMessage2 = document.getElementById('error-message-2');
 
-                signupContainer.classList.remove('signup-transform-down');
-                securityQuestionsContainer.classList.remove('security-questions-transform-down');
+    document.addEventListener('DOMContentLoaded', function() {
+        continueButton.addEventListener('click', function(event) {
+            console.log("Continue button clicked");
+            var securityQuestionsContainer = document.getElementById('security_questions_container');
+            var signupContainer = document.getElementById('signup_container');
 
-                signupContainer.classList.add('signup-transform-up');
-                securityQuestionsContainer.classList.add('security-questions-transform-up');
-            });
-        });
-        document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('back').addEventListener('click', function(event) {
-                console.log("Back button clicked");
-                var securityQuestionsContainer = document.getElementById('security_questions_container');
-                var signupContainer = document.getElementById('signup_container');
+            signupContainer.classList.remove('signup-transform-down');
+            securityQuestionsContainer.classList.remove('security-questions-transform-down');
 
-                signupContainer.classList.remove('signup-transform-up');
-                securityQuestionsContainer.classList.remove('security-questions-transform-up');
-
-                securityQuestionsContainer.classList.add('security-questions-transform-down');
-                signupContainer.classList.add('signup-transform-down');
-            });
+            signupContainer.classList.add('signup-transform-up');
+            securityQuestionsContainer.classList.add('security-questions-transform-up');
         });
 
-        function validatePassword() {
-            var continueButton = document.getElementById('continue');
-            var passwordInput = document.getElementById('password');
-            var confirmPasswordInput = document.getElementById('confirmPassword');
-            var submitButton = document.getElementById('submit');
-            var errorMessage1 = document.getElementById('error-message-1');
-            var errorMessage2 = document.getElementById('error-message-2');
+        document.getElementById('back').addEventListener('click', function(event) {
+            console.log("Back button clicked");
+            var securityQuestionsContainer = document.getElementById('security_questions_container');
+            var signupContainer = document.getElementById('signup_container');
 
-            if (passwordInput.value.length < 8) {
-                errorMessage1.innerText = "Password must be at least 8 characters long.";
-            } else {
-                errorMessage1.innerText = "";
-            }
+            signupContainer.classList.remove('signup-transform-up');
+            securityQuestionsContainer.classList.remove('security-questions-transform-up');
 
-            if (passwordInput.value == confirmPasswordInput.value) {
-                errorMessage2.innerText = "";
-            } else {
-                errorMessage2.innerText = "Passwords do not match.";
-            }
+            securityQuestionsContainer.classList.add('security-questions-transform-down');
+            signupContainer.classList.add('signup-transform-down');
+        });
+    });
 
-            if (passwordInput.value === confirmPasswordInput.value && passwordInput.value.length >= 8) {
-                continueButton.classList.add('enable-continue');
-                continueButton.classList.remove('disable-continue');
-                errorMessage2.innerText = "";
-            } else {
-                continueButton.classList.add('disable-continue');
-                continueButton.classList.remove('enable-continue');
-            }
+    function validatePassword() {
+        if (passwordInput.value.length < 8) {
+            errorMessage1.innerText = "Password must be at least 8 characters long.";
+        } else {
+            errorMessage1.innerText = "";
         }
-    </script>
+
+        if (passwordInput.value == confirmPasswordInput.value) {
+            errorMessage2.innerText = "";
+        } else {
+            errorMessage2.innerText = "Passwords do not match.";
+        }
+
+        if (passwordInput.value === confirmPasswordInput.value && passwordInput.value.length >= 8) {
+            continueButton.classList.add('enable-continue');
+            continueButton.classList.remove('disable-continue');
+            errorMessage2.innerText = "";
+        } else {
+            continueButton.classList.add('disable-continue');
+            continueButton.classList.remove('enable-continue');
+        }
+    }
+
+    function togglePasswordVisibility() {
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            showPassButton.textContent = "Hide Password";
+        } else {
+            passwordInput.type = "password";
+            showPassButton.textContent = "Show Password";
+        }
+    }
+</script>
+
 </body>
 
 </html>

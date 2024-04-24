@@ -96,9 +96,20 @@ if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] === true) 
             $ordernumberRow = mysqli_fetch_assoc($checkorderResult);
             $order_number = $ordernumberRow['order_number'];
 
-            $insertOrderDetailsQuery = "INSERT INTO order_details (order_number, product_id, quantity, price, product_subtotal, user_id, order_status) 
+            if ($cart_quantity <= $quantity ) {
+                $insertOrderDetailsQuery = "INSERT INTO order_details (order_number, product_id, quantity, price, product_subtotal, user_id, order_status) 
                 VALUES ('$order_number', '$product_id', '$cart_quantity', '$price', '$productPrice','$user_id', 'Waiting for confirmation')";
-            mysqli_query($conn, $insertOrderDetailsQuery);
+                mysqli_query($conn, $insertOrderDetailsQuery);
+
+                $decrementQuantityQuery = "UPDATE products SET quantity = quantity - $cart_quantity WHERE id = '$product_id'";
+                mysqli_query($conn, $decrementQuantityQuery);
+            }
+            else
+            {
+                $_SESSION['invalid_stock'] = "This product is finished";
+                header("location: viewCart.php");
+                exit();
+            }
         }
         $flushcartQuery = "DELETE FROM cart WHERE user_id = '$user_id'";
         $flushcartResult = mysqli_query($conn, $flushcartQuery);

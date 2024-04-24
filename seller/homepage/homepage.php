@@ -38,13 +38,12 @@
         $Result = mysqli_query($conn, $getQuery);
 
         
-        // Check if there are no products
+        if (isset($_SESSION['seller_logged_in']) && $_SESSION['seller_logged_in'] === true) {
         if (mysqli_num_rows($Result) === 0) {
             echo "<div class='product-container'>";
             echo "<p>Start making products to sell <a href='../createProduct/createProduct.html'>here</a>.</p>";
             echo "</div>";
         } else {
-            // Loop through the products
             echo "<div class='product-container'>";
             while ($row = mysqli_fetch_assoc($Result)) {
                 $product_name = $row['product_name'];
@@ -77,8 +76,14 @@
         </a>
     </div>";
             }
-            echo "</div>"; // Close product-container div
+            echo "</div>";
         }
+    }
+    else
+    {
+        header ("location ../login/login.php");
+        exit();
+    }
         ?>
 
     </div>
