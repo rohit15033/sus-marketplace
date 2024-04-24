@@ -94,6 +94,27 @@ header {
     color: white;
 }
 
+select {
+    position: relative;
+    top: 2.5vh;
+    left: 10vh;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+select:focus {
+    border-color: #2A05FA; /* Change border color on focus */
+}
+
+/* Style the options */
+select option {
+    padding: 8px;
+}
+
 .product-container {
     position: relative;
     top: 74px;
@@ -102,18 +123,73 @@ header {
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
-    height: fit-content;
+    /* height: fit-content; */
     margin: 0 auto;
 }
 
 .product {
     width: 300px;
-    height: 400px;
+    height: 700px;
     margin: 40px;
     border-radius: var(--border-radius);
     box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.29);
     -webkit-box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.29);
     -moz-box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.29);
+}
+
+/* Add this to your existing CSS */
+/* Add this to your existing CSS */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-update-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-container input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+.search-container button {
+    padding: 10px 20px;
+    background-color: #2A05FA;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+}
+
+.search-container button:hover {
+    background-color: #1E3C72;
+}
+
+.submit-button-container input[type="submit"] {
+    bottom: 50vh;
+    padding: 10px 20px;
+    background-color: #2A05FA;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+}
+
+.submit-button-container input[type="submit"]:hover {
+    background-color: #1E3C72;
 }
 
 
@@ -129,72 +205,76 @@ header {
 
 
 
+
+.submit-button-container input {
+
+    padding: 20px 40px; 
+    background-color: #2A05FA; 
+    color: white; 
+    border: none; 
+    border-radius: 10px; 
+    cursor: pointer; 
+    font-size: 16px;
+}
+
 .product-info-container {
     position: relative;
+    left: 3vh;
     border-bottom-left-radius: var(--border-radius);
     border-bottom-right-radius: var(--border-radius);
     width: 100%;
-    max-height: 138px;
+    height: fit-content;
     font-family: 'Inter', sans-serif;
+}
+
+.product-info-container h2 {
+    position: relative;
+    right: 1.1vh;
 }
 
 .product-info-container h2{
     padding: 10px;
+    margin-top: 0;
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+}
+
+.product-info-container p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #666;
+}
+
+.product-info-container .order-status {
+    margin-top: 10px;
 }
 
 .product-info-container select {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
     position: relative;
     bottom: 100px;
     left: 15px;
 }
 
-.product-name {
-    position: relative;
-    top: -30px;
-    left: 20px;
-    font-size: 16px;
-}
-
-.quantity {
-    position: relative;
-    top: -45px;
-    left: 20px;
-    font-size: 14px;
-}
-
-.price {
-    position: relative;
-    top: -55px;
-    left: 20px;
-    font-size: 14px;
-}
-
-.subtotal {
-    position: relative;
-    top: -105px;
-    left: 180px;
-    font-size: 14px;
-}
-
-.order-date {
-    position: relative;
-    top: -115px;
-    left: 180px;
-    font-size: 14px;
-}
-
-.user-email {
-    position: relative;
-    top: -105px;
-    left: 20px;
-    font-size: 12px;
-}
-
-.submit-button-container {
+.product-info-container {
     position: relative;
     width: fit-content;
-    left: 230px;
-    top:-5%;
+    left: 5vh;
+    top: 2.5vh;
+}
+
+.submit-button-container 
+{
+    position: relative;
+    bottom: 115.2vh;
+    left: 13    0vh;
+    z-index: 2;
 }
 
 .submit-button-container input {
@@ -209,4 +289,10 @@ header {
 
 .submit-button-container input:hover {
     background-color: #1E3C72; /* Change background color on hover */
+}
+
+/* Add hover effect */
+.product:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
 }

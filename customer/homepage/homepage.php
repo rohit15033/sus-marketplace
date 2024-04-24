@@ -1,3 +1,7 @@
+<?php
+session_start();
+$user_id = $_SESSION['user_id'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,48 +9,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins&display=swap">
+    <script src="https://kit.fontawesome.com/2cbd32f941.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="homepage.css">
-
 </head>
 
 <body>
 
     <div class="global-container">
         <div class="hero-container">
-            <header>
-                <div class="header-logo">
-                    <a href="https://www.sampoernauniversity.ac.id"><img src="../../TestimonyAsset/su-logo-light.png"
-                            alt=""></a>
-                </div>
 
-                <label class="hamburger-menu">
-                    <input type="checkbox">
-                </label>
-                <aside class="sidebar">
-                    <h1 id="sidebar-text">Sitemap</h1>
-                    <nav>
-                        <div class="sidebar-links"><a href="">Login</a></div>
-                        <div class="sidebar-links"><a href="">Register</a></div>
-                        <div class="sidebar-links"><a href="">About</a></div>
-                        <div class="sidebar-links"><a href="">Contact</a></div>
-                        <div class="sidebar-links"><a href="../order/order.php">My Orders</a></div>
-                        <div class="sidebar-links"><a href="../../seller/register/register.php">Start Selling!</a></div>
-                        <div class="sidebar-links"><a href="../logout/logout.php">Logout</a></div>
-                    </nav>
-                </aside>
-
-            </header>
+        <?php
+            require '../navbar/navbar.html'; ?>
             <div class="header-accent">
 
             </div>
             <div class="carousel-container">
                 <button id="prevBtn" class="carousel-button">&#10094;</button>
                 <div class="carousel">
-                    <div class="carousel">
-                        <img src="../../Assets/carousel/carousel1.jpeg" alt="img">
-                        <img src="../../Assets/carousel/carousel2.jpeg" alt="img">
-                        <img src="../../Assets/carousel/carousel3.jpeg" alt="img">
-                    </div>
+                    <img src="../../Assets/carousel/carousel1.jpeg" alt="img">
+                    <img src="../../Assets/carousel/carousel2.jpeg" alt="img">
+                    <img src="../../Assets/carousel/carousel3.jpeg" alt="img">
                 </div>
                 <button id="nextBtn" class="carousel-button">&#10095;</button>
             </div>
@@ -55,15 +38,14 @@
         <div class="categories-section">
 
             <div class="tagline-searchbar-container">
-
-                <div class="tagline-header-container">
-                    <h1>Welcome to SU Shop!</h1>
+                <div class="superior-tagline-header-container">
+                    <div class="tagline-header-container">
+                        <h1>Welcome to SU Shop!</h1>
+                    </div>
+                    <div class="lesser-tagline-header-container">
+                        <p>Click on a product or use the search bar to continue.</p>
+                    </div>
                 </div>
-
-                <div class="lesser-tagline-header-container">
-                    <p>Click on a product or use the search bar to continue.</p>
-                </div>
-
                 <div class="searchbar">
                     <form action="../search/search.php" method="POST">
                         <input type="text" name="search" placeholder="Search here...">
@@ -75,74 +57,9 @@
 
 
             <div class="categories-container">
-
                 <?php
-                session_start();
-                require '../../connect.php';
-
-                $getQuery = "SELECT * FROM product_seller_view ORDER BY RAND() LIMIT 5";
-                $Result = mysqli_query($conn, $getQuery);
+                require '../productOfTheDay/productOfTheDay.php';
                 ?>
-                <div class='productoftheday-container'>
-
-                    <?php
-
-                    $counter = 1;
-                    if (mysqli_num_rows($Result) > 0) {
-                        while ($row = mysqli_fetch_assoc($Result)) {
-                            $product_name = $row['product_name'];
-                            $image_path = $row['image_path'];
-                            $quantity = $row['quantity'];
-                            $description = $row['description'];
-                            $category = $row['category'];
-                            $price = $row['price'];
-                            $product_id = $row['product_id'];
-                            $seller_id = $row['seller_id'];
-
-                            if ($counter == 1) {
-                                echo "<div class='productoftheday'>";
-                                echo "<h1> Product Of The Day</h1>";
-                                echo "<div class='product'>";
-                                echo "<a href='../product/product.php?product_id=$product_id'>";
-                                echo "<img src='$image_path' alt='$product_name'>";
-                                echo "<div class = 'product-details'>";
-                                echo "<div>";
-                                echo "<h2 class='productoftheday-title'>$product_name</h2>";
-                                echo "</div>";
-                                echo "<div class='productoftheday-price'>";
-                                echo "<h2>$price</h2>";
-                                echo "</div>";
-                                echo "</div>";
-                                echo "</div>";
-                                echo "</div>";
-                                $counter++;
-                                continue;
-                            }
-
-                            if ($counter == 2) {
-                                echo "<div class = 'products'>";
-                            }
-
-                            echo "<div class='product'>";
-                            echo "<a href='../product/product.php?product_id=$product_id'></a>";
-                            echo "<img src='$image_path' alt='$product_name' >";
-                            echo "<div class = 'product-details'>";
-                            echo "<div>";
-                            echo "<p>$product_name</p>";
-                            echo "</div>";
-                            echo "<div class='price'>";
-                            echo "<p>$price</p>";
-                            echo "</div>";
-                            echo "</div>";
-                            echo "</div>";
-
-                            if ($counter == 5) {
-                                echo "</div>";
-                            }
-                            $counter++;
-                        }
-                    }
-                    ?>
                 </div>
             </div>
             <div class="ultimate-testimony-container">
@@ -180,16 +97,11 @@
                 </div>
 
                 <div class="social-media-container">
-                    <a href="https://www.facebook.com/sampoerna.university"><img
-                            src="../../Assets/Icons/icons8-facebook.svg" alt=""></a>
-                    <a href="https://www.instagram.com/sampoerna.university"><img
-                            src="../../Assets/Icons/icons8-instagram.svg" alt=""></a>
-                    <a href="https://twitter.com/SampoernaUniv"><img src="../../Assets/Icons/icons8-twitter.svg"
-                            alt=""></a>
-                    <a href="https://www.youtube.com/@sampoernauniversity5660"><img
-                            src="../../Assets/Icons/icons8-youtube.svg" alt=""></a>
-                    <a href="https://www.linkedin.com/school/sampoerna-university/"><img
-                            src="../../Assets/Icons/icons8-linkedin.svg" alt=""></a>
+                    <a href="https://www.facebook.com/sampoerna.university"><img src="../../Assets/Icons/icons8-facebook.svg" alt=""></a>
+                    <a href="https://www.instagram.com/sampoerna.university"><img src="../../Assets/Icons/icons8-instagram.svg" alt=""></a>
+                    <a href="https://twitter.com/SampoernaUniv"><img src="../../Assets/Icons/icons8-twitter.svg" alt=""></a>
+                    <a href="https://www.youtube.com/@sampoernauniversity5660"><img src="../../Assets/Icons/icons8-youtube.svg" alt=""></a>
+                    <a href="https://www.linkedin.com/school/sampoerna-university/"><img src="../../Assets/Icons/icons8-linkedin.svg" alt=""></a>
                 </div>
 
                 <div class="footer-accent3"></div>
@@ -200,68 +112,95 @@
         </div>
     </div>
 
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                const carousel = document.querySelector(".carousel");
-                const images = document.querySelectorAll(".carousel img");
-                const prevBtn = document.getElementById("prevBtn");
-                const nextBtn = document.getElementById("nextBtn");
-                let currentIndex = 0;
-                let intervalId;
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const carousel = document.querySelector(".carousel");
+            const images = document.querySelectorAll(".carousel img");
+            const prevBtn = document.getElementById("prevBtn");
+            const nextBtn = document.getElementById("nextBtn");
+            let currentIndex = 0;
+            let intervalId;
 
-                function showImage() {
-                    carousel.style.transform = `translateX(${-currentIndex * 100}%)`;
-                }
+            function showImage() {
+                carousel.style.transform = `translateX(${-currentIndex * 100}%)`;
+            }
 
-                function nextImage() {
-                    currentIndex = (currentIndex + 1) % images.length;
-                    showImage();
-                }
-
-                function prevImage() {
-                    currentIndex = (currentIndex - 1 + images.length) % images.length;
-                    showImage();
-                }
-
-                function startInterval() {
-                    intervalId = setInterval(nextImage, 5000);
-                }
-
-                function stopInterval() {
-                    clearInterval(intervalId);
-                }
-
-                nextBtn.addEventListener("click", function () {
-                    nextImage();
-                    stopInterval();
-                    startInterval();
-                });
-
-                prevBtn.addEventListener("click", function () {
-                    prevImage();
-                    stopInterval();
-                    startInterval();
-                });
-
-                startInterval();
+            function nextImage() {
+                currentIndex = (currentIndex + 1) % images.length;
                 showImage();
+            }
+
+            function prevImage() {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                showImage();
+            }
+
+            function startInterval() {
+                intervalId = setInterval(nextImage, 5000);
+            }
+
+            function stopInterval() {
+                clearInterval(intervalId);
+            }
+
+            nextBtn.addEventListener("click", function() {
+                nextImage();
+                stopInterval();
+                startInterval();
             });
 
-            var lastScrollTop = 0;
-            var headerHeight = document.querySelector('header').offsetHeight;
-            var header = document.querySelector('header');
-
-            window.addEventListener('scroll', function () {
-                var currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-
-                if (currentScroll > lastScrollTop && currentScroll > headerHeight) {
-                    header.classList.add('hide');
-                } else {
-                    header.classList.remove('hide');
-                }
-                lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+            prevBtn.addEventListener("click", function() {
+                prevImage();
+                stopInterval();
+                startInterval();
             });
-        </script>
+
+            startInterval();
+            showImage();
+        });
+
+        var lastScrollTop = 0;
+        var headerHeight = document.querySelector('header').offsetHeight;
+        var header = document.querySelector('header');
+
+        window.addEventListener('scroll', function() {
+            var currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (currentScroll > lastScrollTop && currentScroll > headerHeight) {
+                header.classList.add('hide');
+            } else {
+                header.classList.remove('hide');
+            }
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+        });
+
+        function toggleDropdown() {
+            var dropdownContent = document.getElementById("dropdown-content");
+            if (dropdownContent.style.display === "none") {
+                dropdownContent.style.display = "block";
+            } else {
+                dropdownContent.style.display = "none";
+            }
+        }
+
+        function searchCategory(category) {
+            var form = document.createElement("form");
+            form.setAttribute("method", "POST");
+            form.setAttribute("action", "../search/search.php");
+
+            var input = document.createElement("input");
+            input.setAttribute("type", "hidden");
+            input.setAttribute("name", "search");
+            input.setAttribute("value", category);
+
+            form.appendChild(input);
+
+            document.body.appendChild(form);
+
+            form.submit();
+        }
+    </script>
+
 
 </body>
 

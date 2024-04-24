@@ -4,12 +4,110 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="productOfTheDay.css">
+    <script src="https://kit.fontawesome.com/2cbd32f941.js" crossorigin="anonymous"></script>
+    <style>
+        .root{
+    --height: 10vh;
+    --width: 10vh;
+    --border-radius: 20px;
+    --productoftheday-img-size : 50vh;
+    --products-img-size : 25vh;
+}
+
+.productoftheday-container
+{
+    position: relative;
+    left: 55vh;
+    display: flex;
+    flex-direction: row;  
+    /* justify-content: center; */
+    border-radius: 20px;
+    /* border: solid black 5px; */
+    width: fit-content;
+    height: var(--height);
+    align-items: center;
+    box-shadow: 2px 3px 36px -6px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 2px 3px 36px -6px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 3px 36px -6px rgba(0,0,0,0.75);
+}
+
+.productoftheday-container h2
+{
+    font-size: 20px;
+}
+
+.productoftheday-container h2
+{
+    margin-left: 5vh;
+}
+
+.productoftheday-container img
+{
+    /* border-radius: 20px; */
+    width: 50vh;
+    height: 50vh;
+}
+
+.productoftheday {
+    position: relative;
+}
+
+.productoftheday-price {
+    position: absolute;
+    left: 40vh;
+}
+
+.product {
+    position: relative;
+}
+
+.price {
+    position: absolute;
+    right: 2vh;
+}
+
+.product-details{
+    margin-left: 2vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.products
+{
+    /* border: solid black 5px; */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+}
+
+.products > div:nth-child(1) img {
+    border-top-left-radius: 20px;
+  }
+  
+  .products > div:nth-child(2) img {
+    border-top-right-radius: 20px;
+  }
+  .products > div:nth-child(3) img {
+    border-bottom-left-radius: 20px;
+  }
+  
+  .products > div:nth-child(4) img {
+    border-bottom-right-radius: 20px;
+  }
+
+.products img
+{
+    width: 25vh;
+    height: 25vh;
+}
+        </style>
    </head>
+   <body>
+    
+   </body>
    </html>
-   
+
    <?php
-    session_start();
     require '../../connect.php';
 
     $getQuery = "SELECT * FROM product_seller_view ORDER BY RAND() LIMIT 5";
@@ -41,7 +139,7 @@
                     echo "<h2>$product_name</h2>";
                     echo "</div>";
                     echo "<div class='productoftheday-price'>";
-                    echo "<h2>$price</h2>";
+                    echo "<h2><i class='fas fa-dollar-sign'></i>$price</h2>";
                     echo "</div>";
                     echo "</div>";
                     echo "</div>";
@@ -63,7 +161,7 @@
                 echo "<h2>$product_name</h2>";
                 echo "</div>";
                 echo "<div class='price'>";
-                echo "<h2>$price</h2>";
+                echo "<h2><i class='fas fa-dollar-sign'></i>$price</h2>";
                 echo "</div>";
                 echo "</div>";
                 echo "</div>";

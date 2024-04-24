@@ -227,14 +227,14 @@
     text-decoration: underline;
   }
    
-   .signup-form input[type="text"]
-   {
-    padding: var(--input-length-padding);
-    border-radius: 10px;
-    border:none;
-    background-color: var(--input-background-color);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-   }
+  .signup-form input[type="text"],
+  .signup-form input[type="password"] {
+      padding: var(--input-length-padding);
+      border-radius: 10px;
+      border:none;
+      background-color: var(--input-background-color);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
 
    .header-links {
     position: absolute;

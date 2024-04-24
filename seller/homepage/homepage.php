@@ -37,6 +37,7 @@
         $getQuery = "SELECT * FROM product_seller_view where seller_id = '$seller_id'";
         $Result = mysqli_query($conn, $getQuery);
 
+        echo "<div class = 'global-container'";
         // Check if there are no products
         if (mysqli_num_rows($Result) === 0) {
             echo "<div class='product-container'>";
@@ -80,6 +81,7 @@
         }
         ?>
 
+    </div>
     </div>
 
 </body>
