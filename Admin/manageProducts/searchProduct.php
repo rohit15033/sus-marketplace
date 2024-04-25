@@ -29,7 +29,7 @@
                 <input type = 'hidden' value="<?php echo "$user_id"?>" name = 'user_id'>
                 <input type = 'submit' value = 'delete' name = 'delete'>
             </form>
-            <form method = 'POST' action = '../manageSellers/viewStores.php'>
+            <form method = 'POST' action = '../viewProducts.php'>
                 <input type = 'hidden' value="<?php echo "$user_id"?>" name = 'user_id'>
                 <input type = 'submit' value = 'View Products' name = 'view'>
             </form>

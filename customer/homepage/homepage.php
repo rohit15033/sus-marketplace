@@ -174,15 +174,6 @@ $user_id = $_SESSION['user_id'];
             lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
         });
 
-        function toggleDropdown() {
-            var dropdownContent = document.getElementById("dropdown-content");
-            if (dropdownContent.style.display === "none") {
-                dropdownContent.style.display = "block";
-            } else {
-                dropdownContent.style.display = "none";
-            }
-        }
-
         function searchCategory(category) {
             var form = document.createElement("form");
             form.setAttribute("method", "POST");

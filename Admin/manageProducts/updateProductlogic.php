@@ -35,4 +35,4 @@
 
     $updateProductResult = mysqli_query($conn, $updateProductQuery);
 
-    header("location: ../homepage/homepage.php");
+    header("location: ../manageSellers/viewStores.php");

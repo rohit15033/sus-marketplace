@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +8,7 @@
     <title>Search Sellers</title>
     <link rel="stylesheet" href="../admin-template.css">
     <style>
-        /* Additional CSS for centering the search form */
+        
         main {
             text-align: center;
         }

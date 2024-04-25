@@ -71,7 +71,7 @@ body {
     left: 20px;
     height: 40px;
     border-radius: 7px;
-    width: 1240px;
+    width: 1475px;
     border: rgba(255, 255, 255, 0);
     background-color: lightgrey;
     color: black;
@@ -86,10 +86,6 @@ body {
     font-weight: lighter;
     letter-spacing: 0.3 px;
     font-size: 16px;
-}
-
-.sidebar-container {
-    width: 10%;
 }
 
 .sidebar {
@@ -130,12 +126,19 @@ h2 {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 40px;
-    width: 100%;
+    width: 170vh;
     align-items: center;
     /* border: solid 5px black; */
     margin: 0 auto;
     margin-top: 50px;
 }
+
+.center-container
+{
+    width: 230vh;
+    /* border: solid 5px black; */
+}
+
 
 .product {
     /* border: solid 5px black; */

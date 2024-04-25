@@ -7,7 +7,7 @@
     <title>Delete Users</title>
     <link rel="stylesheet" href="../admin-template.css">
     <style>
-        /* Additional CSS for centering the search form */
+        
         main {
             text-align: center;
         }
@@ -98,7 +98,6 @@
                 $deleteUserQuery = "DELETE FROM users WHERE id = '$user_id'";
                 $deleteResult = mysqli_query($conn, $deleteUserQuery);
 
-                // Redirect after deletion
                 header("location: searchUsers.php");
             }
 

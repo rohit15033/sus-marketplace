@@ -118,7 +118,7 @@ select option {
 .product-container {
     position: relative;
     top: 74px;
-    left: 0px;
+    left: 50px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -128,8 +128,8 @@ select option {
 }
 
 .product {
-    width: 300px;
-    height: 700px;
+    width: 29vh;
+    height: 75vh;
     margin: 40px;
     border-radius: var(--border-radius);
     box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.29);
@@ -178,7 +178,9 @@ header {
 }
 
 .submit-button-container input[type="submit"] {
-    bottom: 50vh;
+    position: relative;
+    bottom: 18.5vh;
+    right: -33vh;
     padding: 10px 20px;
     background-color: #2A05FA;
     color: white;
@@ -186,6 +188,7 @@ header {
     border-radius: 5px;
     cursor: pointer;
     outline: none;
+    z-index: 2;
 }
 
 .submit-button-container input[type="submit"]:hover {
@@ -196,7 +199,7 @@ header {
 
 .product img {
     width: 100%;
-    height: 60%;
+    height: 40%;
     border-radius: var(--border-radius);
     overflow: hidden;
     object-fit: cover;
@@ -251,7 +254,7 @@ header {
 }
 
 .product-info-container select {
-    padding: 8px 12px;
+    /* padding: 8px 12px; */
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
@@ -259,7 +262,7 @@ header {
     transition: border-color 0.3s ease;
     position: relative;
     bottom: 100px;
-    left: 15px;
+    left: -8px;
 }
 
 .product-info-container {
@@ -272,8 +275,6 @@ header {
 .submit-button-container 
 {
     position: relative;
-    bottom: 115.2vh;
-    left: 13    0vh;
     z-index: 2;
 }
 
@@ -293,6 +294,6 @@ header {
 
 /* Add hover effect */
 .product:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease; */
 }

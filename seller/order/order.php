@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orders</title>
     <link rel="stylesheet" href="order-seller.css">
+    <style>
+        .search-container {
+            position: absolute;
+            left: 153vh;
+        }
+    </style>
 </head>
 
 <body>
@@ -16,7 +22,7 @@
             <div class="logo-container">
                 <img src="..\..\TestimonyAsset\su-logo-light.png" alt="">
             </div>
-            <!-- Add the search bar here -->
+
             <div class="search-container">
                 <form action="" method="POST">
                     <input type="text" name="search" placeholder="Search by order ID or seller email">
@@ -37,7 +43,7 @@
         <main>
 
             <div class="product-container">
-                <form method="POST" action="updateOrder.php">
+                <form method="POST" action="updateOrder.php" class='product-container'>
                     <?php
                     session_start();
 

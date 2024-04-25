@@ -6,6 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Creation Page</title>
     <link rel="stylesheet" href="createProduct.css">
+    <style>
+        input[type="text"],
+        select,
+        textarea {
+            width: calc(100% - 30px);
+            padding: 8px;
+            margin: 5px 0;
+            box-sizing: border-box;
+        }
+        .form-element-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            width: 100%;
+            padding: 8px 0;
+        }
+        .form-element-container label {
+            width: 150px;
+            margin-right: 10vh;
+        }
+    </style>
 </head>
 
 <body>
@@ -14,14 +36,20 @@
         <h2>Product Creation Form</h2>
         <form method="POST" action="createProduct.php" enctype="multipart/form-data">
             <div class="form-element-container">
-                Product name: <input type="text" name="product_name"><br>
+                <label for="product_name">Product:</label>
+                <input type="text" name="product_name" id="product_name">
             </div>
             <div class="form-element-container">
-                Price: <input type="text" name="price"><br>
+                <label for="description">Description:</label>
+                <textarea name="description" id="description"></textarea>
             </div>
             <div class="form-element-container">
-                Category:
-                <select name="category">
+                <label for="price">Price:</label>
+                <input type="text" name="price" id="price">
+            </div>
+            <div class="form-element-container">
+                <label for="category">Category:</label>
+                <select name="category" id="category">
                     <option value="electronics">Electronics</option>
                     <option value="clothing">Clothing</option>
                     <option value="books">Books</option>
@@ -44,13 +72,12 @@
                 </select>
             </div>
             <div class="form-element-container">
-                Description: <input type="text" name="description"><br>
+                <label for="quantity">Quantity:</label>
+                <input type="text" name="quantity" id="quantity">
             </div>
             <div class="form-element-container">
-                Quantity: <input type="text" name="quantity">
-            </div>
-            <div class="form-element-container">
-                Image: <input type="file" name="product_image">
+                <label for="product_image">Image:</label>
+                <input type="file" name="product_image" id="product_image">
             </div>
 
             <button type="submit">Submit</button>

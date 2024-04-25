@@ -156,7 +156,8 @@ header {
 
 .order-count {
     position: relative;
-    top: -40px;
-    left: 33%;
+    top: -64px;
+    text-align: center;
+    /* left: 33%; */
     font-size: 22px;
 }

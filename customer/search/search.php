@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,30 +15,18 @@
     <div class='container'>
 
         <div class="header">
-            <div class="logo-container">
-                <img src="..\..\TestimonyAsset\su-logo-light.png" alt="">
-            </div>
+        <?php require "../navbar/navbar.html";?>
         </div>
         <div class="header-accent"></div>
 
 
-        <aside class="sidebar-container">
-            <nav class="sidebar">
-                <div><a href="../register/register.html" class="button">- Register</a></div>
-                <div><a href="../login/login.php" class="button">- Login</a></div>
-                <div><a href="../logout/logout.php" class="button">- Logout</a></div>
-                <div><a href="../../seller/register/register.php" class="button">- Start Selling</a></div>
-            </nav>
-        </aside>
-
-
+<div class = "center-container">
         <div class="search-product-container">
             <form method="POST" action="search.php">
                 <input type="text" name="search" placeholder="Search here..">
             </form>
             <div class='product-container'>
             <?php
-session_start();
 if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] === true) {
     if (isset($_POST['search'])) {
 

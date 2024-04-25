@@ -197,9 +197,9 @@
                     echo "<div class = 'productoftheday-name'>";
                     echo "<h2>$product_name</h2>";
                     echo "</div>";
-                    echo "<div class='productoftheday-price'>";
-                    echo "<h2 class = 'product-price'><i class='fas fa-dollar-sign'></i>$price</h2>";
-                    echo "</div>";
+                    // echo "<div class='productoftheday-price'>";
+                    // echo "<h2 class = 'product-price'><i class='fas fa-dollar-sign'></i>$price</h2>";
+                    // echo "</div>";
                     echo "</div>";
                     echo "</div>";
                     echo "</div>";

@@ -6,20 +6,21 @@
     <title>Document</title>
 </head>
 <body>
-</body>
-</html>
+
 
 <?php
     if (isset($_POST['delete']))
     {
         require '../../connect.php';
+        
         $product_id = $_POST['product_id'];
-
-
         $deleteProductQuery1 = "DELETE FROM products WHERE id = '$product_id'";
-        $deleteResult = mysqli_query($conn, $deleteUserQuery);
-        $deleteProductQuery2 = "DELETE FROM product_seller_junction WHERE product_id = '$product_id'";
-        $deleteResult = mysqli_query($conn, $deleteUserQuery);
-        header("location: searchUsers.php");
+        $deleteResult = mysqli_query($conn, $deleteProductQuery1);
+        $deleteProductQuery2 = "DELETE FROM product_seller_junction WHERE product_id = '$product_id' AND seller_id = '$seller_id'";
+        $deleteResult = mysqli_query($conn, $deleteProductQuery2);
+        header("location: viewProducts.php");
     }
 ?>
+
+</body>
+</html>

@@ -99,7 +99,7 @@ if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] === true) 
             if ($cart_quantity <= $quantity ) {
                 $insertOrderDetailsQuery = "INSERT INTO order_details (order_number, product_id, quantity, price, product_subtotal, user_id, order_status) 
                 VALUES ('$order_number', '$product_id', '$cart_quantity', '$price', '$productPrice','$user_id', 'Waiting for confirmation')";
-                mysqli_query($conn, $insertOrderDetailsQuery);
+                
 
                 $decrementQuantityQuery = "UPDATE products SET quantity = quantity - $cart_quantity WHERE id = '$product_id'";
                 mysqli_query($conn, $decrementQuantityQuery);
