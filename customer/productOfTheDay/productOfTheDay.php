@@ -219,9 +219,9 @@
                 echo "<div class = 'product-name'>";
                 echo "<h3>$product_name</h3>";
                 echo "</div>";
-                echo "<div class='price'>";
-                echo "<h3><i class='fas fa-dollar-sign'></i>$price</h3>";
-                echo "</div>";
+                // echo "<div class='price'>";
+                // echo "<h3><i class='fas fa-dollar-sign'></i>$price</h3>";
+                // echo "</div>";
                 echo "</div>";
                 echo "</div>";
                 
