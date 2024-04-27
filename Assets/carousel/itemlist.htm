@@ -1,0 +1,750 @@
+<html>
+
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SU-Mart</title>
+        <style>
+            .itemlist {
+    font-family: 'Jost', Arial, sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    margin: 50px 50px 50px 50px;
+    z-index: 0;
+    margin-top: 200px;
+}
+
+h3 {
+    margin: 5px 0 0 15px;
+    color: #0F044C;  
+    transition: color 0.5s ease; 
+    text-decoration: none;
+}
+
+p {
+    margin: 0 0 0 15px;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+a{
+    text-decoration: none;
+    color: #0F044C;
+}
+
+.container {
+    display: flex;
+    z-index: 0;
+    justify-content: left;
+    flex-wrap: wrap;
+    gap: 30px; 
+}
+
+.itemcard {
+    position: relative;
+    background-color: #F3F4F6;
+    width: 200px;
+    height: 270px;
+    border-radius: 30px;
+    overflow: hidden; 
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1); 
+    transition: color 0.5s, box-shadow 0.3s ease, transform 0.3s ease; 
+  
+}
+
+.itemcard:hover {
+    color: #fff;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.15); 
+    transform: scale(1.1); /* Scale up the card  hover */
+}
+
+.itemcard:hover h3 {
+    color: #fff;
+}
+
+.itemcard::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 16px; 
+    background-color: #0F044C; 
+    border-radius: 10px 10px 0 0; 
+    transition: height 0.5s ease; 
+}
+
+.itemcard:hover::before {
+    height: 100%; 
+    z-index: -1;
+}
+
+.card_img {
+    width: 95%;
+    height: 70%;
+    margin: 20px auto 0 auto;
+    transition: transform 0.3s ease; 
+    z-index: 0;
+}
+
+
+.price_itemdetails {
+    margin-top: 15px;
+}
+
+.price {
+    margin-top: 20px;
+    transform: translateX(-10px);
+}
+
+.product_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+        </style>
+        <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;700&display=swap" rel="stylesheet">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    </head>
+
+    <body>
+        <header>
+        <!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>SU-Mart</title>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="media/css/boxicons.min.css" rel='stylesheet'>
+    <style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Jost', Arial, sans-serif;
+}
+
+.navbar {
+    z-index: 200;
+}
+
+.header-left img {
+    width: 35%;
+    height: 30%;
+    object-fit: cover;
+    
+    
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    background-color: #F3F4F6;
+}
+
+.search {
+    width: 300%;
+    position: relative;
+    display: flex;
+    flex-grow: 1;
+    transform: translateX(-40%);
+  }
+  
+.searchTerm {
+    border: 2px solid #787A91;
+    border-right: none;
+    border-radius: 10px 0 0 10px;
+    outline: none;
+    color: #496989;
+    width: 50%;
+    padding: 10px;
+  }
+  
+  .searchTerm:focus{
+    color: #496989;
+  }
+  
+  .search-button {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #787A91;
+    border-left: none;
+    background: #fff;
+    text-align: center;
+    color: #787A91;
+    border-radius: 0 10px 10px 0;
+    cursor: pointer;
+    font-size: 24px;
+  }
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.user-icon a,
+.cart-icon a,
+.favorite-icon a{
+    margin-left: 40px; 
+    cursor: pointer;
+    color: #0F044C; 
+    transition: color 0.3s ease; 
+    font-size: 24px;
+    
+}
+
+.user-icon:hover a {
+    color: #787A91;
+}
+.cart-icon:hover a{
+    color: #c7985b;
+}
+.favorite-icon:hover a{
+    color: #a71010; 
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: block;
+    transition: top 0.3s;
+}
+
+/* .header-bottom {
+    background-color: #787A91;
+    height: 6vh;
+    margin-top: 0;
+    
+} */
+
+
+
+.nav {
+    display: flex;
+    background-color: #787A91;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 10px 0;
+    list-style-type: none;
+    height: 25px;
+    transition: all 0.3s ease;
+}
+
+.nav li {
+    position: relative;
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+}
+
+.nav li ul {
+    display: none;
+    position: absolute;
+    background-color: #787A91;
+    padding: 0;
+    margin-top: 5px;
+    border-radius: 0 0 5px 5px;
+    transition: all 0.3s ease;
+}
+
+.nav li:hover ul {
+    display: block;
+    transform: translateY(-10px);
+}
+
+.nav li ul li {
+    margin: 0;
+}
+
+.nav li ul li a {
+    padding: 5px 20px;
+}
+
+.dropdown:before {
+    position: absolute;
+    top: 40%;
+    right: 5px;
+    transform: translateY(-0%);
+    transition: all 0.3s ease;
+}
+
+
+ol,
+ul {
+    list-style: none;
+}
+
+nav {
+    height: 50px;
+}
+
+.nav {
+    margin: 0 auto;
+    width: 100%;
+}
+
+.nav a {
+    display: block;
+    text-decoration: none;
+}
+
+.nav>li {
+    float: left;
+    margin-right: 1%;
+    width: 15%;
+}
+
+.nav>li>a {
+    height: 34px;
+    line-height: 34px;
+    padding: 0 2%;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 3px 3px 0 0;
+    background-color: #787A91;
+}
+
+.nav>li>a:hover {
+    text-decoration: none;
+    background-color: #fff;
+    color: #496989;
+}
+
+.nav>li.active>a,
+.nav>li>a:active,
+.nav>.dropdown:hover>a {
+    background: white;
+    color: #496989;
+}
+
+.dropdown {
+    position: relative;
+    
+}
+
+.dropdown:hover ul {
+    display: block;
+    max-height: 500px; 
+    opacity: 1;
+
+}
+
+.dropdown ul {
+    display: none;
+    position: absolute;
+    top: 39px;
+    left: -1px;
+    z-index: 2000;
+    min-width: 100%;
+    padding: 0 0 5px;
+    background: #496989;
+    border: 1px solid #dadada;
+    border-top: 0;
+    border-radius: 0 0 10px 10px;
+    max-height: 0; 
+    opacity: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease, max-height 0.5s ease;
+}
+
+.dropdown ul.large {
+    min-width: 100px;
+}
+
+.dropdown ul li {
+    display: block;
+    margin: 0 18px;
+    overflow: visible;
+    transition: opacity 0.3s ease; /* Add transition for smooth animation */
+}
+
+.dropdown ul li:hover {
+    opacity: 0.7; /* Dim the menu item on hover */
+}
+
+.dropdown li {
+    display: block;
+    margin: 0 18px;
+    overflow: visible;
+}
+
+.dropdown li+li {
+    border-top: 1px solid #eee;
+}
+
+.dropdown li a {
+    color: #FFF;
+    padding: 8px 18px;
+    margin: 0 -18px;
+}
+
+.dropdown li a:hover {
+    background: #496989;
+}
+
+
+
+.content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #F3F4F6;
+    border: 2px solid #0F044C;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.content:hover {
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.content h2 {
+        margin-top: -5px;
+        margin-bottom: 20px; 
+        color: #0F044C;
+        text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+.content table {
+    width: 100%;
+}
+
+.content table td {
+    padding: 10px;
+}
+
+.content input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.content input[readonly] {
+    background-color: #f8f9fa;
+    border: none;
+}
+
+
+.link {
+    text-decoration: none;
+    color: #141E61;
+    position: relative;
+    transition: all 0.5s ease;
+}
+
+.link:hover{
+    color:#787A91;
+}
+
+.link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1.5px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease-in;
+}
+
+.link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.link .logout {
+    align-self: center;
+}
+
+
+.input {
+    width: 100px;
+    background-color: #F3F4F6;
+    color: #0F044C;
+    border: 2px solid #0F044C;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+    transform: translateX(360%);
+}
+
+.input:hover { 
+    background-color: #141E61;
+    transform: translate(360%, -5px);
+    color: #F3F4F6;
+}
+
+
+
+
+
+ /* HTML Nav Styles */
+ /* HTML Nav Styles */
+ /* HTML Nav Styles 
+ nav menuitem {
+    position:relative;
+    display:block;
+    opacity:0;
+    cursor:pointer;
+ }
+ 
+ nav menuitem > menu {
+    position: absolute;
+    pointer-events:none;
+ }
+
+ nav > menu { display:flex; }
+ 
+ nav > menu > menuitem { pointer-events: all; opacity:1; }
+ menu menuitem a { white-space:nowrap; display:block; }
+    
+ menuitem:hover > menu {
+    pointer-events:initial;
+ }
+ menuitem:hover > menu > menuitem,
+ menu:hover > menuitem{
+    opacity:1;
+ }
+ nav > menu > menuitem menuitem menu {
+    transform:translateX(100%);
+    top:0; right:0;
+ }
+ /* User Styles Below Not Required */
+ /* User Styles Below Not Required */
+ /* User Styles Below Not Required 
+ 
+
+ 
+ nav a {
+    background-color: #787A91;
+    color:#FFF;
+    min-width:190px;
+    transition: background 0.5s, color 0.5s, transform 0.5s;
+    margin:0px 6px 6px 0px;
+    padding:20px 40px;
+    box-sizing:border-box;
+    border-radius: 10px;
+    position:relative;
+    text-decoration: none;
+ }
+ 
+ nav a:hover:before {
+    content: '';
+    top:0;left:0;
+    position:absolute;
+    background:rgba(0, 0, 0, 0.2);
+    width:100%;
+    height:100%;
+ }
+ 
+ nav > menu > menuitem > a + menu:after{
+    content: '';
+    position:absolute;
+    border:10px solid transparent;
+    border-top: 10px solid white;
+    left:12px;
+    top: -40px;  
+ }
+ nav menuitem > menu > menuitem > a + menu:after{ 
+    content: '';
+    position:absolute;
+    border:10px solid transparent;
+    border-left: 10px solid white;
+    top: 20px;
+    left:-180px;
+    transition: opacity 0.6, transform 0s;
+ }
+ 
+ nav > menu > menuitem > menu > menuitem{
+    transition: transform 0.6s, opacity 0.6s;
+    transform:translateY(150%);
+    opacity:0;
+ }
+ nav > menu > menuitem:hover > menu > menuitem,
+ nav > menu > menuitem.hover > menu > menuitem{
+    transform:translateY(0%);
+    opacity: 1;
+ }
+ 
+ menuitem > menu > menuitem > menu > menuitem{
+    transition: transform 0.6s, opacity 0.6s;
+    transform:translateX(195px) translateY(0%);
+    opacity: 0;
+ } 
+ menuitem > menu > menuitem:hover > menu > menuitem,  
+ menuitem > menu > menuitem.hover > menu > menuitem{  
+    transform:translateX(0) translateY(0%);
+    opacity: 1;
+ }
+ 
+
+
+
+  
+
+#crossfade-container {
+    display: flex;
+    margin-right: 250px;
+}
+.crossfade {
+    position: relative;
+    height: 350px;
+    width: 350px;
+    overflow: hidden;
+    margin-right: 10px;
+}
+.crossfade img {
+    position: absolute;
+    left: 0;
+    -webkit-transition: opacity 1s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out;
+    -o-transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
+}
+*/
+
+
+</style>
+</head>
+<body>
+    <header class="navbar" id="navbar">
+        <div class="header-top">
+            <div class="header-left">
+                <img src="media/SU-Mart_logo.png" alt="SU-Mart Icon">
+            </div>
+            <div class="header-center">
+                <div class="wrap">
+                    <form method="post" action="searchitems.php">
+                        <div class="search">
+                            <input type="text" name="tosearch" class="searchTerm" placeholder="Search now! Shop Smart at SU-Mart!">
+                            <button type="submit" class="search-button"><i class='bx bx-search'></i></button>
+                        </div>
+                    </form>
+                 </div>
+            </div>
+            <div class="header-right">
+                <!-- <div class="favorite-icon">
+                    <a href="favorite.php">
+                        <i class='bx bx-heart'></i>
+                        <script src="node_modules/boxicons/dist/boxicons.js"></script>
+                    </a>
+                </div> -->
+                <div class="cart-icon">
+                <a href="cart.php">
+                    <i class='bx bx-cart'></i>
+                    <script src="node_modules/boxicons/dist/boxicons.js"></script>
+                    <span id="cartcountinfo"></span>
+                </a>
+                </div>
+                <div class="user-icon">
+                    <a href="signin.php"><i class='bx bx-user'></i></a>                    <!--<a href="user.php">
+                        <i class='bx bx-user'></i>
+                        -->
+                </div>
+            </div>
+        </div>
+        <div class="header-bottom">
+            <ul class="nav">
+                <li><a href="index.php">Home</a></li>
+                <li class="dropdown">
+                    <a href="itemlist.php?category=OfficialMerch,StudentMerch">Merchandise</a>
+                    <ul>
+                        <li><a href="itemlist.php?category=OfficialMerch">Official SU Merch</a></li>
+                        <li><a href="itemlist.php?category=StudentMerch">Student/BEM Merch</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="itemlist.php?category=Food,Drinks">Food Items</a>
+                    <ul>
+                        <li><a href="itemlist.php?category=Food">Food</a></li>
+                        <li><a href="itemlist.php?category=Drinks">Drinks</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="itemlist.php?category=Stationery,Books">Study Essentials</a>
+                    <ul>
+                        <li><a href="itemlist.php?category=Stationery">Stationery</a></li>
+                        <li><a href="itemlist.php?category=Books">Books</a></li>
+                    </ul>
+                </li>
+                <li><a href="itemlist.php?category=Tickets">Event Tickets</a></li>
+                
+                
+                            </div>
+        <script>
+        var prevScrollpos = window.pageYOffset;
+        window.onscroll = function() {
+        var currentScrollPos = window.pageYOffset;
+        if (prevScrollpos > currentScrollPos) {
+            document.getElementById("navbar").style.top = "0";
+        } else {
+            document.getElementById("navbar").style.top = "-18vh";
+        }
+        prevScrollpos = currentScrollPos;
+        }
+    </script>
+        
+    </header>
+    
+</body>
+</html>
+        </header>
+        <div class="itemlist">
+        
+        <section class="container">
+                <a href=itemdetails.php?itemcode=FC0001>
+            <div class="itemcard">
+                <div class="card_img"><img class="product_img" src="img/pencil_2b.jpg" alt="Image of product"></img></div>
+                <h3><b>Rp 4.200</b></h3>
+                <p>Pencil 2B</p>
+            </div>
+        </a>
+                <a href=itemdetails.php?itemcode=FC0002>
+            <div class="itemcard">
+                <div class="card_img"><img class="product_img" src="img/color_pencil.jpg" alt="Image of product"></img></div>
+                <h3><b>Rp 50.000</b></h3>
+                <p>Color Pencil</p>
+            </div>
+        </a>
+                <a href=itemdetails.php?itemcode=FC0003>
+            <div class="itemcard">
+                <div class="card_img"><img class="product_img" src="img/eraser.jpg" alt="Image of product"></img></div>
+                <h3><b>Rp 3.000</b></h3>
+                <p>Eraser</p>
+            </div>
+        </a>
+                <a href=itemdetails.php?itemcode=FC0004>
+            <div class="itemcard">
+                <div class="card_img"><img class="product_img" src="img/correction_tape.jpg" alt="Image of product"></img></div>
+                <h3><b>Rp 27.000</b></h3>
+                <p>Correction Tape</p>
+            </div>
+        </a>
+                <a href=itemdetails.php?itemcode=FC0005>
+            <div class="itemcard">
+                <div class="card_img"><img class="product_img" src="img/gel_pen.jpg" alt="Image of product"></img></div>
+                <h3><b>Rp 17.000</b></h3>
+                <p>Gel Pen 0.5mm</p>
+            </div>
+        </a>
+                </section>
+        </div>
+    
+    </body>
+
+
+

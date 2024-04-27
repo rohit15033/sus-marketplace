@@ -1,0 +1,299 @@
+:root {
+    --border-radius: 5px;
+    --primary-colour: #2A05FA;
+    --secondary-colour: #13DBDB;
+    --background-colour: white;
+}
+
+body {
+    margin: 0;
+}
+
+main {
+    width: 100%;
+}
+
+.container {
+    top : 0;
+    left: 0;
+    width: 100%;
+    max-height: fit-content;
+    display: flex;
+}
+
+header {
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    background-color: var(--primary-colour);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    z-index: 2;
+}
+
+.header-accent {
+    background-color: var(--secondary-colour);
+    position: absolute;
+    border-bottom-right-radius: 10px;
+    width: 100%;
+    height: 55px;
+    top: 20px;
+    line-height: 85px;
+    z-index: 1;
+}
+
+.logo-container {
+    position: relative;
+    top: 4px;
+    left: 45%;
+    width: 150px;
+    height: 50px;
+    z-index: 300;
+}
+
+.logo-container img {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    object-fit: cover;
+    object-position: center;
+}
+
+.sidebar-container {
+    position: relative;
+    width: fit-content;
+    height: 100vh;
+    z-index: 0;
+}
+
+.sidebar {
+    position: relative;
+    top: 0;
+    width: fit-content;
+    margin-top: 74px;
+}
+
+.button {
+    display: inline-block;
+    padding-left: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 138px;
+    text-decoration: none;
+    background-color: white;
+    color: black;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: darkgray;
+    color: white;
+}
+
+select {
+    position: relative;
+    top: 2.5vh;
+    left: 10vh;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+select:focus {
+    border-color: #2A05FA; /* Change border color on focus */
+}
+
+/* Style the options */
+select option {
+    padding: 8px;
+}
+
+.product-container {
+    position: relative;
+    top: 74px;
+    left: 50px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    /* height: fit-content; */
+    margin: 0 auto;
+}
+
+.product {
+    width: 29vh;
+    height: 75vh;
+    margin: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.29);
+    -webkit-box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.29);
+    -moz-box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.29);
+}
+
+/* Add this to your existing CSS */
+/* Add this to your existing CSS */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-update-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-container input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+.search-container button {
+    padding: 10px 20px;
+    background-color: #2A05FA;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+}
+
+.search-container button:hover {
+    background-color: #1E3C72;
+}
+
+.submit-button-container input[type="submit"] {
+    position: relative;
+    bottom: 18.5vh;
+    right: -33vh;
+    padding: 10px 20px;
+    background-color: #2A05FA;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    z-index: 2;
+}
+
+.submit-button-container input[type="submit"]:hover {
+    background-color: #1E3C72;
+}
+
+
+
+.product img {
+    width: 100%;
+    height: 40%;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+
+
+.submit-button-container input {
+
+    padding: 20px 40px; 
+    background-color: #2A05FA; 
+    color: white; 
+    border: none; 
+    border-radius: 10px; 
+    cursor: pointer; 
+    font-size: 16px;
+}
+
+.product-info-container {
+    position: relative;
+    left: 3vh;
+    border-bottom-left-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+    width: 100%;
+    height: fit-content;
+    font-family: 'Inter', sans-serif;
+}
+
+.product-info-container h2 {
+    position: relative;
+    right: 1.1vh;
+}
+
+.product-info-container h2{
+    padding: 10px;
+    margin-top: 0;
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+}
+
+.product-info-container p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #666;
+}
+
+.product-info-container .order-status {
+    margin-top: 10px;
+}
+
+.product-info-container select {
+    /* padding: 8px 12px; */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    position: relative;
+    bottom: 100px;
+    left: -8px;
+}
+
+.product-info-container {
+    position: relative;
+    width: fit-content;
+    left: 5vh;
+    top: 2.5vh;
+}
+
+.submit-button-container 
+{
+    position: relative;
+    z-index: 2;
+}
+
+.submit-button-container input {
+    padding: 10px 14px; /* Add padding to the button */
+    background-color: #2A05FA; /* Set background color */
+    color: white; /* Set text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Add border radius */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    font-size: 12px; /* Set font size */
+}
+
+.submit-button-container input:hover {
+    background-color: #1E3C72; /* Change background color on hover */
+}
+
+/* Add hover effect */
+.product:hover {
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease; */
+}
